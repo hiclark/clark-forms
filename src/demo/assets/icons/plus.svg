@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Tutor-bills-new-client" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd" transform="translate(-68.000000, -129.000000)">
+        <path d="M78,137 L85,137 C85.5522847,137 86,137.447715 86,138 C86,138.552285 85.5522847,139 85,139 L78,139 L78,146 C78,146.552285 77.5522847,147 77,147 C76.4477153,147 76,146.552285 76,146 L76,139 L69,139 C68.4477153,139 68,138.552285 68,138 C68,137.447715 68.4477153,137 69,137 L76,137 L76,130 C76,129.447715 76.4477153,129 77,129 C77.5522847,129 78,129.447715 78,130 L78,137 Z" id="icon_plus" fill-rule="nonzero"></path>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 13 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_lock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="help_info" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, -2.000000)">
+        <g fill="currentColor" fill-rule="nonzero" id="lock">
+            <g transform="translate(0.000000, 2.000000)">
+                <path d="M11.5,6 L11,6 L11,4.5 C11,2.019 8.981,0 6.5,0 C4.019,0 2,2.019 2,4.5 L2,6 L1.5,6 C0.673,6 0,6.673 0,7.5 L0,15.5 C0,16.327 0.673,17 1.5,17 L11.5,17 C12.327,17 13,16.327 13,15.5 L13,7.5 C13,6.673 12.327,6 11.5,6 Z M3,4.5 C3,2.57 4.57,1 6.5,1 C8.43,1 10,2.57 10,4.5 L10,6 L3,6 L3,4.5 Z M12,15.5 C12,15.776 11.776,16 11.5,16 L1.5,16 C1.224,16 1,15.776 1,15.5 L1,7.5 C1,7.224 1.224,7 1.5,7 L11.5,7 C11.776,7 12,7.224 12,7.5 L12,15.5 Z" id="icon_lock"></path>
+            </g>
+        </g>
+    </g>
+</svg>
