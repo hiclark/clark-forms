@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import BackArrow from '../back-arrow';
-import Wordmark from '../../assets/icons/clark-wordmark.svg';
+import BackArrow from './back-arrow';
+import Wordmark from './clark-wordmark.svg';
 
 import media from '../../styles/media-queries';
 import { CLARK_PRIMARY, WHITE, GREY_25, GREY_75 } from '../../styles/colors';

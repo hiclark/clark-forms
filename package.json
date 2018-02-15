@@ -19,11 +19,12 @@
     "test:coverage": "yarn test --coverage",
     "build": "node scripts/build.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
+    "babel-plugin-styled-components": "^1.5.0",
     "babel-preset-react-app": "^3.1.0",
     "babel-runtime": "6.26.0",
     "body-parser": "^1.18.2",
@@ -71,6 +72,7 @@
     "redux": "^3.0.0",
     "redux-form": "^7.2.0",
     "redux-mock-store": "^1.5.1",
+    "sinon": "^4.3.0",
     "source-map-explorer": "^1.5.0",
     "styled-components": "2.2.0",
     "url-loader": "0.6.2",
@@ -125,6 +127,9 @@
     ]
   },
   "babel": {
+    "plugins": [
+      "babel-plugin-styled-components"
+    ],
     "presets": [
       "react-app"
     ]

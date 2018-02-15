@@ -13,7 +13,7 @@ export default BackArrow;
 
 const BackIcon = styled.div`
   color: ${CLARK_PRIMARY};
-  width: 20px;
-  height: 17px;
   cursor: pointer;
+  height: 17px;
+  width: 20px;
 `;

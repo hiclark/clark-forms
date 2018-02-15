@@ -10,7 +10,8 @@
   "globals": {
     "mount": false,
     "render": false,
-    "shallow": false
+    "shallow": false,
+    "spy": false
   },
   "rules": {
     "react/jsx-filename-extension": 0,
