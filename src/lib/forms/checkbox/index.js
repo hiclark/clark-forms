@@ -3,8 +3,8 @@ import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
-import ToggleOff from '../../assets/icons/toggle-off.svg';
-import ToggleOn from '../../assets/icons/toggle-on.svg';
+import ToggleOff from './toggle-off.svg';
+import ToggleOn from './toggle-on.svg';
 
 import { SPACING_SMALL } from '../../styles/spacing';
 import { GREY_75 } from '../../styles/colors';

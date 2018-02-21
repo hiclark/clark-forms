@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> snapshot test <Checkbox /> 1`] = `
+<div>
+  <checkbox__HiddenField>
+    <Field
+      component="input"
+      id="Name-1"
+      index={1}
+      name="Name"
+      type="checkbox"
+      value={false}
+    />
+  </checkbox__HiddenField>
+  <label
+    htmlFor="Name-1"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+  >
+    <checkbox__CheckboxLabel>
+      <toggle-on.svg />
+      <checkbox__LabelText>
+        Label
+      </checkbox__LabelText>
+    </checkbox__CheckboxLabel>
+  </label>
+</div>
+`;
