@@ -16,7 +16,7 @@ import {
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1 } from '../../styles/borders';
 
-const FormProgressHeader = ({
+const ProgressHeader = ({
   currentPosition,
   maxPosition,
   title,
@@ -46,6 +46,8 @@ const FormProgressHeader = ({
       )}
   </Header>
 );
+
+export default ProgressHeader;
 
 const Header = styled.header`
   background-color: ${WHITE};
@@ -106,5 +108,3 @@ const CancelBtn = styled.div`
   ${FONT_WEIGHT_100};
   margin-left: auto;
 `;
-
-export default FormProgressHeader;

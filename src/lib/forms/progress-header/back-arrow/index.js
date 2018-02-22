@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ArrowLeft from '../../assets/icons/arrow-left.svg';
-import { CLARK_PRIMARY } from '../../styles/colors';
+import ArrowLeft from './arrow-left.svg';
+import { CLARK_PRIMARY } from '../../../styles/colors';
 
 const BackArrow = ({ onClick }) => (
   <BackIcon onClick={onClick}>
