@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Clark React Redux Forms library.",
   "main": "build/index.js",
-  "private": true,
   "author": "Clark, Inc.",
   "license": "UNLICENSED",
   "repository": {
