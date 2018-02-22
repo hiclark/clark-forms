@@ -14,12 +14,20 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
 
 # Development folders and files
-public
-src
-scripts
-config
-.circleci/*
+/public
+/src
+/scripts
+/config
 CHANGELOG.md
-README.md
+
+# Linters
+.eslintrc.json
+.prettierrc
+
+# Dot files/folders
+.gitignore
+.circleci/*
+.github/*
