@@ -10,7 +10,6 @@
   "scripts": {
     "analyze": "source-map-explorer build/index.*",
     "start": "node scripts/start.js & yarn run prettify:watch",
-    "demo": "node scripts/demo.js",
     "lint": "eslint --ext .jsx --ext .js src/ --ignore-pattern node_modules/",
     "lint:fix": "yarn run lint --fix",
     "prettify": "prettier --write '{src,__{tests,mocks}__}/**/*.{js,jsx}'",
