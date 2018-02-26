@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 0.2.0 - 2018-02-23
+## 0.2.0 - 2018-02-26
 ### Added
 - This CHANGELOG file to serve as an evolving documentation of changes
 - added dropdown back into `Fieldset`
