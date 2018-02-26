@@ -77,7 +77,7 @@
     "react-redux": "^5.0.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.8",
-    "react-styled-select": "^2.2.3-beta",
+    "react-styled-select": "^2.1.2-alpha",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.1.1",
     "redux": "^3.0.0",

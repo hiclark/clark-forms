@@ -5104,9 +5104,9 @@ react-shadow@^2.0.2:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-shadow/-/react-shadow-2.1.0.tgz#b7e9116713ae6d378ce8455be62721cafb101d45"
 
-react-styled-select@^2.2.3-beta:
-  version "2.2.3-beta"
-  resolved "https://registry.yarnpkg.com/react-styled-select/-/react-styled-select-2.2.3-beta.tgz#752d21e7b62430f12a8a3b7053eb696bfd33241b"
+react-styled-select@^2.1.2-alpha:
+  version "2.1.2-alpha"
+  resolved "https://registry.yarnpkg.com/react-styled-select/-/react-styled-select-2.1.2-alpha.tgz#3099804ac0904d030b27ab138eebc488ad0b5630"
   dependencies:
     "@webcomponents/shadydom" "^1.0.3"
     babel-runtime "^6.6.1"
