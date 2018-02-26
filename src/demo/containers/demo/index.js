@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { reduxForm } from 'redux-form';
 
 import Fieldset from '../../../lib/forms/fieldset';
-import { FIELD_SETS } from '../../constants/payout/account';
+import FIELD_SETS from '../../constants/demo';
 
 const handleClick = () => {
   console.log('demo');

@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import RadioButton from '../radio-button';
+import Dropdown from '../dropdown';
 import Input from '../input';
 import Checkbox from '../checkbox';
 import Textarea from '../textarea';
@@ -19,6 +20,7 @@ const mapFieldToComponent = type => {
     input: Input,
     radioButton: RadioButton,
     checkbox: Checkbox,
+    dropdown: Dropdown,
     textarea: Textarea,
   };
 

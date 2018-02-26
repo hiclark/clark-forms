@@ -6,9 +6,6 @@
 
 A few sentences describing the overall goals of the pull request's commits.
 
-### Staging Link(s)
-Add staging links here:
-
 ### Related PRs
 
 Branch | PR
@@ -26,3 +23,4 @@ These are mandatory and must be completed before merging the PR
 - [ ] New, changed or refactored functionality has tests.
 - [ ] New, changed or refactored functionality has documentation.
 - [ ] New, changed or refactored functionality has been QA'd.
+- [ ] New, changed or refactored functionality has been added to the CHANGELOG.

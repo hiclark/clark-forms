@@ -1,8 +1,7 @@
 import { isRequired, minLength } from '../../utils/validation';
 import normalizeNumbers from '../../utils/normalization/number';
 
-const HEADLINE = 'Where should we deposit your money?';
-const SUB_HEADLINE = '';
+const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
 
 const FIELD_SETS = [
   {
@@ -12,15 +11,22 @@ const FIELD_SETS = [
         fields: [
           {
             type: 'input',
-            name: 'accountNumber',
-            label: 'Account Number',
+            name: 'firstInput',
+            label: 'First Input',
             validate: [isRequired, minLength(6)],
             normalize: normalizeNumbers(16),
           },
           {
+            type: 'dropdown',
+            name: 'dropdownTest',
+            label: 'Dropdown Test',
+            values: DROPDOWN,
+            validate: isRequired,
+          },
+          {
             type: 'input',
-            name: 'routingNumber',
-            label: 'Routing number',
+            name: 'secondInput',
+            label: 'Second Input',
             validate: [isRequired, minLength(9)],
             normalize: normalizeNumbers(9),
           },
@@ -30,4 +36,4 @@ const FIELD_SETS = [
   },
 ];
 
-export { HEADLINE, SUB_HEADLINE, FIELD_SETS };
+export default FIELD_SETS;
