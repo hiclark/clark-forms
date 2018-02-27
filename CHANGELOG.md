@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.3.0 - 2018-02-27
+### Changed
+- Webpack prod config
+- Exports in lib
+
 ## 0.2.0 - 2018-02-26
 ### Added
 - This CHANGELOG file to serve as an evolving documentation of changes
