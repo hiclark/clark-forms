@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
@@ -12,6 +11,7 @@ const getClientEnvironment = require('./env');
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
 // Source maps are resource heavy and can cause out of memory issue for large source files.
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
@@ -31,10 +31,13 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,
-  // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appLibIndexJs],
+  // We generate sourcemaps in production. This is slow but gives good results.
+  // You can exclude the *.map files from the build during deployment.
+  devtool: shouldUseSourceMap ? 'source-map' : false,
+  // In production, we only want to load the app code.
+  entry: [paths.appLibIndexJs], // CRL: library index file instead of app index
   output: {
-    // Updated with library specific info
+    // CRL: Updated whole block with library specific info
     path: paths.appBuild,
     filename: 'index.js',
     libraryTarget: 'umd',
@@ -90,7 +93,7 @@ module.exports = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.appSrc,
+        include: paths.appLibSrc, // CRL: updated with library src folder
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -104,7 +107,7 @@ module.exports = {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: 'media/[name].[ext]',
             },
           },
           {
@@ -129,7 +132,7 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: paths.appLibSrc, // CRL: updated with library src folder
             loader: require.resolve('babel-loader'),
             options: {
               compact: true,
@@ -157,12 +160,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    // In production, it will be an empty string unless you specify "homepage"
-    // in `package.json`, in which case it will be the pathname of that URL.
-    new InterpolateHtmlPlugin(env.raw),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
@@ -187,6 +184,7 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/2488
         ascii_only: true,
       },
+      sourceMap: shouldUseSourceMap,
     }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
@@ -195,10 +193,10 @@ module.exports = {
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
-  // Added externals block for library
+  // CRL: added externals block for library
   externals: {
-    'react': 'react',
-    'react-dom': 'react-dom',
+   'react': 'react',
+   'react-dom': 'react-dom'
   },
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
