@@ -32,6 +32,30 @@ const FIELD_SETS = [
           },
         ],
       },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'datepicker',
+            name: 'datePicker',
+            label: 'Date Picker',
+          },
+          {
+            type: 'dropdown',
+            name: 'dropdownTest',
+            label: 'Dropdown Test',
+            values: DROPDOWN,
+            validate: isRequired,
+          },
+          {
+            type: 'input',
+            name: 'secondInput',
+            label: 'Second Input',
+            validate: [isRequired, minLength(9)],
+            normalize: normalizeNumbers(9),
+          },
+        ],
+      },
     ],
   },
 ];
