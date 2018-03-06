@@ -28,6 +28,8 @@ The `src` directory contains both `lib` and `demo` folders. Demo serves as a san
 
 To test the Clark Forms library locally follow the instructions [here](https://yarnpkg.com/lang/en/docs/cli/link/).
 
+** _Make sure `build/` directory exists_ (`yarn build`)
+
 ### Testing
 
 The testing suite uses Jest as the test runner and Enzyme as a utility to make testing React components easier. These functions are all made available globally in every test file in the `setupTests.js`.
@@ -44,6 +46,8 @@ If for some reason you rather do this manually, the process is as follows:
 1. Merge changes into `master`
 
 1. `git checkout master`
+
+1. Run `yarn build`
 
 1. Run `npm version` specifying the subsequent version based on SEMVER and supply a commit message using the `-m` flag. ex. `npm version patch -m "Upgrade to %s for reasons"`
 
