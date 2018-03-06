@@ -144,5 +144,12 @@
     "presets": [
       "react-app"
     ]
+  },
+  "dependencies": {
+    "css-loader": "^0.28.10",
+    "moment": "^2.20.1",
+    "react-datepicker": "^1.2.1",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.20.2"
   }
 }

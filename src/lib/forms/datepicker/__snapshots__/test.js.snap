@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DatePicker /> renders correctly 1`] = `
+<datepicker__Container>
+  <datepicker__Label
+    htmlFor="Name"
+  >
+    Label
+  </datepicker__Label>
+  <Field
+    columns={2}
+    component={[Function]}
+    name="Name"
+  />
+</datepicker__Container>
+`;
+
+exports[`renderDatePicker renders correctly 1`] = `
+<div
+  onBlur={[Function]}
+>
+  <DatePicker
+    allowSameDay={false}
+    dateForm="MM/DD/YYYY"
+    dateFormat="L"
+    dateFormatCalendar="MMMM YYYY"
+    disabled={false}
+    disabledKeyboardNavigation={false}
+    dropdownMode="scroll"
+    monthsShown={1}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClickOutside={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMonthChange={[Function]}
+    onSelect={[Function]}
+    onYearChange={[Function]}
+    placeholderText="MM/DD/YYYY"
+    preventOpenOnFocus={false}
+    selected={null}
+    shouldCloseOnSelect={true}
+    showTimeSelect={false}
+    timeCaption="Time"
+    timeIntervals={30}
+    withPortal={false}
+  />
+  <Error
+    error={false}
+    touched={false}
+  />
+</div>
+`;

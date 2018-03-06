@@ -1,9 +1,10 @@
 /* eslint global-require: 0 */
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger';
 import rootReducer from '../reducers';
 
 export default function configureStore() {
-  const store = createStore(rootReducer);
+  const store = createStore(rootReducer, applyMiddleware(logger));
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
