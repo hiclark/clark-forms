@@ -12,11 +12,18 @@ import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
 import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 
-const renderField = ({ input, index, placeholder, columns, type, meta: { touched, error } }) => (
+const renderField = ({
+  input,
+  inputType,
+  index,
+  placeholder,
+  columns,
+  meta: { touched, error },
+}) => (
   <div>
     <FormInput
       {...input}
-      type={type}
+      type={inputType}
       index={index}
       placeholder={placeholder}
       columns={columns}
@@ -27,12 +34,12 @@ const renderField = ({ input, index, placeholder, columns, type, meta: { touched
 );
 
 const Input = props => {
-  const { name, label, copy } = props;
+  const { name, label, copy, inputType } = props;
   return (
     <div>
       <Label htmlFor={name}>{label}</Label>
       {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} {...props} />
+      <Field component={renderField} inputType={inputType} {...props} />
     </div>
   );
 };

@@ -34,9 +34,14 @@ const FIELD_SETS = [
           {
             type: 'input',
             name: 'secondInput',
-            label: 'Second Input',
-            validate: [isRequired, minLength(9)],
-            normalize: normalizeNumbers(9),
+            label: 'Password Input',
+            inputType: 'password',
+          },
+          {
+            type: 'input',
+            name: 'secondInput',
+            label: 'Number Input',
+            inputType: 'number',
           },
         ],
       },
