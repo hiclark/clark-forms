@@ -1,9 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 0.4.0 - 2018-03-06
+## 0.5.0 - 2018-03-06
 ### Changed
 - Fixed validations for Dropdown
+- Added datepicker component
 
 ## 0.4.0 - 2018-03-06
 ### Changed
