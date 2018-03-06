@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, type Validator } from 'redux-form';
 import Select from 'react-styled-select';
 import styled from 'styled-components';
 
@@ -44,7 +44,19 @@ const renderDropdown = ({
   </div>
 );
 
-const Dropdown = ({ index, name, label, values, placeholder, columns, validate, multi }) => (
+type DropdownOptionType = { value: string, label: string };
+
+type DropdownPropsType = {
+  index: number,
+  name: string,
+  label: string,
+  values: DropdownOptionType[],
+  columns: { small: number, large: number },
+  validate: Validator | Validator[],
+  multi: boolean,
+};
+
+const Dropdown = ({ index, name, label, values, columns, validate, multi }: DropdownPropsType) => (
   <DropdownContainer>
     <Label htmlFor={name}>{label}</Label>
     <Field
@@ -53,7 +65,6 @@ const Dropdown = ({ index, name, label, values, placeholder, columns, validate, 
       multi={multi}
       component={renderDropdown}
       options={values}
-      placeholder={placeholder}
       columns={columns}
       validate={validate}
     />

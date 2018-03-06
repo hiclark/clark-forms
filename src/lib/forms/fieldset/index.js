@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import RadioButton from '../radio-button';
 import Dropdown from '../dropdown';
-import Input from '../input';
+import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
@@ -30,14 +30,14 @@ const mapFieldToComponent = type => {
   return components[type];
 };
 
-const composeComponent = (index, field, columns) => {
+const composeComponent = (index: number, field, columns: { small: number, large: number }) => {
   const { type, name } = field;
   const FieldComponent = mapFieldToComponent(type);
   return <FieldComponent key={name} index={index} columns={columns} {...field} />;
 };
 
 type BaseFieldSetObjectType = {
-  type: 'dropdown' | 'datepicker' | 'input',
+  type: 'dropdown' | 'datepicker' | 'input' | 'textarea',
   name: string,
   label: string,
   validate?: Validator | Validator[],
@@ -46,22 +46,29 @@ type BaseFieldSetObjectType = {
 
 type InputFieldSetObjectType = {
   type: 'input',
-  inputType?: 'number' | 'text' | 'password',
+  copy?: string,
+  inputType?: InputType,
 } & BaseFieldSetObjectType;
 
-type DropDownFieldSetObjectType = {
+type DropdownFieldSetObjectType = {
   type: 'dropdown',
   multi?: boolean,
+  values: { value: string, label: string }[],
 } & BaseFieldSetObjectType;
 
 type DatePickerFieldSetObjectType = {
   type: 'datepicker',
 } & BaseFieldSetObjectType;
 
+type TextAreaFieldSetObjectType = {
+  type: 'textarea',
+} & BaseFieldSetObjectType;
+
 type FieldSetObjectType =
   | InputFieldSetObjectType
-  | DropDownFieldSetObjectType
-  | DatePickerFieldSetObjectType;
+  | DropdownFieldSetObjectType
+  | DatePickerFieldSetObjectType
+  | TextAreaFieldSetObjectType;
 
 type FieldSetType = {
   title?: string,

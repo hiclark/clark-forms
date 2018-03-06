@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, type Validator } from 'redux-form';
 import styled from 'styled-components';
 
 import Error from '../error';
@@ -25,16 +25,29 @@ const renderField = ({ input, inputType, index, placeholder, meta: { touched, er
   </div>
 );
 
-const Input = props => {
-  const { name, label, copy, inputType } = props;
-  return (
-    <div>
-      <Label htmlFor={name}>{label}</Label>
-      {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} inputType={inputType} {...props} />
-    </div>
-  );
-};
+export type InputType = 'number' | 'text' | 'password';
+
+const Input = ({
+  name,
+  label,
+  copy,
+  inputType,
+  validate,
+  columns,
+}: {
+  name: string,
+  label: string,
+  copy: string,
+  inputType: InputType,
+  validate: Validator | Validator[],
+  columns: { small: number, large: number },
+}) => (
+  <div>
+    <Label htmlFor={name}>{label}</Label>
+    {copy && <Copy>{copy}</Copy>}
+    <Field component={renderField} inputType={inputType} validate={validate} columns={columns} />
+  </div>
+);
 
 export default Input;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ArrowLeft from './arrow-left.svg';
 import { CLARK_PRIMARY } from '../../../styles/colors';
 
-const BackArrow = ({ onClick }) => (
+const BackArrow = ({ onClick }: { onClick(): void }) => (
   <BackIcon onClick={onClick}>
     <ArrowLeft />
   </BackIcon>

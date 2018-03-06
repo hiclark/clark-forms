@@ -31,7 +31,7 @@ const renderField = ({ input, index, placeholder, columns, type, meta: { touched
   </div>
 );
 
-const Textarea = props => (
+const Textarea = (props: { name: string, label: string }) => (
   <div>
     <Label htmlFor={props.name}>{props.label}</Label>
     <Field component={renderField} {...props} />

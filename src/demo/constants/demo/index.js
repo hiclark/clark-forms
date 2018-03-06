@@ -55,6 +55,11 @@ const FIELD_SETS: DataType = [
             label: 'Date Picker',
             validate: [isRequired],
           },
+          {
+            type: 'textarea',
+            name: 'textArea',
+            label: 'Text Area',
+          },
         ],
       },
     ],

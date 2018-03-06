@@ -80,6 +80,7 @@ const LogoContainer = styled(Link)`
   `};
 `;
 
+// $FlowFixMe: unsure about this one!
 const Logo = styled(Wordmark)`
   color: ${CLARK_PRIMARY};
   width: 80px;
