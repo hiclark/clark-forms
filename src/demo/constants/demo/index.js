@@ -45,6 +45,17 @@ const FIELD_SETS = [
           },
         ],
       },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'datepicker',
+            name: 'datePicker',
+            label: 'Date Picker',
+            validate: [isRequired],
+          },
+        ],
+      },
     ],
   },
 ];

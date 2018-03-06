@@ -12,27 +12,29 @@ import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, BORDER_WIDTH_2, renderBorderRadius } from '../../styles/borders';
 
 const renderDropdown = ({ input, index, options, placeholder, columns, multi }) => (
-  <DropdownSelect
-    {...input}
-    index={index}
-    multi={multi}
-    options={options}
-    onChange={input.onChange}
-    placeholder={placeholder}
-    columns={columns}
-    classes={{
-      selectControl: 'select__control',
-      selectMultiValueWrapper: 'select__multi-value-wrapper',
-      selectPlaceholder: 'select__placeholder',
-      selectValue: 'select__value',
-      selectValueLabel: 'select__value-label',
-      selectArrow: 'select__arrow',
-      selectOption: 'select__option',
-    }}
-  />
+  <div>
+    <DropdownSelect
+      {...input}
+      index={index}
+      multi={multi}
+      options={options}
+      onChange={input.onChange}
+      placeholder={placeholder}
+      columns={columns}
+      classes={{
+        selectControl: 'select__control',
+        selectMultiValueWrapper: 'select__multi-value-wrapper',
+        selectPlaceholder: 'select__placeholder',
+        selectValue: 'select__value',
+        selectValueLabel: 'select__value-label',
+        selectArrow: 'select__arrow',
+        selectOption: 'select__option',
+      }}
+    />
+  </div>
 );
 
-const Dropdown = ({ index, name, label, values, placeholder, columns, multi }) => (
+const Dropdown = ({ index, name, label, values, placeholder, columns, validate, multi }) => (
   <DropdownContainer>
     <Label htmlFor={name}>{label}</Label>
     <Field
@@ -43,6 +45,7 @@ const Dropdown = ({ index, name, label, values, placeholder, columns, multi }) =
       options={values}
       placeholder={placeholder}
       columns={columns}
+      validate={validate}
     />
   </DropdownContainer>
 );

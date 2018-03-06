@@ -8,6 +8,7 @@ import Dropdown from '../dropdown';
 import Input from '../input';
 import Checkbox from '../checkbox';
 import Textarea from '../textarea';
+import DatePicker from '../datepicker';
 
 import media from '../../styles/media-queries';
 import { SPACING_SMALL, SPACING_MEDIUM } from '../../styles/spacing';
@@ -22,6 +23,7 @@ const mapFieldToComponent = type => {
     checkbox: Checkbox,
     dropdown: Dropdown,
     textarea: Textarea,
+    datepicker: DatePicker,
   };
 
   return components[type];
@@ -33,7 +35,6 @@ const composeComponent = (index, field, columns) => {
   return <FieldComponent key={name} index={index} columns={columns} {...field} />;
 };
 
-// TODO: IS - refactor into a recursive function
 const Fieldset = ({ data }) => (
   <div>
     {data.map(object =>

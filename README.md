@@ -84,7 +84,7 @@ export default reduxForm({
 
 The `Fieldset` component takes one prop called data which is a json structure. These `FIELD_SETS` _must_ have a `type`, `name`, and `label`.
 
-Types include: `input`, `radioButton`, `checkbox`, `dropdown`, `textarea`.
+Types include: `input`, `radioButton`, `checkbox`, `dropdown`, `textarea`, `datepicker`.
 
 Ex.
 
