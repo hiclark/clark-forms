@@ -1,7 +1,4 @@
-const isRequired = value => {
-  console.log(value);
-  return value && value !== '$' ? undefined : 'Required';
-};
+const isRequired = value => (value && value !== '$' ? undefined : 'Required');
 const length = val => value =>
   value && value.length !== val ? `Must be ${val} characters` : undefined;
 const maxLength = max => value =>
