@@ -26,8 +26,14 @@ const FIELD_SETS = [
           {
             type: 'input',
             name: 'secondInput',
-            label: 'Second Input',
+            label: 'Password Input',
             inputType: 'password',
+          },
+          {
+            type: 'input',
+            name: 'secondInput',
+            label: 'Number Input',
+            inputType: 'number',
           },
         ],
       },
