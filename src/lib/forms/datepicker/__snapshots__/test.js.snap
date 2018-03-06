@@ -14,3 +14,36 @@ exports[`<DatePicker /> renders correctly 1`] = `
   />
 </datepicker__Container>
 `;
+
+exports[`renderDatePicker renders correctly 1`] = `
+<div>
+  <DatePicker
+    allowSameDay={false}
+    dateForm="MM/DD/YYYY"
+    dateFormat="L"
+    dateFormatCalendar="MMMM YYYY"
+    disabled={false}
+    disabledKeyboardNavigation={false}
+    dropdownMode="scroll"
+    monthsShown={1}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClickOutside={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMonthChange={[Function]}
+    onSelect={[Function]}
+    onYearChange={[Function]}
+    preventOpenOnFocus={false}
+    shouldCloseOnSelect={true}
+    showTimeSelect={false}
+    timeCaption="Time"
+    timeIntervals={30}
+    withPortal={false}
+  />
+  <Error
+    error={false}
+    touched={false}
+  />
+</div>
+`;

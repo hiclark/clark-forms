@@ -1,7 +1,7 @@
 import React from 'react';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Field } from 'redux-form';
-import ReactDatePicker from 'react-datepicker';
 import styled from 'styled-components';
 import moment from 'moment';
 
@@ -9,7 +9,7 @@ import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
-const renderDatePicker = ({ input, meta: { touched, error } }) => (
+export const renderDatePicker = ({ input, meta: { touched, error } }) => (
   <div>
     <ReactDatePicker
       onChange={input.onChange}

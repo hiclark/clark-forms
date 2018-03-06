@@ -1,6 +1,13 @@
 import React from 'react';
 
-import DatePicker from './';
+import DatePicker, { renderDatePicker } from './';
+
+describe('renderDatePicker', () => {
+  it('renders correctly', () => {
+    const props = { input: {}, meta: { touched: false, error: false } };
+    expect(shallow(renderDatePicker(props))).toMatchSnapshot();
+  });
+});
 
 describe('<DatePicker />', () => {
   let wrapper;
@@ -13,8 +20,6 @@ describe('<DatePicker />', () => {
       value: false,
     };
     wrapper = shallow(<DatePicker {...props} />);
-    datepicker = wrapper.find('Field');
-    label = wrapper.find('label');
   });
 
   it('renders correctly', () => {
