@@ -24,6 +24,14 @@ const FIELD_SETS = [
             validate: isRequired,
           },
           {
+            type: 'dropdown',
+            name: 'multiselectTest',
+            label: 'Multiselect Test',
+            multi: true,
+            values: DROPDOWN,
+            validate: isRequired,
+          },
+          {
             type: 'input',
             name: 'secondInput',
             label: 'Second Input',
