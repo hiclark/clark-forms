@@ -37,7 +37,6 @@ const composeComponent = (index, field, columns) => {
 
 const Fieldset = ({ data }) => (
   <div>
-    <span>TESTING</span>
     {data.map(object =>
       object.fieldSet.map((fieldSet, index) => {
         const { fields, title, columns, subCopy } = fieldSet;

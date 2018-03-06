@@ -14,7 +14,7 @@ const renderDatePicker = ({ input, meta: { touched, error } }) => (
     <ReactDatePicker
       onChange={input.onChange}
       dateForm="MM/DD/YYYY"
-      selected={input.value ? moment(input.value) : null}
+      selected={input.value && moment(input.value)}
     />
     <Error touched={touched} error={error} />
   </div>
