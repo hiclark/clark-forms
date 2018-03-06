@@ -13,6 +13,7 @@ const FIELD_SETS = [
             type: 'input',
             name: 'firstInput',
             label: 'First Input',
+            inputType: 'password',
             validate: [isRequired, minLength(6)],
             normalize: normalizeNumbers(16),
           },

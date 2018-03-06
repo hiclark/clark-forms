@@ -27,12 +27,12 @@ const renderField = ({ input, index, placeholder, columns, type, meta: { touched
 );
 
 const Input = props => {
-  const { name, label, copy } = props;
+  const { name, label, copy, type: inputType } = props;
   return (
     <div>
       <Label htmlFor={name}>{label}</Label>
       {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} {...props} />
+      <Field component={renderField} type={inputType} {...props} />
     </div>
   );
 };
