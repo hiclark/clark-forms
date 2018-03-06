@@ -18,6 +18,11 @@ import GraphikSemibold from './assets/fonts/Graphik-Semibold.woff';
 import GraphikSemibold2 from './assets/fonts/Graphik-Semibold.woff2';
 
 const store = configureStore();
+const target = document.getElementById('root');
+
+if (!target) {
+  throw Error('no element with id "root" exists');
+}
 
 ReactDOM.render(
   <Provider store={store}>
@@ -25,7 +30,7 @@ ReactDOM.render(
       <Demo />
     </AppContainer>
   </Provider>,
-  document.getElementById('root'),
+  target,
 );
 
 registerServiceWorker();

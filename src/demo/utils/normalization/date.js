@@ -1,4 +1,4 @@
-const normalizeDate = value => {
+const normalizeDate = (value: ?string): ?string => {
   if (!value) {
     return value;
   }

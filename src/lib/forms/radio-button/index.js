@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type Element } from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
@@ -9,7 +9,16 @@ import { CLARK_TERTIARY, WHITE } from '../../styles/colors';
 import { BORDER_RADIUS_F3 } from '../../styles/border-radius';
 import { BORDER_WIDTH_2 } from '../../styles/borders';
 
-const RadioButton = ({ name, label, index, value, placeholder, icon }) => (
+type Props = {
+  name: string,
+  label: string,
+  index: number,
+  value: boolean,
+  placeholder: boolean,
+  icon: Element<any>,
+};
+
+const RadioButton = ({ name, label, index, value, placeholder, icon }: Props) => (
   <RadioButtonContainer>
     <Radio
       name={name}

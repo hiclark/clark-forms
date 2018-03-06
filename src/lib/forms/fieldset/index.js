@@ -1,6 +1,7 @@
 /* eslint react/no-array-index-key: 0 */
 /* eslint no-shadow: 0 */
 import React from 'react';
+import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
 import RadioButton from '../radio-button';
@@ -35,7 +36,49 @@ const composeComponent = (index, field, columns) => {
   return <FieldComponent key={name} index={index} columns={columns} {...field} />;
 };
 
-const Fieldset = ({ data }) => (
+type BaseFieldSetObjectType = {
+  type: 'dropdown' | 'datepicker' | 'input',
+  name: string,
+  label: string,
+  validate?: Validator | Validator[],
+  normalize?: Normalizer | Normalizer[],
+};
+
+type InputFieldSetObjectType = {
+  type: 'input',
+  inputType?: 'number' | 'text' | 'password',
+} & BaseFieldSetObjectType;
+
+type DropDownFieldSetObjectType = {
+  type: 'dropdown',
+  multi?: boolean,
+} & BaseFieldSetObjectType;
+
+type DatePickerFieldSetObjectType = {
+  type: 'datepicker',
+} & BaseFieldSetObjectType;
+
+type FieldSetObjectType =
+  | InputFieldSetObjectType
+  | DropDownFieldSetObjectType
+  | DatePickerFieldSetObjectType;
+
+type FieldSetType = {
+  title?: string,
+  subCopy?: string,
+  fields: FieldSetObjectType[],
+  columns: { small: number, large: number },
+}[];
+
+export type DataType = {
+  fieldSet: FieldSetType,
+}[];
+
+type PropsType = {
+  data: DataType,
+};
+
+const Fieldset = ({ data }: PropsType) => (
   <div>
     {data.map(object =>
       object.fieldSet.map((fieldSet, index) => {

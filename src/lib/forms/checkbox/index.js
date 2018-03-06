@@ -10,7 +10,16 @@ import { SPACING_SMALL } from '../../styles/spacing';
 import { GREY_75 } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 
-const Checkbox = ({ checked, onCheckboxClick, name, label, index, value }) => (
+type PropsType = {
+  checked: boolean,
+  onCheckboxClick(): void,
+  name: string,
+  label: string,
+  index: number,
+  value: string,
+};
+
+const Checkbox = ({ checked, onCheckboxClick, name, label, index, value }: PropsType) => (
   <div>
     <HiddenField>
       <Field

@@ -1,4 +1,4 @@
-const normalizePhone = (value, previousValue) => {
+const normalizePhone = (value: ?string, previousValue: ?string): ?string => {
   if (!value) {
     return value;
   }

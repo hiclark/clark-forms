@@ -16,13 +16,21 @@ import {
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1 } from '../../styles/borders';
 
+type PropsType = {
+  currentPosition: number,
+  maxPosition: number,
+  title: string,
+  handleBackLinkClick(): void,
+  handleCancelClick(): void,
+};
+
 const ProgressHeader = ({
   currentPosition,
   maxPosition,
   title,
   handleBackLinkClick,
   handleCancelClick,
-}) => (
+}: PropsType) => (
   <Header>
     <Container>
       <LogoContainer to="/">

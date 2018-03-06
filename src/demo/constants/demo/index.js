@@ -1,9 +1,10 @@
 import { isRequired, minLength } from '../../utils/validation';
 import normalizeNumbers from '../../utils/normalization/number';
+import { type DataType } from '../../../lib/forms/fieldset';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
 
-const FIELD_SETS = [
+const FIELD_SETS: DataType = [
   {
     fieldSet: [
       {

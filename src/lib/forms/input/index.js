@@ -12,21 +12,13 @@ import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
 import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 
-const renderField = ({
-  input,
-  inputType,
-  index,
-  placeholder,
-  columns,
-  meta: { touched, error },
-}) => (
+const renderField = ({ input, inputType, index, placeholder, meta: { touched, error } }) => (
   <div>
     <FormInput
       {...input}
       type={inputType}
       index={index}
       placeholder={placeholder}
-      columns={columns}
       showError={!(error && touched)}
     />
     <Error touched={touched} error={error} />
