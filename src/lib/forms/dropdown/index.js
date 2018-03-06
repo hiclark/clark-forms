@@ -3,6 +3,7 @@ import { Field } from 'redux-form';
 import Select from 'react-styled-select';
 import styled from 'styled-components';
 
+import Error from '../error';
 import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, TRANSPARENT, WHITE } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
@@ -11,7 +12,15 @@ import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, BORDER_WIDTH_2, renderBorderRadius } from '../../styles/borders';
 
-const renderDropdown = ({ input, index, options, placeholder, columns, multi }) => (
+const renderDropdown = ({
+  input,
+  index,
+  options,
+  placeholder,
+  columns,
+  multi,
+  meta: { touched, error },
+}) => (
   <div>
     <DropdownSelect
       {...input}
@@ -31,6 +40,7 @@ const renderDropdown = ({ input, index, options, placeholder, columns, multi }) 
         selectOption: 'select__option',
       }}
     />
+    <Error touched={touched} error={error} />
   </div>
 );
 

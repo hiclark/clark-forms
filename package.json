@@ -60,6 +60,8 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "1.1.5",
+    "flow-bin": "^0.66.0",
+    "flow-typed": "^2.3.0",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
@@ -89,7 +91,12 @@
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "css-loader": "^0.28.10",
+    "moment": "^2.20.1",
+    "react-datepicker": "^1.2.1",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.20.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -142,14 +149,8 @@
       "babel-plugin-styled-components"
     ],
     "presets": [
+      "flow",
       "react-app"
     ]
-  },
-  "dependencies": {
-    "css-loader": "^0.28.10",
-    "moment": "^2.20.1",
-    "react-datepicker": "^1.2.1",
-    "redux-logger": "^3.0.6",
-    "style-loader": "^0.20.2"
   }
 }
