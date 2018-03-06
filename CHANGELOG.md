@@ -3,9 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## 0.4.0 - 2018-03-06
 ### Changed
+- Fixed validations for Dropdown
+
+## 0.4.0 - 2018-03-06
+### Changed
 - Multi select option
 - Input types
-- Fixed validations for Dropdown
 
 ## 0.3.0 - 2018-02-27
 ### Changed
