@@ -10,27 +10,22 @@ import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
 export const renderDatePicker = ({ input, meta: { touched, error } }) => (
-  <div>
+  <div onBlur={() => input.onBlur(input.value)}>
     <ReactDatePicker
+      selected={input.value ? moment(input.value) : null}
+      onFocus={input.onFocus}
       onChange={input.onChange}
       dateForm="MM/DD/YYYY"
-      selected={input.value && moment(input.value)}
+      placeholderText="MM/DD/YYYY"
     />
     <Error touched={touched} error={error} />
   </div>
 );
 
-const DatePicker = ({ index, name, label, values, placeholder, columns }) => (
+const DatePicker = ({ name, label, columns, validate }) => (
   <Container>
     <Label htmlFor={name}>{label}</Label>
-    <Field
-      index={index}
-      name={name}
-      component={renderDatePicker}
-      options={values}
-      placeholder={placeholder}
-      columns={columns}
-    />
+    <Field name={name} component={renderDatePicker} columns={columns} validate={validate} />
   </Container>
 );
 

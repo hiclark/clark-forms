@@ -13,10 +13,10 @@ describe('<DatePicker />', () => {
   let wrapper;
   beforeEach(() => {
     const props = {
+      columns: 2,
       onCheckboxClick: jest.fn(),
       name: 'Name',
       label: 'Label',
-      index: 1,
       value: false,
     };
     wrapper = shallow(<DatePicker {...props} />);

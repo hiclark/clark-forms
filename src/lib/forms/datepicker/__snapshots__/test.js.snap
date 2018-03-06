@@ -8,15 +8,17 @@ exports[`<DatePicker /> renders correctly 1`] = `
     Label
   </datepicker__Label>
   <Field
+    columns={2}
     component={[Function]}
-    index={1}
     name="Name"
   />
 </datepicker__Container>
 `;
 
 exports[`renderDatePicker renders correctly 1`] = `
-<div>
+<div
+  onBlur={[Function]}
+>
   <DatePicker
     allowSameDay={false}
     dateForm="MM/DD/YYYY"
@@ -34,7 +36,9 @@ exports[`renderDatePicker renders correctly 1`] = `
     onMonthChange={[Function]}
     onSelect={[Function]}
     onYearChange={[Function]}
+    placeholderText="MM/DD/YYYY"
     preventOpenOnFocus={false}
+    selected={null}
     shouldCloseOnSelect={true}
     showTimeSelect={false}
     timeCaption="Time"
