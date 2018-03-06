@@ -11,10 +11,11 @@ import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, BORDER_WIDTH_2, renderBorderRadius } from '../../styles/borders';
 
-const renderDropdown = ({ input, index, options, placeholder, columns }) => (
+const renderDropdown = ({ input, index, options, placeholder, columns, multi }) => (
   <DropdownSelect
     {...input}
     index={index}
+    multi={multi}
     options={options}
     onChange={input.onChange}
     placeholder={placeholder}
@@ -31,12 +32,13 @@ const renderDropdown = ({ input, index, options, placeholder, columns }) => (
   />
 );
 
-const Dropdown = ({ index, name, label, values, placeholder, columns }) => (
+const Dropdown = ({ index, name, label, values, placeholder, columns, multi }) => (
   <DropdownContainer>
     <Label htmlFor={name}>{label}</Label>
     <Field
       index={index}
       name={name}
+      multi={multi}
       component={renderDropdown}
       options={values}
       placeholder={placeholder}
