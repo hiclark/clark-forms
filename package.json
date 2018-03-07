@@ -25,6 +25,8 @@
   },
   "scripts": {
     "analyze": "source-map-explorer build/index.*",
+    "flow": "flow",
+    "flow-typed": "flow-typed update",
     "start": "node scripts/start.js & yarn run prettify:watch",
     "lint": "eslint --ext .jsx --ext .js src/ --ignore-pattern node_modules/",
     "lint:fix": "yarn run lint --fix",
