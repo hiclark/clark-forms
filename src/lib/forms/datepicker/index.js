@@ -14,7 +14,7 @@ export const renderDatePicker = ({ input, meta: { touched, error }, ...props }) 
     <ReactDatePicker
       selected={input.value ? moment(input.value) : null}
       onFocus={input.onFocus}
-      onChange={input.onChange}
+      onChange={value => input.onChange(value && value.format())}
       dateForm="MM/DD/YYYY"
       placeholderText="MM/DD/YYYY"
       {...props}
