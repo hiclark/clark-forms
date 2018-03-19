@@ -9,23 +9,30 @@ import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
-export const renderDatePicker = ({ input, meta: { touched, error } }) => (
+export const renderDatePicker = ({ input, meta: { touched, error }, ...props }) => (
   <div onBlur={() => input.onBlur(input.value)}>
     <ReactDatePicker
       selected={input.value ? moment(input.value) : null}
       onFocus={input.onFocus}
-      onChange={input.onChange}
+      onChange={value => input.onChange(value && value.format())}
       dateForm="MM/DD/YYYY"
       placeholderText="MM/DD/YYYY"
+      {...props}
     />
     <Error touched={touched} error={error} />
   </div>
 );
 
-const DatePicker = ({ name, label, columns, validate }) => (
+const DatePicker = ({ name, label, columns, validate, ...props }) => (
   <Container>
     <Label htmlFor={name}>{label}</Label>
-    <Field name={name} component={renderDatePicker} columns={columns} validate={validate} />
+    <Field
+      name={name}
+      component={renderDatePicker}
+      columns={columns}
+      validate={validate}
+      {...props}
+    />
   </Container>
 );
 

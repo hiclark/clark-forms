@@ -11,6 +11,8 @@ exports[`<DatePicker /> renders correctly 1`] = `
     columns={2}
     component={[Function]}
     name="Name"
+    onCheckboxClick={[Function]}
+    value={false}
   />
 </datepicker__Container>
 `;
