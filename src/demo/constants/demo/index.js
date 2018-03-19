@@ -53,6 +53,8 @@ const FIELD_SETS = [
             name: 'datePicker',
             label: 'Date Picker',
             validate: [isRequired],
+            showYearDropdown: true,
+            showMonthDropdown: true,
           },
         ],
       },
