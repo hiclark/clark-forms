@@ -1,9 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 0.7.0 - 2018-03-20
+## 0.7.0 - 2018-03-21
 ### Changed
-- Added Checkbox to exports.
+- Added all form components to exports.
 
 ## 0.6.1 - 2018-03-19
 ### Changed
