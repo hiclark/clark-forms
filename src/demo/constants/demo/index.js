@@ -58,6 +58,16 @@ const FIELD_SETS = [
           },
         ],
       },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'checkbox',
+            name: 'checkbox',
+            label: 'Checkbox',
+          },
+        ],
+      },
     ],
   },
 ];

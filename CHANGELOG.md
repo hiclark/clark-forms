@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.7.0 - 2018-03-21
+### Changed
+- Added all form components to exports.
+
 ## 0.6.1 - 2018-03-19
 ### Changed
 - Allow datepicker to accept props for `react-datepicker`
