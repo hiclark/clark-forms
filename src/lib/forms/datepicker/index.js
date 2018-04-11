@@ -23,6 +23,7 @@ export class SingleDatePickerField extends PureComponent {
       meta: { error, touched },
       input: { value = null, onChange },
       placeholder = 'Select a date',
+      isOutsideRange,
     } = this.props;
     const { focused = null } = this.state;
 
@@ -37,6 +38,7 @@ export class SingleDatePickerField extends PureComponent {
           placeholder={placeholder}
           showDefaultInputIcon
           hideKeyboardShortcutsPanel
+          isOutsideRange={isOutsideRange}
         />
         <Error touched={touched} error={error} />
       </div>

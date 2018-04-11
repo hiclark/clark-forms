@@ -22,6 +22,7 @@ export class DateRangePickerField extends PureComponent {
     const {
       meta: { error, touched },
       input: { value: { startDate, endDate } = { startDate: null, endDate: null }, onChange },
+      isOutsideRange,
     } = this.props;
     const { focusedInput = null } = this.state;
 
@@ -44,6 +45,7 @@ export class DateRangePickerField extends PureComponent {
           startDatePlaceholderText="Start Date"
           showDefaultInputIcon
           hideKeyboardShortcutsPanel
+          isOutsideRange={isOutsideRange}
         />
         <Error touched={touched} error={error} />
       </div>
