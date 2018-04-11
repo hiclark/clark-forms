@@ -21,7 +21,7 @@ export class SingleDatePickerField extends PureComponent {
   render() {
     const {
       meta: { error, touched },
-      input: { value = null, onChange },
+      input: { value = null, onChange, ...inputRest },
       placeholder = 'Select a date',
       isOutsideRange,
       numberOfMonths = 1,
@@ -29,7 +29,7 @@ export class SingleDatePickerField extends PureComponent {
     const { focused } = this.state;
 
     return (
-      <div>
+      <div {...inputRest}>
         <SingleDatePicker
           date={value ? moment(value) : null}
           onDateChange={e => (e ? onChange(e.toISOString()) : onChange(null))}
