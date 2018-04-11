@@ -1,34 +1,67 @@
-import React from 'react';
-import ReactDatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import React, { PureComponent } from 'react';
+
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { SingleDatePicker } from 'react-dates';
+
 import { Field } from 'redux-form';
 import styled from 'styled-components';
-import moment from 'moment';
+// import moment from 'moment';
 
 import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
-export const renderDatePicker = ({ input, meta: { touched, error }, ...props }) => (
-  <div onBlur={() => input.onBlur(input.value)}>
-    <ReactDatePicker
-      selected={input.value ? moment(input.value) : null}
-      onFocus={input.onFocus}
-      onChange={value => input.onChange(value && value.format())}
-      dateForm="MM/DD/YYYY"
-      placeholderText="MM/DD/YYYY"
-      {...props}
-    />
-    <Error touched={touched} error={error} />
-  </div>
-);
+import './react_dates_overrides.css';
+
+// export const renderDatePicker = ({ input, meta: { touched, error }, ...props }) => (
+//   <div onBlur={() => input.onBlur(input.value)}>
+//     <ReactDatePicker
+//       selected={input.value ? moment(input.value) : null}
+//       onFocus={input.onFocus}
+//       onChange={value => input.onChange(value && value.format())}
+//       dateForm="MM/DD/YYYY"
+//       placeholderText="MM/DD/YYYY"
+//       {...props}
+//     />
+//     <Error touched={touched} error={error} />
+//   </div>
+// );
+
+class SingleDatePickerField extends PureComponent {
+  state = { focused: null };
+  handleFocusChange = ({ focused }) => this.setState({ focused });
+
+  render() {
+    const { meta: { error, touched }, input: { value = null, onChange } } = this.props;
+    const { focused = null } = this.state;
+
+    return (
+      <div>
+        <SingleDatePicker
+          date={value}
+          onDateChange={e => {
+            console.log(e);
+            return onChange(e);
+          }}
+          focused={focused}
+          onFocusChange={this.handleFocusChange}
+          id="date"
+          placeholder="date"
+          showDefaultInputIcon
+        />
+        <Error touched={touched} error={error} />
+      </div>
+    );
+  }
+}
 
 const DatePicker = ({ name, label, columns, validate, ...props }) => (
   <Container>
     <Label htmlFor={name}>{label}</Label>
     <Field
       name={name}
-      component={renderDatePicker}
+      component={SingleDatePickerField}
       columns={columns}
       validate={validate}
       {...props}
