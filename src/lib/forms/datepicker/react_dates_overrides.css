@@ -1,8 +1,3 @@
-.library-css-rule {
-  color: #000;
-}
-
-
 .SingleDatePicker, .SingleDatePickerInput {
   width: 100%;
   border-radius: 0.25rem;
@@ -13,7 +8,7 @@
   padding: .5px 0;
 }
 
-.DateInput {
+.SingleDatePickerInput .DateInput {
   width: calc(100% - 60px);
 }
 
