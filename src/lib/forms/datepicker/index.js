@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
@@ -14,39 +14,29 @@ import { SPACING_SMALL } from '../../styles/spacing';
 
 import './react-dates-overrides.css';
 
-export class SingleDatePickerField extends PureComponent {
-  state = { focused: null };
-  handleFocusChange = ({ focused }) => this.setState({ focused });
-
-  render() {
-    const {
-      meta: { error, touched },
-      input: { value = null, onChange, ...inputRest },
-      placeholder = 'Select a date',
-      isOutsideRange,
-      numberOfMonths = 1,
-    } = this.props;
-    const { focused } = this.state;
-
-    return (
-      <div {...inputRest}>
-        <SingleDatePicker
-          date={value ? moment(value) : null}
-          onDateChange={e => (e ? onChange(e.toISOString()) : onChange(null))}
-          focused={focused}
-          onFocusChange={this.handleFocusChange}
-          id="date"
-          placeholder={placeholder}
-          showDefaultInputIcon
-          hideKeyboardShortcutsPanel
-          isOutsideRange={isOutsideRange}
-          numberOfMonths={numberOfMonths}
-        />
-        <Error touched={touched} error={error} />
-      </div>
-    );
-  }
-}
+const SingleDatePickerField = ({
+  meta: { active, error, touched },
+  input: { value = null, onChange, onFocus, onBlur },
+  placeholder = 'Select a date',
+  isOutsideRange,
+  numberOfMonths = 1,
+}) => (
+  <div>
+    <SingleDatePicker
+      date={value ? moment(value) : null}
+      onDateChange={e => (e ? onChange(e.toISOString()) : onChange(null))}
+      focused={active}
+      onFocusChange={({ focused }) => (focused ? onFocus() : onBlur())}
+      id="date"
+      placeholder={placeholder}
+      showDefaultInputIcon
+      hideKeyboardShortcutsPanel
+      isOutsideRange={isOutsideRange}
+      numberOfMonths={numberOfMonths}
+    />
+    <Error touched={touched} error={error} />
+  </div>
+);
 
 const DatePicker = ({ name, label, columns, validate, ...props }) => (
   <Container>
