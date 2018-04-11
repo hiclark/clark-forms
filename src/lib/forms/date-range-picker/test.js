@@ -1,16 +1,16 @@
 import React from 'react';
 
-import DatePicker, { SingleDatePickerField } from './';
+import DateRangePicker, { DateRangePickerField } from './';
 
-describe('SingleDatePickerField', () => {
+describe('DateRangePickerField', () => {
   it('renders correctly', () => {
     const props = { input: {}, meta: { touched: false, error: false } };
-    const wrapper = shallow(<SingleDatePickerField {...props} />);
+    const wrapper = shallow(<DateRangePickerField {...props} />);
     expect(wrapper).toMatchSnapshot();
   });
 });
 
-describe('<DatePicker />', () => {
+describe('<DateRangePicker />', () => {
   let wrapper;
   beforeEach(() => {
     const props = {
@@ -20,7 +20,7 @@ describe('<DatePicker />', () => {
       label: 'Label',
       value: false,
     };
-    wrapper = shallow(<DatePicker {...props} />);
+    wrapper = shallow(<DateRangePicker {...props} />);
   });
 
   it('renders correctly', () => {

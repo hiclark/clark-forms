@@ -55,6 +55,20 @@ const FIELD_SETS = [
             validate: [isRequired],
             showYearDropdown: true,
             showMonthDropdown: true,
+            isOutsideRange: () => false,
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'daterangepicker',
+            name: 'dateRangePicker',
+            label: 'Date Range Picker',
+            validate: [isRequired],
+            showYearDropdown: true,
+            showMonthDropdown: true,
           },
         ],
       },
