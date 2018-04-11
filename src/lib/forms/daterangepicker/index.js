@@ -14,14 +14,14 @@ import { SPACING_SMALL } from '../../styles/spacing';
 
 import './react_dates_overrides.css';
 
-class DateRangePickerField extends PureComponent {
+export class DateRangePickerField extends PureComponent {
   state = { focusedInput: null };
   handleFocusChange = focusedInput => this.setState({ focusedInput });
 
   render() {
     const {
       meta: { error, touched },
-      input: { value: { startDate = null, endDate = null }, onChange },
+      input: { value: { startDate, endDate } = { startDate: null, endDate: null }, onChange },
     } = this.props;
     const { focusedInput = null } = this.state;
 

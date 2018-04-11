@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DatePicker /> renders correctly 1`] = `
-<datepicker__Container>
-  <datepicker__Label
+exports[`<DateRangePicker /> renders correctly 1`] = `
+<daterangepicker__Container>
+  <daterangepicker__Label
     htmlFor="Name"
   >
     Label
-  </datepicker__Label>
+  </daterangepicker__Label>
   <Field
     columns={2}
     component={[Function]}
@@ -14,27 +14,29 @@ exports[`<DatePicker /> renders correctly 1`] = `
     onCheckboxClick={[Function]}
     value={false}
   />
-</datepicker__Container>
+</daterangepicker__Container>
 `;
 
-exports[`SingleDatePickerField renders correctly 1`] = `
+exports[`DateRangePickerField renders correctly 1`] = `
 <div>
-  <withStyles(SingleDatePicker)
+  <withStyles(DateRangePicker)
     anchorDirection="left"
     block={false}
     calendarInfoPosition="bottom"
+    customArrowIcon={null}
     customCloseIcon={null}
     customInputIcon={null}
-    date={null}
     daySize={39}
     disabled={false}
     displayFormat={[Function]}
     enableOutsideDays={false}
+    endDate={null}
+    endDateId="endDate"
+    endDatePlaceholderText="End Date"
     firstDayOfWeek={null}
-    focused={null}
+    focusedInput={null}
     hideKeyboardShortcutsPanel={true}
     horizontalMargin={0}
-    id="date"
     initialVisibleMonth={null}
     inputIconPosition="before"
     isDayBlocked={[Function]}
@@ -43,13 +45,14 @@ exports[`SingleDatePickerField renders correctly 1`] = `
     isRTL={false}
     keepFocusOnInput={false}
     keepOpenOnDateSelect={false}
+    minimumNights={1}
     monthFormat="MMMM YYYY"
     navNext={null}
     navPrev={null}
     noBorder={false}
     numberOfMonths={2}
     onClose={[Function]}
-    onDateChange={[Function]}
+    onDatesChange={[Function]}
     onFocusChange={[Function]}
     onNextMonthClick={[Function]}
     onPrevMonthClick={[Function]}
@@ -58,13 +61,15 @@ exports[`SingleDatePickerField renders correctly 1`] = `
     phrases={
       Object {
         "calendarLabel": "Calendar",
-        "chooseAvailableDate": [Function],
-        "clearDate": "Clear Date",
+        "chooseAvailableEndDate": [Function],
+        "chooseAvailableStartDate": [Function],
+        "clearDates": "Clear Dates",
         "closeDatePicker": "Close",
         "dateIsSelected": [Function],
         "dateIsUnavailable": [Function],
         "enterKey": "Enter key",
         "escape": "Escape key",
+        "focusStartDate": "Interact with the calendar and add the check-in date for your trip.",
         "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
         "homeEnd": "Home and end keys",
         "jumpToNextMonth": "Move forward to switch to the next month.",
@@ -86,18 +91,20 @@ exports[`SingleDatePickerField renders correctly 1`] = `
         "upArrowDownArrow": "up and down arrow keys",
       }
     }
-    placeholder="Select a date"
     readOnly={false}
     regular={false}
     renderCalendarInfo={null}
     renderDayContents={null}
     renderMonth={null}
-    reopenPickerOnClearDate={false}
+    reopenPickerOnClearDates={false}
     required={false}
     screenReaderInputMessage=""
-    showClearDate={false}
+    showClearDates={false}
     showDefaultInputIcon={true}
     small={false}
+    startDate={null}
+    startDateId="startDate"
+    startDatePlaceholderText="Start Date"
     verticalHeight={null}
     verticalSpacing={22}
     weekDayFormat="dd"

@@ -14,7 +14,7 @@ import { SPACING_SMALL } from '../../styles/spacing';
 
 import './react_dates_overrides.css';
 
-class SingleDatePickerField extends PureComponent {
+export class SingleDatePickerField extends PureComponent {
   state = { focused: null };
   handleFocusChange = ({ focused }) => this.setState({ focused });
 
