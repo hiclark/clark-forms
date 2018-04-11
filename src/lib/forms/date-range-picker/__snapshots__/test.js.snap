@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DateRangePicker /> renders correctly 1`] = `
-<daterangepicker__Container>
-  <daterangepicker__Label
+<date-range-picker__Container>
+  <date-range-picker__Label
     htmlFor="Name"
   >
     Label
-  </daterangepicker__Label>
+  </date-range-picker__Label>
   <Field
     columns={2}
     component={[Function]}
@@ -14,7 +14,7 @@ exports[`<DateRangePicker /> renders correctly 1`] = `
     onCheckboxClick={[Function]}
     value={false}
   />
-</daterangepicker__Container>
+</date-range-picker__Container>
 `;
 
 exports[`DateRangePickerField renders correctly 1`] = `

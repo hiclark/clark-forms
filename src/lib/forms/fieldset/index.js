@@ -9,7 +9,7 @@ import Input from '../input';
 import Checkbox from '../checkbox';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
-import DateRangePicker from '../daterangepicker';
+import DateRangePicker from '../date-range-picker';
 
 import media from '../../styles/media-queries';
 import { SPACING_SMALL, SPACING_MEDIUM } from '../../styles/spacing';
