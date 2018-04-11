@@ -12,7 +12,7 @@ import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
-import './react_dates_overrides.css';
+import './react-dates-overrides.css';
 
 export class DateRangePickerField extends PureComponent {
   state = { focusedInput: null };
@@ -24,7 +24,7 @@ export class DateRangePickerField extends PureComponent {
       input: { value: { startDate, endDate } = { startDate: null, endDate: null }, onChange },
       isOutsideRange,
     } = this.props;
-    const { focusedInput = null } = this.state;
+    const { focusedInput } = this.state;
 
     return (
       <div>

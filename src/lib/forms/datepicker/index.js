@@ -12,7 +12,7 @@ import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
-import './react_dates_overrides.css';
+import './react-dates-overrides.css';
 
 export class SingleDatePickerField extends PureComponent {
   state = { focused: null };
@@ -24,14 +24,15 @@ export class SingleDatePickerField extends PureComponent {
       input: { value = null, onChange },
       placeholder = 'Select a date',
       isOutsideRange,
+      numberOfMonths = 1,
     } = this.props;
-    const { focused = null } = this.state;
+    const { focused } = this.state;
 
     return (
       <div>
         <SingleDatePicker
           date={value ? moment(value) : null}
-          onDateChange={e => onChange(e.toISOString())}
+          onDateChange={e => (e ? onChange(e.toISOString()) : onChange(null))}
           focused={focused}
           onFocusChange={this.handleFocusChange}
           id="date"
@@ -39,6 +40,7 @@ export class SingleDatePickerField extends PureComponent {
           showDefaultInputIcon
           hideKeyboardShortcutsPanel
           isOutsideRange={isOutsideRange}
+          numberOfMonths={numberOfMonths}
         />
         <Error touched={touched} error={error} />
       </div>
