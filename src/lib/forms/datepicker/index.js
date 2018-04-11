@@ -6,7 +6,7 @@ import { SingleDatePicker } from 'react-dates';
 
 import { Field } from 'redux-form';
 import styled from 'styled-components';
-// import moment from 'moment';
+import moment from 'moment';
 
 import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
@@ -14,41 +14,29 @@ import { SPACING_SMALL } from '../../styles/spacing';
 
 import './react_dates_overrides.css';
 
-// export const renderDatePicker = ({ input, meta: { touched, error }, ...props }) => (
-//   <div onBlur={() => input.onBlur(input.value)}>
-//     <ReactDatePicker
-//       selected={input.value ? moment(input.value) : null}
-//       onFocus={input.onFocus}
-//       onChange={value => input.onChange(value && value.format())}
-//       dateForm="MM/DD/YYYY"
-//       placeholderText="MM/DD/YYYY"
-//       {...props}
-//     />
-//     <Error touched={touched} error={error} />
-//   </div>
-// );
-
 class SingleDatePickerField extends PureComponent {
   state = { focused: null };
   handleFocusChange = ({ focused }) => this.setState({ focused });
 
   render() {
-    const { meta: { error, touched }, input: { value = null, onChange } } = this.props;
+    const {
+      meta: { error, touched },
+      input: { value = null, onChange },
+      placeholder = 'Select a date',
+    } = this.props;
     const { focused = null } = this.state;
 
     return (
       <div>
         <SingleDatePicker
-          date={value}
-          onDateChange={e => {
-            console.log(e);
-            return onChange(e);
-          }}
+          date={value ? moment(value) : null}
+          onDateChange={e => onChange(e.toISOString())}
           focused={focused}
           onFocusChange={this.handleFocusChange}
           id="date"
-          placeholder="date"
+          placeholder={placeholder}
           showDefaultInputIcon
+          hideKeyboardShortcutsPanel
         />
         <Error touched={touched} error={error} />
       </div>
