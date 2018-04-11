@@ -9,13 +9,4 @@ import RadioButton from './forms/radio-button';
 import Textarea from './forms/textarea';
 
 export default Fieldset;
-export {
-  ProgressHeader,
-  Checkbox,
-  DatePicker,
-  Dropdown,
-  Error,
-  Input,
-  RadioButton,
-  Textarea
-};
+export { ProgressHeader, Checkbox, DatePicker, Dropdown, Error, Input, RadioButton, Textarea };

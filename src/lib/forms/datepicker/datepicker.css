@@ -1,0 +1,12 @@
+.react-datepicker-wrapper, .react-datepicker__input-container, .testing {
+  width: 100%;
+};
+
+.testing {
+  font-size: 1.125rem;
+  font-family: 'Graphik';
+  font-weight: 100;
+  border-radius: 0.25rem;
+  border: 1px solid #CFCFD7;
+  padding: 20px;
+}
