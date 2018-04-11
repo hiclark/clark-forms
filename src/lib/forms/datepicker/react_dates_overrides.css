@@ -17,11 +17,15 @@
   width: calc(100% - 60px);
 }
 
-.DateInput_input{
+.DateInput_input__focused{
   border-color: #EA4900; 
 }
 
 .CalendarDay__selected, .CalendarDay__selected:hover, .CalendarDay__selected:active{
   background-color: #EA4900;
   border-color: #EA4900;
+}
+
+.SingleDatePickerInput_calendarIcon_svg {
+  fill: #EA4900;
 }
