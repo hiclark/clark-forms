@@ -14,7 +14,7 @@ import { SPACING_SMALL } from '../../styles/spacing';
 
 import './react-dates-overrides.css';
 
-const SingleDatePickerField = ({
+export const SingleDatePickerField = ({
   meta: { active, error, touched },
   input: { value = null, onChange, onFocus, onBlur },
   placeholder = 'Select a date',
