@@ -83,6 +83,17 @@ const FIELD_SETS = [
           },
         ],
       },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            label: 'Toggle',
+            type: 'toggleButton',
+            name: 'toggle',
+            options: [{ label: 'label1', value: 1 }, { label: 'label2', value: 2 }],
+          },
+        ],
+      },
     ],
   },
 ];

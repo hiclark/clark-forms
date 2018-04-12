@@ -10,6 +10,7 @@ import Checkbox from '../checkbox';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
 import DateRangePicker from '../date-range-picker';
+import ToggleButton from '../toggle-button';
 
 import media from '../../styles/media-queries';
 import { SPACING_SMALL, SPACING_MEDIUM } from '../../styles/spacing';
@@ -26,6 +27,7 @@ const mapFieldToComponent = type => {
     textarea: Textarea,
     datepicker: DatePicker,
     daterangepicker: DateRangePicker,
+    toggleButton: ToggleButton,
   };
 
   return components[type];
