@@ -2,6 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 import Select from 'react-styled-select';
 import styled from 'styled-components';
+import RequiredAsterisk from '../required-asterisk';
 
 import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, TRANSPARENT, WHITE } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
@@ -34,9 +35,22 @@ const renderDropdown = ({ input, index, options, placeholder, columns, multi }) 
   </div>
 );
 
-const Dropdown = ({ index, name, label, values, placeholder, columns, validate, multi }) => (
+const Dropdown = ({
+  index,
+  name,
+  label,
+  values,
+  placeholder,
+  columns,
+  validate,
+  multi,
+  required,
+}) => (
   <DropdownContainer>
-    <Label htmlFor={name}>{label}</Label>
+    <Label htmlFor={name}>
+      {label}
+      {required && <RequiredAsterisk />}
+    </Label>
     <Field
       index={index}
       name={name}

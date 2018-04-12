@@ -9,8 +9,9 @@ import ToggleOn from './toggle-on.svg';
 import { SPACING_SMALL } from '../../styles/spacing';
 import { GREY_75 } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
+import RequiredAsterisk from '../required-asterisk';
 
-const Checkbox = ({ checked, onCheckboxClick, name, label, index, value }) => (
+const Checkbox = ({ checked, onCheckboxClick, name, label, required, index, value }) => (
   <div>
     <HiddenField>
       <Field
@@ -26,7 +27,10 @@ const Checkbox = ({ checked, onCheckboxClick, name, label, index, value }) => (
     <label htmlFor={`${name}-${index}`} onClick={onCheckboxClick} onKeyDown={onCheckboxClick}>
       <CheckboxLabel>
         {checked ? <ToggleOn /> : <ToggleOff />}
-        <LabelText>{label}</LabelText>
+        <LabelText>
+          {label}
+          {required && <RequiredAsterisk />}
+        </LabelText>
       </CheckboxLabel>
     </label>
   </div>

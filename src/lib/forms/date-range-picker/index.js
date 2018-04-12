@@ -8,6 +8,7 @@ import { Field } from 'redux-form';
 import styled from 'styled-components';
 import moment from 'moment';
 
+import RequiredAsterisk from '../required-asterisk';
 import Error from '../error';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
@@ -53,9 +54,12 @@ export class DateRangePickerField extends PureComponent {
   }
 }
 
-const RangePicker = ({ name, label, columns, validate, ...props }) => (
+const RangePicker = ({ name, label, columns, validate, required, ...props }) => (
   <Container>
-    <Label htmlFor={name}>{label}</Label>
+    <Label htmlFor={name}>
+      {label}
+      {required && <RequiredAsterisk />}
+    </Label>
     <Field
       name={name}
       component={DateRangePickerField}

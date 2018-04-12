@@ -2,6 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
+import RequiredAsterisk from '../required-asterisk';
 import Error from '../error';
 import { SPACING_EXTRA_SMALL, SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
@@ -34,10 +35,14 @@ const renderField = ({
 );
 
 const Input = props => {
-  const { name, label, copy, inputType } = props;
+  const { name, label, copy, inputType, required } = props;
   return (
     <div>
-      <Label htmlFor={name}>{label}</Label>
+      <Label htmlFor={name}>
+        {label}
+        {required && <RequiredAsterisk />}
+      </Label>
+
       {copy && <Copy>{copy}</Copy>}
       <Field component={renderField} inputType={inputType} {...props} />
     </div>

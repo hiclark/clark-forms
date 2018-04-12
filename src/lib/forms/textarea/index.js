@@ -3,6 +3,7 @@ import { Field } from 'redux-form';
 import styled from 'styled-components';
 
 import Error from '../error';
+import RequiredAsterisk from '../required-asterisk';
 import {
   SPACING_EXTRA_SMALL,
   SPACING_SMALL,
@@ -33,7 +34,10 @@ const renderField = ({ input, index, placeholder, columns, type, meta: { touched
 
 const Textarea = props => (
   <div>
-    <Label htmlFor={props.name}>{props.label}</Label>
+    <Label htmlFor={props.name}>
+      {props.label}
+      {props.required && <RequiredAsterisk />}
+    </Label>
     <Field component={renderField} {...props} />
   </div>
 );
