@@ -2,7 +2,6 @@ import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
-import RequiredAsterisk from '../required-asterisk';
 import Error from '../error';
 import { SPACING_EXTRA_SMALL, SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
@@ -12,6 +11,7 @@ import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
 import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
+import Label from '../label';
 
 const renderField = ({
   input,
@@ -38,10 +38,7 @@ const Input = props => {
   const { name, label, copy, inputType, required } = props;
   return (
     <div>
-      <Label htmlFor={name}>
-        {label}
-        {required && <RequiredAsterisk />}
-      </Label>
+      <Label name={name} label={label} required={required} />
 
       {copy && <Copy>{copy}</Copy>}
       <Field component={renderField} inputType={inputType} {...props} />
@@ -50,12 +47,6 @@ const Input = props => {
 };
 
 export default Input;
-
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
-`;
 
 const FormInput = styled.input`
   ${TYPE_SCALE_F4};

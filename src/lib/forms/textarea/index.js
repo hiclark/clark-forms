@@ -3,7 +3,7 @@ import { Field } from 'redux-form';
 import styled from 'styled-components';
 
 import Error from '../error';
-import RequiredAsterisk from '../required-asterisk';
+
 import {
   SPACING_EXTRA_SMALL,
   SPACING_SMALL,
@@ -17,6 +17,7 @@ import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
 import { LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
+import Label from '../label';
 
 const renderField = ({ input, index, placeholder, columns, type, meta: { touched, error } }) => (
   <div>
@@ -34,21 +35,12 @@ const renderField = ({ input, index, placeholder, columns, type, meta: { touched
 
 const Textarea = props => (
   <div>
-    <Label htmlFor={props.name}>
-      {props.label}
-      {props.required && <RequiredAsterisk />}
-    </Label>
+    <Label name={props.name} label={props.label} required={props.required} />
     <Field component={renderField} {...props} />
   </div>
 );
 
 export default Textarea;
-
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
-`;
 
 const FormTextarea = styled.textarea`
   ${TYPE_SCALE_F4};

@@ -2,15 +2,14 @@ import React from 'react';
 import { Field } from 'redux-form';
 import Select from 'react-styled-select';
 import styled from 'styled-components';
-import RequiredAsterisk from '../required-asterisk';
 
 import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, TRANSPARENT, WHITE } from '../../styles/colors';
-import { SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
 import { TYPE_SCALE_F4 } from '../../styles/type-scale';
 import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, BORDER_WIDTH_2, renderBorderRadius } from '../../styles/borders';
+import Label from '../label';
 
 const renderDropdown = ({ input, index, options, placeholder, columns, multi }) => (
   <div>
@@ -47,10 +46,8 @@ const Dropdown = ({
   required,
 }) => (
   <DropdownContainer>
-    <Label htmlFor={name}>
-      {label}
-      {required && <RequiredAsterisk />}
-    </Label>
+    <Label name={name} label={label} required={required} />
+
     <Field
       index={index}
       name={name}
@@ -68,12 +65,6 @@ export default Dropdown;
 
 const DropdownContainer = styled.div`
   display: block;
-`;
-
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
 `;
 
 const DropdownSelect = styled(Select)`

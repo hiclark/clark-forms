@@ -7,11 +7,8 @@ import { DateRangePicker } from 'react-dates';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 import moment from 'moment';
-
-import RequiredAsterisk from '../required-asterisk';
 import Error from '../error';
-import { CLARK_SECONDARY } from '../../styles/colors';
-import { SPACING_SMALL } from '../../styles/spacing';
+import Label from '../label';
 
 import './react-dates-overrides.css';
 
@@ -56,10 +53,7 @@ export class DateRangePickerField extends PureComponent {
 
 const RangePicker = ({ name, label, columns, validate, required, ...props }) => (
   <Container>
-    <Label htmlFor={name}>
-      {label}
-      {required && <RequiredAsterisk />}
-    </Label>
+    <Label name={name} label={label} required={required} />
     <Field
       name={name}
       component={DateRangePickerField}
@@ -74,10 +68,4 @@ export default RangePicker;
 
 const Container = styled.div`
   display: block;
-`;
-
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
 `;
