@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 import Label from '../label';
@@ -8,31 +8,22 @@ import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
 import { TEAL } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 
-class ToggleButton extends Component {
-  state = {
-    selected: this.props.selected,
+const ToggleButton = ({ values, input }) => {
+  const onChange = value => {
+    const selected = value === input.value ? undefined : value;
+    input.onChange(selected);
   };
 
-  onChange = value => {
-    const selected = value === this.state.selected ? undefined : value;
-
-    this.props.input.onChange(selected);
-    this.setState({ selected });
-  };
-
-  render() {
-    const { options } = this.props;
-    return (
-      <ButtonContainer>
-        {options.map(({ value, label }) => (
-          <Button selected={value === this.state.selected} onClick={() => this.onChange(value)}>
-            {label}
-          </Button>
-        ))}
-      </ButtonContainer>
-    );
-  }
-}
+  return (
+    <ButtonContainer>
+      {values.map(({ value, label }) => (
+        <Button key={label} selected={value === input.value} onClick={() => onChange(value)}>
+          {label}
+        </Button>
+      ))}
+    </ButtonContainer>
+  );
+};
 
 export default props => (
   <div>

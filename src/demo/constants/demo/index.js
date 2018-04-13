@@ -90,7 +90,7 @@ const FIELD_SETS = [
             label: 'Toggle',
             type: 'toggleButton',
             name: 'toggle',
-            options: [{ label: 'label1', value: 1 }, { label: 'label2', value: 2 }],
+            values: [{ label: 'label1', value: 1 }, { label: 'label2', value: 2 }],
           },
         ],
       },
