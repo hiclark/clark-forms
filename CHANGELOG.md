@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.7.2 - 2018-04-13
+### Added
+- ToggleButtons
+
 ## 0.7.1 - 2018-04-11
 ### Changed
 - Styled date picker and added date range picker.
