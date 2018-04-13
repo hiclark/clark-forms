@@ -2,6 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
+import RequiredAsterisk from '../required-asterisk';
 import media from '../../styles/media-queries';
 import { SPACING_SMALL } from '../../styles/spacing';
 import { TYPE_SCALE_F5 } from '../../styles/type-scale';
@@ -9,7 +10,7 @@ import { CLARK_TERTIARY, WHITE } from '../../styles/colors';
 import { BORDER_RADIUS_F3 } from '../../styles/border-radius';
 import { BORDER_WIDTH_2 } from '../../styles/borders';
 
-const RadioButton = ({ name, label, index, value, placeholder, icon }) => (
+const RadioButton = ({ name, label, index, value, placeholder, icon, required }) => (
   <RadioButtonContainer>
     <Radio
       name={name}
@@ -20,7 +21,10 @@ const RadioButton = ({ name, label, index, value, placeholder, icon }) => (
       index={index}
     />
     <Icon>{icon}</Icon>
-    <Label htmlFor={name}>{label}</Label>
+    <Label htmlFor={name}>
+      {label}
+      {required && <RequiredAsterisk />}
+    </Label>
   </RadioButtonContainer>
 );
 

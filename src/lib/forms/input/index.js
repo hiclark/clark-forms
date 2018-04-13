@@ -11,6 +11,7 @@ import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
 import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
+import Label from '../label';
 
 const renderField = ({
   input,
@@ -34,10 +35,11 @@ const renderField = ({
 );
 
 const Input = props => {
-  const { name, label, copy, inputType } = props;
+  const { name, label, copy, inputType, required } = props;
   return (
     <div>
-      <Label htmlFor={name}>{label}</Label>
+      <Label name={name} label={label} required={required} />
+
       {copy && <Copy>{copy}</Copy>}
       <Field component={renderField} inputType={inputType} {...props} />
     </div>
@@ -45,12 +47,6 @@ const Input = props => {
 };
 
 export default Input;
-
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
-`;
 
 const FormInput = styled.input`
   ${TYPE_SCALE_F4};

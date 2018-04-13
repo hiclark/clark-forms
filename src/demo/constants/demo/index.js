@@ -12,7 +12,8 @@ const FIELD_SETS = [
           {
             type: 'input',
             name: 'firstInput',
-            label: 'First Input',
+            label: 'Required Input',
+            required: true,
             validate: [isRequired, minLength(6)],
             normalize: normalizeNumbers(16),
           },
@@ -79,6 +80,17 @@ const FIELD_SETS = [
             type: 'checkbox',
             name: 'checkbox',
             label: 'Checkbox',
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            label: 'Toggle',
+            type: 'toggleButton',
+            name: 'toggle',
+            values: [{ label: 'label1', value: 1 }, { label: 'label2', value: 2 }],
           },
         ],
       },
