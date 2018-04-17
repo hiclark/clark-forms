@@ -17,6 +17,8 @@ const renderField = ({
   input,
   inputType,
   index,
+  min,
+  max,
   placeholder,
   columns,
   meta: { touched, error },
@@ -25,6 +27,8 @@ const renderField = ({
     <FormInput
       {...input}
       type={inputType}
+      min={min}
+      max={max}
       index={index}
       placeholder={placeholder}
       columns={columns}
@@ -35,13 +39,13 @@ const renderField = ({
 );
 
 const Input = props => {
-  const { name, label, copy, inputType, required } = props;
+  const { name, label, copy, inputType, required, min, max } = props;
   return (
     <div>
       <Label name={name} label={label} required={required} />
 
       {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} inputType={inputType} {...props} />
+      <Field component={renderField} inputType={inputType} min={min} max={max} {...props} />
     </div>
   );
 };
