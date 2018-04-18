@@ -13,39 +13,22 @@ import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 import Label from '../label';
 
-const renderField = ({
-  input,
-  inputType,
-  index,
-  min,
-  max,
-  placeholder,
-  columns,
-  meta: { touched, error },
-}) => (
+const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) => (
   <div>
-    <FormInput
-      {...input}
-      type={inputType}
-      min={min}
-      max={max}
-      index={index}
-      placeholder={placeholder}
-      columns={columns}
-      showError={!(error && touched)}
-    />
+    {/* we rename the inputType prop to avoid a colision with the type attribute
+    that is used to specify which form element to render */}
+    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
     <Error touched={touched} error={error} />
   </div>
 );
 
 const Input = props => {
-  const { name, label, copy, inputType, required, min, max } = props;
+  const { name, label, copy, required } = props;
   return (
     <div>
       <Label name={name} label={label} required={required} />
-
       {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} inputType={inputType} min={min} max={max} {...props} />
+      <Field component={renderField} {...props} />
     </div>
   );
 };
