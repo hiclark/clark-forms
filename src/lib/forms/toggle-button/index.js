@@ -5,25 +5,25 @@ import Label from '../label';
 import { TYPE_SCALE_F4 } from '../../styles/type-scale';
 import { SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
-import { TEAL } from '../../styles/colors';
+import { CLARK_PRIMARY } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 
-const ToggleButton = ({ values, input }) => {
-  const onChange = value => {
-    const selected = value === input.value ? undefined : value;
-    input.onChange(selected);
-  };
-
-  return (
-    <ButtonContainer>
-      {values.map(({ value, label }) => (
-        <Button key={label} selected={value === input.value} onClick={() => onChange(value)}>
+const ToggleButton = ({ values, input }) => (
+  <ButtonContainer>
+    {values.map(({ value, label }) => {
+      const isSelected = value === input.value;
+      const onClick = () => {
+        const newValue = isSelected ? null : value;
+        input.onChange(newValue);
+      };
+      return (
+        <Button key={label} selected={isSelected} onClick={onClick}>
           {label}
         </Button>
-      ))}
-    </ButtonContainer>
-  );
-};
+      );
+    })}
+  </ButtonContainer>
+);
 
 export default props => (
   <div>
@@ -40,15 +40,15 @@ const Button = styled.div`
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
-  color: ${TEAL};
-  ${props =>
-    props.selected &&
+  color: ${CLARK_PRIMARY};
+  ${({ selected }) =>
+    selected &&
     `
-    background-color: ${TEAL};
+    background-color: ${CLARK_PRIMARY};
     color: white;
   `};
 
-  border-left: 1px solid ${TEAL};
+  border-left: 1px solid ${CLARK_PRIMARY};
   &:first-child {
     border: 0;
   }
@@ -59,7 +59,7 @@ const Button = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  border: 1px solid ${TEAL};
+  border: 1px solid ${CLARK_PRIMARY};
   display: flex;
   flex-direction: row;
   justify-content: space-between;

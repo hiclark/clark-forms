@@ -54,6 +54,7 @@ const Dropdown = ({
   validate,
   multi,
   required,
+  onChange,
 }) => (
   <DropdownContainer>
     <Label name={name} label={label} required={required} />
@@ -67,6 +68,7 @@ const Dropdown = ({
       placeholder={placeholder}
       columns={columns}
       validate={validate}
+      onChange={onChange}
     />
   </DropdownContainer>
 );

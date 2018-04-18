@@ -1,5 +1,4 @@
 import { isRequired, minLength } from '../../utils/validation';
-import normalizeNumbers from '../../utils/normalization/number';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
 
@@ -15,7 +14,6 @@ const FIELD_SETS = [
             label: 'Required Input',
             required: true,
             validate: [isRequired, minLength(6)],
-            normalize: normalizeNumbers(16),
           },
           {
             type: 'dropdown',
@@ -34,7 +32,7 @@ const FIELD_SETS = [
           },
           {
             type: 'input',
-            name: 'secondInput',
+            name: 'pwInput',
             label: 'Password Input',
             inputType: 'password',
           },
@@ -43,6 +41,8 @@ const FIELD_SETS = [
             name: 'secondInput',
             label: 'Number Input',
             inputType: 'number',
+            min: 0,
+            max: 10,
           },
         ],
       },
