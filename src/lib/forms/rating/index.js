@@ -58,6 +58,7 @@ const RatingKeys = styled.div`
 const RatingKey = styled.h6`
   ${TYPE_SCALE_F6};
   color: ${CLARK_SECONDARY};
+  margin: 0 0 ${SPACING_MEDIUM} 0;
 `;
 
 const RatingContent = styled.div`

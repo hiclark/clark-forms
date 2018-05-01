@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8.1 - 2018-05-01
+### Changed
+- Ratings component styles
+
 ## 0.8.0 - 2018-05-01
 ### Added
 - Ratings component
