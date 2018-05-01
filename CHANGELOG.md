@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8.0 - 2018-05-01
+### Added
+- Ratings component
+
 ## 0.7.3 - 2018-04-18
 ### Refactored
 - ToggleButtons
