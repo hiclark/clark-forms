@@ -1,6 +1,18 @@
+import React from 'react';
 import { isRequired, minLength } from '../../utils/validation';
+import Check from '../../assets/icons/check.svg';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
+
+const RATING = [
+  { value: 1, label: '1' },
+  { value: 2, label: '2' },
+  { value: 3, label: '3' },
+  { value: 4, label: '4' },
+  { value: 5, label: '5' },
+];
+
+const RATING_KEY = { left: 'Poor', right: 'Excellent' };
 
 const FIELD_SETS = [
   {
@@ -91,6 +103,18 @@ const FIELD_SETS = [
             type: 'toggleButton',
             name: 'toggle',
             values: [{ label: 'label1', value: 1 }, { label: 'label2', value: 2 }],
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'rating',
+            name: 'rating',
+            values: RATING,
+            icon: <Check />,
+            ratingKey: RATING_KEY,
           },
         ],
       },

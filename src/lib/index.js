@@ -8,6 +8,7 @@ import Error from './forms/error';
 import Input from './forms/input';
 import RadioButton from './forms/radio-button';
 import Textarea from './forms/textarea';
+import Rating from './forms/rating';
 
 export default Fieldset;
 export {
@@ -20,4 +21,5 @@ export {
   Input,
   RadioButton,
   Textarea,
+  Rating,
 };
