@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8.2 - 2018-05-02
+### Changed
+- No logo in progress bar
+
 ## 0.8.1 - 2018-05-01
 ### Changed
 - Ratings component styles
