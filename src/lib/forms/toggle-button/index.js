@@ -2,27 +2,31 @@ import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 import Label from '../label';
+import Error from '../error';
 import { TYPE_SCALE_F4 } from '../../styles/type-scale';
 import { SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
 import { CLARK_PRIMARY } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 
-const ToggleButton = ({ values, input }) => (
-  <ButtonContainer>
-    {values.map(({ value, label }) => {
-      const isSelected = value === input.value;
-      const onClick = () => {
-        const newValue = isSelected ? null : value;
-        input.onChange(newValue);
-      };
-      return (
-        <Button key={label} selected={isSelected} onClick={onClick}>
-          {label}
-        </Button>
-      );
-    })}
-  </ButtonContainer>
+const ToggleButton = ({ values, input, meta: { touched, error } }) => (
+  <div>
+    <ButtonContainer>
+      {values.map(({ value, label }) => {
+        const isSelected = value === input.value;
+        const onClick = () => {
+          const newValue = isSelected ? null : value;
+          input.onChange(newValue);
+        };
+        return (
+          <Button key={label} selected={isSelected} onClick={onClick}>
+            {label}
+          </Button>
+        );
+      })}
+    </ButtonContainer>
+    <Error touched={touched} error={error} />
+  </div>
 );
 
 export default props => (
