@@ -103,6 +103,7 @@ const FIELD_SETS = [
             type: 'toggleButton',
             name: 'toggle',
             values: [{ label: 'label1', value: 1 }, { label: 'label2', value: 2 }],
+            validate: isRequired,
           },
         ],
       },
