@@ -90,12 +90,24 @@ const FIELD_SETS = [
             showYearDropdown: true,
             showMonthDropdown: true,
           },
+        ],
+      },
+      {
+        columns: { small: 2 },
+        fields: [
           {
             type: 'radioButton',
-            name: 'radioButton',
-            label: 'Radio',
-            required: true,
-            validate: [isRequired],
+            name: 'accountType',
+            label: 'Individual',
+            value: 'individual',
+            validate: isRequired,
+          },
+          {
+            type: 'radioButton',
+            name: 'accountType',
+            label: 'Business',
+            value: 'company',
+            validate: isRequired,
           },
         ],
       },
