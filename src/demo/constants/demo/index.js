@@ -35,6 +35,13 @@ const FIELD_SETS = [
             validate: isRequired,
           },
           {
+            type: 'input',
+            name: 'firstInput',
+            label: 'Required Input',
+            required: true,
+            validate: [isRequired, minLength(6)],
+          },
+          {
             type: 'dropdown',
             name: 'multiselectTest',
             label: 'Multiselect Test',
@@ -82,6 +89,13 @@ const FIELD_SETS = [
             validate: [isRequired],
             showYearDropdown: true,
             showMonthDropdown: true,
+          },
+          {
+            type: 'input',
+            name: 'firstInput',
+            label: 'Required Input',
+            required: true,
+            validate: [isRequired, minLength(6)],
           },
         ],
       },
