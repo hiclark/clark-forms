@@ -60,7 +60,6 @@ const FormTextarea = styled.textarea`
   margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
   background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
   transition: 0.5s;
-  z-index: ${props => (props.showError ? 0 : 9)};
   ${props => renderBorderRadius(props)};
 
   &::placeholder {
