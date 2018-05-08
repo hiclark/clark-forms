@@ -85,7 +85,6 @@ const DropdownSelect = styled(Select)`
   display: block;
   outline: none;
   width: 100%;
-  z-index: 9;
   ${props => renderBorderRadius(props)};
 
   .select__control {
