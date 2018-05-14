@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8.6 - 2018-05-14
+### Changed
+- Remove z-indexing from form components to fix myriad of visual issues
+
 ## 0.8.2 - 2018-05-02
 ### Changed
 - No logo in progress bar
