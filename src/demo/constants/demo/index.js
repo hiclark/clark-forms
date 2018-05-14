@@ -35,6 +35,13 @@ const FIELD_SETS = [
             validate: isRequired,
           },
           {
+            type: 'input',
+            name: 'firstInput',
+            label: 'Required Input',
+            required: true,
+            validate: [isRequired, minLength(6)],
+          },
+          {
             type: 'dropdown',
             name: 'multiselectTest',
             label: 'Multiselect Test',
@@ -82,6 +89,25 @@ const FIELD_SETS = [
             validate: [isRequired],
             showYearDropdown: true,
             showMonthDropdown: true,
+          },
+        ],
+      },
+      {
+        columns: { small: 2 },
+        fields: [
+          {
+            type: 'radioButton',
+            name: 'accountType',
+            label: 'Individual',
+            value: 'individual',
+            validate: isRequired,
+          },
+          {
+            type: 'radioButton',
+            name: 'accountType',
+            label: 'Business',
+            value: 'company',
+            validate: isRequired,
           },
         ],
       },

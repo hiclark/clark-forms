@@ -57,7 +57,6 @@ const RadioButtonContainer = styled.div`
   height: 105px;
   position: relative;
   text-align: center;
-  z-index: 999;
 
   ${media.small`
     height: 150px;
@@ -68,7 +67,6 @@ const RadioButtonContainer = styled.div`
   */
   > ${Radio}:checked {
     background-color: ${CLARK_TERTIARY};
-    z-index: 0;
   }
 
   > ${Radio}:checked ~ label {

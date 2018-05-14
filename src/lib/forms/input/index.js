@@ -51,7 +51,6 @@ const FormInput = styled.input`
   margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
   background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
   transition: all 0.25s ease-in-out;
-  z-index: ${props => (props.showError ? 0 : 9)};
   ${props => renderBorderRadius(props)};
 
   &::placeholder {
