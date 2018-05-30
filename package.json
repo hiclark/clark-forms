@@ -89,7 +89,13 @@
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "css-loader": "^0.28.10",
+    "hoist-non-react-statics": "^2.5.0",
+    "moment": "^2.20.1",
+    "react-dates": "^16.5.0",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.20.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -146,11 +152,5 @@
     ]
   },
   "dependencies": {
-    "css-loader": "^0.28.10",
-    "hoist-non-react-statics": "^2.5.0",
-    "moment": "^2.20.1",
-    "react-dates": "^16.5.0",
-    "redux-logger": "^3.0.6",
-    "style-loader": "^0.20.2"
   }
 }
