@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8.7 - 2018-05-14
+### Changed
+- made all dependencies dev dependencies because we build before publishing
+
+
 ## 0.8.6 - 2018-05-14
 ### Changed
 - Remove z-indexing from form components to fix myriad of visual issues
