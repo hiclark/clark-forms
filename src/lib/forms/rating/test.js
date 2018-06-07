@@ -26,29 +26,7 @@ describe('<Rating />', () => {
     wrapper = shallow(<Rating {...props} />);
   });
 
-  describe('<Rating />', () => {
-    test('renders correctly', () => {
-      expect(wrapper).toHaveLength(1);
-    });
-
-    test('render name prop', () => {
-      expect(wrapper.prop('name')).toMatch('rating');
-    });
-
-    test('render values prop', () => {
-      expect(wrapper.prop('values')).toEqual(RATING);
-    });
-
-    test('render ratingKey prop', () => {
-      expect(wrapper.prop('ratingKey')).toEqual(RATING_KEY);
-    });
-
-    test('render icon prop', () => {
-      expect(wrapper.prop('icon')).toEqual(<Check />);
-    });
-  });
-
-  test('snapshot test <Rating />', () => {
+  it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -2,11 +2,10 @@
 
 exports[`<DatePicker /> renders correctly 1`] = `
 <datepicker__Container>
-  <datepicker__Label
-    htmlFor="Name"
-  >
-    Label
-  </datepicker__Label>
+  <Component
+    label="Label"
+    name="Name"
+  />
   <Field
     columns={2}
     component={[Function]}

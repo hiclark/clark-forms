@@ -2,11 +2,10 @@
 
 exports[`<DateRangePicker /> renders correctly 1`] = `
 <date-range-picker__Container>
-  <date-range-picker__Label
-    htmlFor="Name"
-  >
-    Label
-  </date-range-picker__Label>
+  <Component
+    label="Label"
+    name="Name"
+  />
   <Field
     columns={2}
     component={[Function]}

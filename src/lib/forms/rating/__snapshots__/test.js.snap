@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Rating /> snapshot test <Rating /> 1`] = `
+exports[`<Rating /> matches the snapshot 1`] = `
 <Field
   component={[Function]}
   icon={<check.svg />}

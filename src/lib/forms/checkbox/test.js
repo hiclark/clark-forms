@@ -3,83 +3,37 @@ import React from 'react';
 import Checkbox from './';
 
 describe('<Checkbox />', () => {
-  let wrapper;
-  let checkbox;
-  let label;
+  const props = {
+    onCheckboxClick: jest.fn(),
+    checked: true,
+    name: 'Name',
+    index: 1,
+    value: false,
+  };
 
-  beforeEach(() => {
-    const props = {
-      onCheckboxClick: jest.fn(),
-      checked: true,
-      name: 'Name',
-      label: 'Label',
-      index: 1,
-      value: false,
-    };
-    wrapper = shallow(<Checkbox {...props} />);
-    checkbox = wrapper.find('Field');
-    label = wrapper.find('label');
-  });
+  describe('when checked is true', () => {
+    const wrapper = shallow(<Checkbox {...props} />);
 
-  describe('<Checkbox /> field renders props correctly', () => {
-    test('render value prop', () => {
-      expect(checkbox.prop('value')).toBeFalsy();
-    });
-
-    test('render index prop', () => {
-      expect(checkbox.prop('index')).toEqual(1);
-    });
-
-    test('render name prop', () => {
-      expect(checkbox.prop('name')).toMatch('Name');
+    it('matches the snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 
-  describe('<Checkbox /> label renders correctly', () => {
-    test('render label text', () => {
-      expect(
-        label
-          .find('checkbox__LabelText')
-          .render()
-          .text(),
-      ).toEqual('Label');
-    });
+  describe('with label', () => {
+    const propsWithLabel = { ...props, label: 'Label' };
+    const wrapper = shallow(<Checkbox {...propsWithLabel} />);
 
-    test('render label icon', () => {
-      expect(
-        label
-          .find('checkbox__CheckboxLabel')
-          .childAt(0)
-          .type(),
-      ).toEqual('toggle-on.svg');
-    });
-
-    test('simulates onCheckboxClick click event', () => {
-      expect(label.props().onClick).toHaveBeenCalledTimes(0);
-      label.simulate('click');
-      expect(label.props().onClick).toHaveBeenCalledTimes(1);
-    });
-
-    test('onCheckboxClick click event renders icon correctly', () => {
-      expect(
-        wrapper
-          .find('label')
-          .find('checkbox__CheckboxLabel')
-          .childAt(0)
-          .type(),
-      ).toEqual('toggle-on.svg');
-      wrapper.setProps({ checked: false });
-      expect(
-        wrapper
-          .find('label')
-          .find('checkbox__CheckboxLabel')
-          .childAt(0)
-          .type(),
-      ).toEqual('toggle-off.svg');
+    it('matches the snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 
-  test('snapshot test <Checkbox />', () => {
-    expect(wrapper).toMatchSnapshot();
+  describe('when checked is false', () => {
+    const propsWithLabel = { ...props, checked: false };
+    const wrapper = shallow(<Checkbox {...propsWithLabel} />);
+
+    it('matches the snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
