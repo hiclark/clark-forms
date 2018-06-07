@@ -5,13 +5,17 @@ import RequiredAsterisk from '../required-asterisk';
 import { CLARK_SECONDARY } from '../../styles/colors';
 import { SPACING_SMALL } from '../../styles/spacing';
 
-export default ({ name, label, required }) => (
-  <Label htmlFor={name}>
+type PropsType = { name: string, label: string, required: boolean };
+const Label = ({ name, label, required }: PropsType) => (
+  <Wrap htmlFor={name}>
     {label || <Spacing />}
     {required && <RequiredAsterisk />}
-  </Label>
+  </Wrap>
 );
-const Label = styled.label`
+
+export default Label;
+
+const Wrap = styled.label`
   color: ${CLARK_SECONDARY};
   display: block;
   margin-bottom: ${SPACING_SMALL};

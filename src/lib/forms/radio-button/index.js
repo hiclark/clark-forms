@@ -17,6 +17,7 @@ type PropsType = {
   value: boolean,
   placeholder: boolean,
   icon: Element<any>,
+  required: boolean,
 };
 
 const RadioButton = ({ name, label, index, value, placeholder, icon, required }: PropsType) => (

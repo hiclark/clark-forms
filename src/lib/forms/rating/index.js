@@ -35,7 +35,8 @@ const Rating = ({ name, values, icon, input, ratingKey: { left, right } }) => (
   </RatingContainer>
 );
 
-export default props => <Field component={Rating} {...props} />;
+type PropsType = any;
+export default (props: PropsType) => <Field component={Rating} {...props} />;
 
 const RATING_BACKGROUND_LEFT = '#f7fafc';
 const RATING_BACKGROUND_RIGHT = '#fffaf8';

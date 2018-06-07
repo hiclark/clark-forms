@@ -36,7 +36,8 @@ const renderField = ({ required, index, label, input: { name, checked, onChange 
   </div>
 );
 
-const Checkbox = props => (
+type PropsType = any;
+const Checkbox = (props: PropsType) => (
   <div>
     <Field component={renderField} {...props} />
   </div>

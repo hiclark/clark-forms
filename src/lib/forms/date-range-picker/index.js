@@ -12,9 +12,11 @@ import Label from '../label';
 
 import './react-dates-overrides.css';
 
-export class DateRangePickerField extends PureComponent {
+type StateType = { focusedInput: ?string };
+
+export class DateRangePickerField extends PureComponent<*, StateType> {
   state = { focusedInput: null };
-  handleFocusChange = focusedInput => this.setState({ focusedInput });
+  handleFocusChange = (focusedInput: string) => this.setState({ focusedInput });
 
   render() {
     const {
@@ -51,7 +53,8 @@ export class DateRangePickerField extends PureComponent {
   }
 }
 
-const RangePicker = ({ name, label, columns, validate, required, ...props }) => (
+type PropsType = any;
+const RangePicker = ({ name, label, columns, validate, required, ...props }: PropsType) => (
   <Container>
     <Label name={name} label={label} required={required} />
     <Field
