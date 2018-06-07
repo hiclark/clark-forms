@@ -1,7 +1,5 @@
 [ignore]
-.*/src/demo/registerServiceWorker.js
-.*/src/demo/store/index.js
-.*/src/demo/index.js
+.*/src/demo/*
 .*/build/.*
 .*/public/.*
 .*/config/.*
