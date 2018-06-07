@@ -1,13 +1,5 @@
 import React from 'react';
 import { isRequired, minLength } from '../../utils/validation';
-<<<<<<< HEAD
-import normalizeNumbers from '../../utils/normalization/number';
-import { type DataType } from '../../../lib/forms/fieldset';
-
-const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
-
-const FIELD_SETS: DataType = [
-=======
 import Check from '../../assets/icons/check.svg';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
@@ -23,7 +15,6 @@ const RATING = [
 const RATING_KEY = { left: 'Poor', right: 'Excellent' };
 
 const FIELD_SETS = [
->>>>>>> master
   {
     fieldSet: [
       {
