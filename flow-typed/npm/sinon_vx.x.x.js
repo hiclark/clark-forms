@@ -1,4 +1,4 @@
-// flow-typed signature: 634a408553bf9b8b2f99f76d3a7eb44b
+// flow-typed signature: 1433890c08582b3b4e469f50d765c8ee
 // flow-typed version: <<STUB>>/sinon_v^4.3.0/flow_v0.66.0
 
 /**
@@ -142,6 +142,10 @@ declare module 'sinon/lib/sinon/util/core/get-property-descriptor' {
   declare module.exports: any;
 }
 
+declare module 'sinon/lib/sinon/util/core/is-es-module' {
+  declare module.exports: any;
+}
+
 declare module 'sinon/lib/sinon/util/core/iterable-to-string' {
   declare module.exports: any;
 }
@@ -183,6 +187,10 @@ declare module 'sinon/pkg/sinon-no-sourcemaps' {
 }
 
 declare module 'sinon/pkg/sinon' {
+  declare module.exports: any;
+}
+
+declare module 'sinon/scripts/support-sinon' {
   declare module.exports: any;
 }
 
@@ -277,6 +285,9 @@ declare module 'sinon/lib/sinon/util/core/get-config.js' {
 declare module 'sinon/lib/sinon/util/core/get-property-descriptor.js' {
   declare module.exports: $Exports<'sinon/lib/sinon/util/core/get-property-descriptor'>;
 }
+declare module 'sinon/lib/sinon/util/core/is-es-module.js' {
+  declare module.exports: $Exports<'sinon/lib/sinon/util/core/is-es-module'>;
+}
 declare module 'sinon/lib/sinon/util/core/iterable-to-string.js' {
   declare module.exports: $Exports<'sinon/lib/sinon/util/core/iterable-to-string'>;
 }
@@ -309,4 +320,7 @@ declare module 'sinon/pkg/sinon-no-sourcemaps.js' {
 }
 declare module 'sinon/pkg/sinon.js' {
   declare module.exports: $Exports<'sinon/pkg/sinon'>;
+}
+declare module 'sinon/scripts/support-sinon.js' {
+  declare module.exports: $Exports<'sinon/scripts/support-sinon'>;
 }

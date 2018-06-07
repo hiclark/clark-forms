@@ -1,4 +1,4 @@
-// flow-typed signature: a45a3fcbb91c4e27dcd346d6da1af764
+// flow-typed signature: e2a4965c051e530d459537a9e0ff3149
 // flow-typed version: <<STUB>>/enzyme-adapter-react-16_v^1.1.0/flow_v0.66.0
 
 /**
@@ -22,19 +22,11 @@ declare module 'enzyme-adapter-react-16' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module 'enzyme-adapter-react-16/build/findCurrentFiberUsingSlowPath' {
-  declare module.exports: any;
-}
-
 declare module 'enzyme-adapter-react-16/build/index' {
   declare module.exports: any;
 }
 
 declare module 'enzyme-adapter-react-16/build/ReactSixteenAdapter' {
-  declare module.exports: any;
-}
-
-declare module 'enzyme-adapter-react-16/src/findCurrentFiberUsingSlowPath' {
   declare module.exports: any;
 }
 
@@ -47,17 +39,11 @@ declare module 'enzyme-adapter-react-16/src/ReactSixteenAdapter' {
 }
 
 // Filename aliases
-declare module 'enzyme-adapter-react-16/build/findCurrentFiberUsingSlowPath.js' {
-  declare module.exports: $Exports<'enzyme-adapter-react-16/build/findCurrentFiberUsingSlowPath'>;
-}
 declare module 'enzyme-adapter-react-16/build/index.js' {
   declare module.exports: $Exports<'enzyme-adapter-react-16/build/index'>;
 }
 declare module 'enzyme-adapter-react-16/build/ReactSixteenAdapter.js' {
   declare module.exports: $Exports<'enzyme-adapter-react-16/build/ReactSixteenAdapter'>;
-}
-declare module 'enzyme-adapter-react-16/src/findCurrentFiberUsingSlowPath.js' {
-  declare module.exports: $Exports<'enzyme-adapter-react-16/src/findCurrentFiberUsingSlowPath'>;
 }
 declare module 'enzyme-adapter-react-16/src/index.js' {
   declare module.exports: $Exports<'enzyme-adapter-react-16/src/index'>;
