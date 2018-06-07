@@ -11,20 +11,20 @@ import { GREY_75 } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import RequiredAsterisk from '../required-asterisk';
 
-const Checkbox = ({ checked, onCheckboxClick, name, label, required, index, value }) => (
+const renderField = ({ required, index, label, input: { name, checked, onChange } }) => (
   <div>
     <HiddenField>
       <Field
         id={`${name}-${index}`}
         name={name}
         component="input"
-        value={value}
+        value={checked}
         type="checkbox"
         index={index}
       />
     </HiddenField>
 
-    <label htmlFor={`${name}-${index}`} onClick={onCheckboxClick} onKeyDown={onCheckboxClick}>
+    <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
       <CheckboxLabel>
         {checked ? <ToggleOn /> : <ToggleOff />}
         <LabelText>
@@ -33,6 +33,12 @@ const Checkbox = ({ checked, onCheckboxClick, name, label, required, index, valu
         </LabelText>
       </CheckboxLabel>
     </label>
+  </div>
+);
+
+const Checkbox = props => (
+  <div>
+    <Field component={renderField} {...props} />
   </div>
 );
 
