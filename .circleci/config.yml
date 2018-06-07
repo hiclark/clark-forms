@@ -7,9 +7,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Set npmjs.com token for @clark-inc private repo
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run:
           name: Install node_modules
           command: yarn
       - save_cache:
@@ -20,8 +17,8 @@ jobs:
           name: Run ESlint && Prettier
           command: yarn run lint:prod && yarn run prettify
       - run:
-          name: Run Flow && Jest tests
-          command: yarn run flow && yarn test
+          name: Run Jest tests
+          command: yarn test
 
 workflows:
    version: 2
