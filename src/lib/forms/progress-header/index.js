@@ -43,7 +43,7 @@ const ProgressHeader = ({
     {currentPosition &&
       maxPosition && (
         <ProgressBar>
-          <ProgressBarProgress percentCovered={currentPosition / maxPosition * 100} />
+          <ProgressBarProgress percentCovered={(currentPosition / maxPosition) * 100} />
         </ProgressBar>
       )}
   </Header>
