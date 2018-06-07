@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8.8 - 2018-06-07
+### Fixed
+- checkbox component wasn't hooked up correctly and now it is
+
 ## 0.8.7 - 2018-05-14
 ### Changed
 - made all dependencies dev dependencies because we build before publishing
