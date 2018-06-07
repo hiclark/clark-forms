@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, type Validator } from 'redux-form';
+import { Field } from 'redux-form';
 import styled from 'styled-components';
 
 import Error from '../error';
@@ -11,51 +11,29 @@ import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
 import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
+import Label from '../label';
 
-const renderField = ({ input, inputType, index, placeholder, meta: { touched, error } }) => (
+const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) => (
   <div>
-    <FormInput
-      {...input}
-      type={inputType}
-      index={index}
-      placeholder={placeholder}
-      showError={!(error && touched)}
-    />
+    {/* we rename the inputType prop to avoid a colision with the type attribute
+    that is used to specify which form element to render */}
+    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
     <Error touched={touched} error={error} />
   </div>
 );
 
-export type InputType = 'number' | 'text' | 'password';
-
-const Input = ({
-  name,
-  label,
-  copy,
-  inputType,
-  validate,
-  columns,
-}: {
-  name: string,
-  label: string,
-  copy: string,
-  inputType: InputType,
-  validate: Validator | Validator[],
-  columns: { small: number, large: number },
-}) => (
-  <div>
-    <Label htmlFor={name}>{label}</Label>
-    {copy && <Copy>{copy}</Copy>}
-    <Field component={renderField} inputType={inputType} validate={validate} columns={columns} />
-  </div>
-);
+const Input = props => {
+  const { name, label, copy, required } = props;
+  return (
+    <div>
+      <Label name={name} label={label} required={required} />
+      {copy && <Copy>{copy}</Copy>}
+      <Field component={renderField} {...props} />
+    </div>
+  );
+};
 
 export default Input;
-
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
-`;
 
 const FormInput = styled.input`
   ${TYPE_SCALE_F4};
@@ -73,7 +51,6 @@ const FormInput = styled.input`
   margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
   background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
   transition: all 0.25s ease-in-out;
-  z-index: ${props => (props.showError ? 0 : 9)};
   ${props => renderBorderRadius(props)};
 
   &::placeholder {

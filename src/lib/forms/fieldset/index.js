@@ -10,6 +10,9 @@ import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
+import DateRangePicker from '../date-range-picker';
+import ToggleButton from '../toggle-button';
+import Rating from '../rating';
 
 import media from '../../styles/media-queries';
 import { SPACING_SMALL, SPACING_MEDIUM } from '../../styles/spacing';
@@ -25,6 +28,9 @@ const mapFieldToComponent = type => {
     dropdown: Dropdown,
     textarea: Textarea,
     datepicker: DatePicker,
+    daterangepicker: DateRangePicker,
+    toggleButton: ToggleButton,
+    rating: Rating,
   };
 
   return components[type];

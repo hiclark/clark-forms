@@ -9,35 +9,36 @@ import ToggleOn from './toggle-on.svg';
 import { SPACING_SMALL } from '../../styles/spacing';
 import { GREY_75 } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
+import RequiredAsterisk from '../required-asterisk';
 
-type PropsType = {
-  checked: boolean,
-  onCheckboxClick(): void,
-  name: string,
-  label: string,
-  index: number,
-  value: string,
-};
-
-const Checkbox = ({ checked, onCheckboxClick, name, label, index, value }: PropsType) => (
+const renderField = ({ required, index, label, input: { name, checked, onChange } }) => (
   <div>
     <HiddenField>
       <Field
         id={`${name}-${index}`}
         name={name}
         component="input"
-        value={value}
+        value={checked}
         type="checkbox"
         index={index}
       />
     </HiddenField>
 
-    <label htmlFor={`${name}-${index}`} onClick={onCheckboxClick} onKeyDown={onCheckboxClick}>
+    <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
       <CheckboxLabel>
         {checked ? <ToggleOn /> : <ToggleOff />}
-        <LabelText>{label}</LabelText>
+        <LabelText>
+          {label}
+          {required && <RequiredAsterisk />}
+        </LabelText>
       </CheckboxLabel>
     </label>
+  </div>
+);
+
+const Checkbox = props => (
+  <div>
+    <Field component={renderField} {...props} />
   </div>
 );
 

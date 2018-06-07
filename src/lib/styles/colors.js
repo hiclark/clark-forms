@@ -14,6 +14,7 @@ export const GREY_25 = '#CFCFD7';
 export const GREY_50 = '#A09EAF';
 export const GREY_75 = '#716f88';
 export const BLACK = '#000';
+export const TEAL = '#398188';
 
 export const LINK_COLOR_PRIMARY = CLARK_TERTIARY;
 export const LINK_COLOR_SECONDARY = '#00565a';

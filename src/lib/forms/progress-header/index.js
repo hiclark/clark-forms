@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import BackArrow from './back-arrow';
-import Wordmark from './clark-wordmark.svg';
 
 import media from '../../styles/media-queries';
 import { CLARK_PRIMARY, WHITE, GREY_25, GREY_75 } from '../../styles/colors';
@@ -14,7 +12,6 @@ import {
   SPACING_EXTRA_LARGE,
 } from '../../styles/spacing';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { BORDER_WIDTH_1 } from '../../styles/borders';
 
 type PropsType = {
   currentPosition: number,
@@ -33,9 +30,6 @@ const ProgressHeader = ({
 }: PropsType) => (
   <Header>
     <Container>
-      <LogoContainer to="/">
-        <Logo />
-      </LogoContainer>
       {handleBackLinkClick && (
         <BackIconWrapper>
           <BackArrow onClick={handleBackLinkClick} />
@@ -68,24 +62,6 @@ const Container = styled.div`
   padding: 0 calc(${SPACING_SMALL} + ${SPACING_MEDIUM});
 `;
 
-const LogoContainer = styled(Link)`
-  display: none;
-
-  ${media.small`
-    align-items: center;
-    border-right: ${BORDER_WIDTH_1} solid ${GREY_25};
-    display: flex;
-    height: 100%;
-    padding-right: calc(${SPACING_SMALL} + ${SPACING_MEDIUM});
-  `};
-`;
-
-// $FlowFixMe: unsure about this one!
-const Logo = styled(Wordmark)`
-  color: ${CLARK_PRIMARY};
-  width: 80px;
-`;
-
 const ProgressBar = styled.div`
   background-color: ${GREY_25};
   height: 4px;
@@ -103,13 +79,13 @@ const BackIconWrapper = styled.div`
   ${media.small`
     display: none;
   `};
+  margin-right: ${SPACING_LARGE};
 `;
 
 const Title = styled.div`
   color: ${GREY_75};
   ${FONT_WEIGHT_100};
   text-align: center;
-  margin-left: ${SPACING_LARGE};
 `;
 
 const CancelBtn = styled.div`

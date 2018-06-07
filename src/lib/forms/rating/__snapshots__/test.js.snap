@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Rating /> matches the snapshot 1`] = `
+<Field
+  component={[Function]}
+  icon={<check.svg />}
+  name="rating"
+  ratingKey={
+    Object {
+      "left": "Left",
+      "right": "Right",
+    }
+  }
+  values={
+    Array [
+      Object {
+        "label": "1",
+        "value": 1,
+      },
+      Object {
+        "label": "2",
+        "value": 2,
+      },
+      Object {
+        "label": "3",
+        "value": 3,
+      },
+      Object {
+        "label": "4",
+        "value": 4,
+      },
+      Object {
+        "label": "5",
+        "value": 5,
+      },
+    ]
+  }
+/>
+`;

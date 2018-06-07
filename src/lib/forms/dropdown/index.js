@@ -1,16 +1,16 @@
 import React from 'react';
-import { Field, type Validator } from 'redux-form';
+import { Field } from 'redux-form';
 import Select from 'react-styled-select';
 import styled from 'styled-components';
 
 import Error from '../error';
 import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, TRANSPARENT, WHITE } from '../../styles/colors';
-import { SPACING_SMALL } from '../../styles/spacing';
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
 import { TYPE_SCALE_F4 } from '../../styles/type-scale';
 import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1, BORDER_WIDTH_2, renderBorderRadius } from '../../styles/borders';
+import Label from '../label';
 
 const renderDropdown = ({
   input,
@@ -44,21 +44,21 @@ const renderDropdown = ({
   </div>
 );
 
-type DropdownOptionType = { value: string, label: string };
-
-type DropdownPropsType = {
-  index: number,
-  name: string,
-  label: string,
-  values: DropdownOptionType[],
-  columns: { small: number, large: number },
-  validate: Validator | Validator[],
-  multi: boolean,
-};
-
-const Dropdown = ({ index, name, label, values, columns, validate, multi }: DropdownPropsType) => (
+const Dropdown = ({
+  index,
+  name,
+  label,
+  values,
+  placeholder,
+  columns,
+  validate,
+  multi,
+  required,
+  onChange,
+}) => (
   <DropdownContainer>
-    <Label htmlFor={name}>{label}</Label>
+    <Label name={name} label={label} required={required} />
+
     <Field
       index={index}
       name={name}
@@ -67,6 +67,8 @@ const Dropdown = ({ index, name, label, values, columns, validate, multi }: Drop
       options={values}
       columns={columns}
       validate={validate}
+      onChange={onChange}
+      placeholder={placeholder}
     />
   </DropdownContainer>
 );
@@ -77,19 +79,12 @@ const DropdownContainer = styled.div`
   display: block;
 `;
 
-const Label = styled.label`
-  color: ${CLARK_SECONDARY};
-  display: block;
-  margin-bottom: ${SPACING_SMALL};
-`;
-
 const DropdownSelect = styled(Select)`
   ${BORDER_RADIUS_F2};
   border: ${BORDER_WIDTH_1} solid ${GREY_25};
   display: block;
   outline: none;
   width: 100%;
-  z-index: 9;
   ${props => renderBorderRadius(props)};
 
   .select__control {
