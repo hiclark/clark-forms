@@ -22,5 +22,6 @@ unclear-type=warn
 
 [options]
 all=true
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/CSSFlowStub.js.flow'
 
 [strict]
