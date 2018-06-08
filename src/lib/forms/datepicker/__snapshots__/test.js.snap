@@ -2,7 +2,7 @@
 
 exports[`<DatePicker /> renders correctly 1`] = `
 <datepicker__Container>
-  <Component
+  <Label
     label="Label"
     name="Name"
   />
@@ -20,12 +20,14 @@ exports[`SingleDatePickerField renders correctly 1`] = `
 <div>
   <withStyles(SingleDatePicker)
     anchorDirection="left"
+    appendToBody={false}
     block={false}
     calendarInfoPosition="bottom"
     customCloseIcon={null}
     customInputIcon={null}
     date={null}
     daySize={39}
+    disableScroll={false}
     disabled={false}
     displayFormat={[Function]}
     enableOutsideDays={false}

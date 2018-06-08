@@ -2,7 +2,7 @@
 
 exports[`<DateRangePicker /> renders correctly 1`] = `
 <date-range-picker__Container>
-  <Component
+  <Label
     label="Label"
     name="Name"
   />
@@ -20,12 +20,14 @@ exports[`DateRangePickerField renders correctly 1`] = `
 <div>
   <withStyles(DateRangePicker)
     anchorDirection="left"
+    appendToBody={false}
     block={false}
     calendarInfoPosition="bottom"
     customArrowIcon={null}
     customCloseIcon={null}
     customInputIcon={null}
     daySize={39}
+    disableScroll={false}
     disabled={false}
     displayFormat={[Function]}
     enableOutsideDays={false}
