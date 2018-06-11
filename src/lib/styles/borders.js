@@ -8,7 +8,7 @@ export const BORDER_WIDTH_1 = '1px';
 export const BORDER_WIDTH_2 = '2px';
 export const BORDER_WIDTH_3 = '3px';
 
-const renderBorderRadiusSides = (index, column) => {
+const renderBorderRadiusSides = (index: number, column: number) => {
   if (index === 1) {
     return css`
       border-radius: ${SPACING_EXTRA_SMALL} 0 0 ${SPACING_EXTRA_SMALL};
@@ -27,8 +27,15 @@ const renderBorderRadiusSides = (index, column) => {
   `;
 };
 
-export const renderBorderRadius = props => {
-  const { columns: { small, large }, index } = props;
+type PropsType = {
+  columns: {
+    small: number,
+    large: number,
+  },
+  index: number,
+};
+
+export const renderBorderRadius = ({ columns: { small, large }, index }: PropsType) => {
   const indexBaseOne = index + 1;
 
   if (small > 1) {

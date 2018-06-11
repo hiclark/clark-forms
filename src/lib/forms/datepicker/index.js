@@ -13,13 +13,14 @@ import Error from '../error';
 
 import './react-dates-overrides.css';
 
+type SingleDatePickerPropsType = any;
 export const SingleDatePickerField = ({
   meta: { active, error, touched },
   input: { value = null, onChange, onFocus, onBlur },
   placeholder = 'Select a date',
   isOutsideRange,
   numberOfMonths = 1,
-}) => (
+}: SingleDatePickerPropsType) => (
   <div>
     <SingleDatePicker
       date={value ? moment(value) : null}
@@ -37,7 +38,8 @@ export const SingleDatePickerField = ({
   </div>
 );
 
-const DatePicker = ({ name, label, columns, validate, required, ...props }) => (
+type PropsType = any;
+const DatePicker = ({ name, label, columns, validate, required, ...props }: PropsType) => (
   <Container>
     <Label name={name} label={label} required={required} />
     <Field

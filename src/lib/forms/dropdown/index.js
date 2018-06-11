@@ -44,6 +44,7 @@ const renderDropdown = ({
   </div>
 );
 
+type PropsType = any;
 const Dropdown = ({
   index,
   name,
@@ -55,20 +56,19 @@ const Dropdown = ({
   multi,
   required,
   onChange,
-}) => (
+}: PropsType) => (
   <DropdownContainer>
     <Label name={name} label={label} required={required} />
-
     <Field
       index={index}
       name={name}
       multi={multi}
       component={renderDropdown}
       options={values}
-      placeholder={placeholder}
       columns={columns}
       validate={validate}
       onChange={onChange}
+      placeholder={placeholder}
     />
   </DropdownContainer>
 );

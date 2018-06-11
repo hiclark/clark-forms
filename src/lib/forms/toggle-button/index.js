@@ -29,7 +29,8 @@ const ToggleButton = ({ values, input, meta: { touched, error } }) => (
   </div>
 );
 
-export default props => (
+type PropsType = any;
+export default (props: PropsType) => (
   <div>
     <Label name={props.name} label={props.label} required={props.required} />
     <Field component={ToggleButton} {...props} />

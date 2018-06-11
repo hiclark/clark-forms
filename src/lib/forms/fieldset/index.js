@@ -1,11 +1,12 @@
 /* eslint react/no-array-index-key: 0 */
 /* eslint no-shadow: 0 */
 import React from 'react';
+import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
 import RadioButton from '../radio-button';
 import Dropdown from '../dropdown';
-import Input from '../input';
+import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
@@ -35,13 +36,62 @@ const mapFieldToComponent = type => {
   return components[type];
 };
 
-const composeComponent = (index, field, columns) => {
+const composeComponent = (index: number, field, columns: { small: number, large: number }) => {
   const { type, name } = field;
   const FieldComponent = mapFieldToComponent(type);
   return <FieldComponent key={name} index={index} columns={columns} {...field} />;
 };
 
-const Fieldset = ({ data }) => (
+type BaseFieldSetObjectType = {
+  type: 'dropdown' | 'datepicker' | 'input' | 'textarea',
+  name: string,
+  label: string,
+  validate?: Validator | Validator[],
+  normalize?: Normalizer | Normalizer[],
+};
+
+type InputFieldSetObjectType = {
+  type: 'input',
+  copy?: string,
+  inputType?: InputType,
+} & BaseFieldSetObjectType;
+
+type DropdownFieldSetObjectType = {
+  type: 'dropdown',
+  multi?: boolean,
+  values: { value: string, label: string }[],
+} & BaseFieldSetObjectType;
+
+type DatePickerFieldSetObjectType = {
+  type: 'datepicker',
+} & BaseFieldSetObjectType;
+
+type TextAreaFieldSetObjectType = {
+  type: 'textarea',
+} & BaseFieldSetObjectType;
+
+type FieldSetObjectType =
+  | InputFieldSetObjectType
+  | DropdownFieldSetObjectType
+  | DatePickerFieldSetObjectType
+  | TextAreaFieldSetObjectType;
+
+type FieldSetType = {
+  title?: string,
+  subCopy?: string,
+  fields: FieldSetObjectType[],
+  columns: { small: number, large: number },
+}[];
+
+export type DataType = {
+  fieldSet: FieldSetType,
+}[];
+
+type PropsType = {
+  data: DataType,
+};
+
+const Fieldset = ({ data }: PropsType) => (
   <div>
     {data.map(object =>
       object.fieldSet.map((fieldSet, index) => {

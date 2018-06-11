@@ -13,6 +13,8 @@ import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 import Label from '../label';
 
+export type InputType = string;
+
 const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) => (
   <div>
     {/* we rename the inputType prop to avoid a colision with the type attribute
@@ -22,7 +24,8 @@ const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) =>
   </div>
 );
 
-const Input = props => {
+type PropsType = any;
+const Input = (props: PropsType) => {
   const { name, label, copy, required } = props;
   return (
     <div>

@@ -143,6 +143,11 @@ const FIELD_SETS = [
             icon: <Check />,
             ratingKey: RATING_KEY,
           },
+          {
+            type: 'textarea',
+            name: 'textArea',
+            label: 'Text Area',
+          },
         ],
       },
     ],

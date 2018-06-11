@@ -7,7 +7,7 @@ const sizes = {
 };
 
 const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
+  acc[label] = (...args: any[]) => css`
     @media (min-width: ${sizes[label] / 16}em) {
       ${css(...args)};
     }

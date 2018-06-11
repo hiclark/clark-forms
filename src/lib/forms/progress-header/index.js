@@ -13,13 +13,21 @@ import {
 } from '../../styles/spacing';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 
+type PropsType = {
+  currentPosition: number,
+  maxPosition: number,
+  title: string,
+  handleBackLinkClick(): void,
+  handleCancelClick(): void,
+};
+
 const ProgressHeader = ({
   currentPosition,
   maxPosition,
   title,
   handleBackLinkClick,
   handleCancelClick,
-}) => (
+}: PropsType) => (
   <Header>
     <Container>
       {handleBackLinkClick && (
@@ -35,7 +43,7 @@ const ProgressHeader = ({
     {currentPosition &&
       maxPosition && (
         <ProgressBar>
-          <ProgressBarProgress percentCovered={currentPosition / maxPosition * 100} />
+          <ProgressBarProgress percentCovered={(currentPosition / maxPosition) * 100} />
         </ProgressBar>
       )}
   </Header>
