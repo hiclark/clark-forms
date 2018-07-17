@@ -36,8 +36,10 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
           focusedInput={focusedInput}
           onDatesChange={newDates =>
             onChange({
-              startDate: newDates.startDate ? newDates.startDate.toISOString() : null,
-              endDate: newDates.endDate ? newDates.endDate.toISOString() : null,
+              startDate: newDates.startDate
+                ? newDates.startDate.startOf('day').toISOString()
+                : null,
+              endDate: newDates.endDate ? newDates.endDate.startOf('day').toISOString() : null,
             })
           }
           onFocusChange={this.handleFocusChange}
@@ -45,7 +47,7 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
           startDatePlaceholderText="Start Date"
           showDefaultInputIcon
           hideKeyboardShortcutsPanel
-          isOutsideRange={isOutsideRange}
+          isOutsideRange={momentObject => isOutsideRange(momentObject.startOf('day'))}
         />
         <Error touched={touched} error={error} />
       </div>

@@ -24,14 +24,16 @@ export const SingleDatePickerField = ({
   <div>
     <SingleDatePicker
       date={value ? moment(value) : null}
-      onDateChange={e => (e ? onChange(e.toISOString()) : onChange(null))}
+      onDateChange={momentObject =>
+        momentObject ? onChange(momentObject.startOf('day').toISOString()) : onChange(null)
+      }
       focused={active}
       onFocusChange={({ focused }) => (focused ? onFocus() : onBlur())}
       id="date"
       placeholder={placeholder}
       showDefaultInputIcon
       hideKeyboardShortcutsPanel
-      isOutsideRange={isOutsideRange}
+      isOutsideRange={momentObject => isOutsideRange(momentObject.startOf('day'))}
       numberOfMonths={numberOfMonths}
     />
     <Error touched={touched} error={error} />
