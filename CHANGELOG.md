@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.9.0 - 2018-07-19
+### Fixed
+- datepicker and daterangepicker now set the value to the start of the selected day
+
 ## 0.8.8 - 2018-06-07
 ### Fixed
 - checkbox component wasn't hooked up correctly and now it is
