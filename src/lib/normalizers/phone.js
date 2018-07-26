@@ -4,6 +4,7 @@ export const normalizePhone = (value: ?any, previousValue: ?any) => {
   if (!value) {
     return value;
   }
+
   const onlyNums = value.replace(/[^\d]/g, '');
   if (!previousValue || value.length > previousValue.length) {
     // typing forward
@@ -20,6 +21,7 @@ export const normalizePhone = (value: ?any, previousValue: ?any) => {
   if (onlyNums.length <= 6) {
     return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}`;
   }
+
   return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`;
 };
 
