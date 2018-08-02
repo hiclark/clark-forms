@@ -22,10 +22,10 @@ describe('<Textarea />', () => {
     };
     wrapper = shallow(<Textarea {...props} />);
     textarea = wrapper.find('Field');
-    label = wrapper.find('textarea__Label');
+    label = wrapper.find('Label');
   });
 
-  describe('<Textarea /> field renders props correctly', () => {
+  describe('field renders props correctly', () => {
     test('render name prop', () => {
       expect(textarea.prop('name')).toMatch('Name');
     });
@@ -47,13 +47,13 @@ describe('<Textarea />', () => {
     });
   });
 
-  describe('<Textarea /> label renders correctly', () => {
+  describe('label renders correctly', () => {
     test('render label text', () => {
       expect(label.render().text()).toEqual('Label');
     });
   });
 
-  describe('<Textarea /> renders error component correctly', () => {
+  describe('renders error component correctly', () => {
     test('error component snapshot test', () => {
       expect(textarea).toMatchSnapshot();
       wrapper.setProps({
