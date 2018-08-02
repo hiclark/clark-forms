@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.10.0 - 2018-08-02
+### Added
+- normalizers and validations
+- test for text area
+
 ## 0.9.0 - 2018-07-19
 ### Fixed
 - datepicker and daterangepicker now set the value to the start of the selected day
