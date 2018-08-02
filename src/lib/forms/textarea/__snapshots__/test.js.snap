@@ -1,48 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Textarea /> <Textarea /> renders error component correctly error component snapshot test 1`] = `
-<Field
-  component={[Function]}
-  index={1}
-  label="Label"
-  meta={
-    Object {
-      "error": false,
-      "touched": false,
-    }
-  }
-  name="Name"
-  placeholder="Placeholder Text"
-  showError={false}
-  type="textarea"
-/>
-`;
-
-exports[`<Textarea /> <Textarea /> renders error component correctly error component snapshot test 2`] = `
-<Field
-  component={[Function]}
-  index={1}
-  label="Label"
-  meta={
-    Object {
-      "error": false,
-      "touched": false,
-    }
-  }
-  name="Name"
-  placeholder="Placeholder Text"
-  showError={false}
-  type="textarea"
-/>
-`;
-
 exports[`<Textarea /> <Textarea /> snapshot test 1`] = `
 <div>
-  <textarea__Label
-    htmlFor="Name"
-  >
-    Label
-  </textarea__Label>
+  <Label
+    label="Label"
+    name="Name"
+  />
   <Field
     component={[Function]}
     index={1}
@@ -59,4 +22,40 @@ exports[`<Textarea /> <Textarea /> snapshot test 1`] = `
     type="textarea"
   />
 </div>
+`;
+
+exports[`<Textarea /> renders error component correctly error component snapshot test 1`] = `
+<Field
+  component={[Function]}
+  index={1}
+  label="Label"
+  meta={
+    Object {
+      "error": false,
+      "touched": false,
+    }
+  }
+  name="Name"
+  placeholder="Placeholder Text"
+  showError={false}
+  type="textarea"
+/>
+`;
+
+exports[`<Textarea /> renders error component correctly error component snapshot test 2`] = `
+<Field
+  component={[Function]}
+  index={1}
+  label="Label"
+  meta={
+    Object {
+      "error": false,
+      "touched": false,
+    }
+  }
+  name="Name"
+  placeholder="Placeholder Text"
+  showError={false}
+  type="textarea"
+/>
 `;
