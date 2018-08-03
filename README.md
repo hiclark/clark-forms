@@ -1,12 +1,10 @@
-# Clark Forms
-
-📝 Clark React Redux Forms library
+# 📝 Clark Redux Forms library
 
 This library is a React project with Redux, Redux Forms, Styled-Components, and Jest/Enzyme. It includes particulars in the build pipeline including Airbnb ESlint, Prettier, hot-reloading, and SVG optimizations.
 
 This application was initially scaffolded using [Create React App](https://github.com/facebookincubator/create-react-app) and then ejected, reference those docs for additional information. Below you will find some information on how this project is structured.
 
-#### Project structure:
+### Project structure:
 
 The `src` directory contains both `lib` and `demo` folders. Demo serves as a sandbox to test, build, and see updates to the form components locally. The `lib` folder is where all the library production code goes.
 
@@ -26,38 +24,20 @@ The `src` directory contains both `lib` and `demo` folders. Demo serves as a san
 
 ### Testing library integration locally
 
-To test the Clark Forms library locally follow the instructions [here](https://yarnpkg.com/lang/en/docs/cli/link/).
-
-** _Make sure `build/` directory exists_ (`yarn build`)
+To test @clark-inc/clark-forms locally, ** _Make sure `build/` directory exists_ (`yarn build`) and then follow the instructions [here](https://yarnpkg.com/lang/en/docs/cli/link/).
 
 ### Testing
 
 The testing suite uses Jest as the test runner and Enzyme as a utility to make testing React components easier. These functions are all made available globally in every test file in the `setupTests.js`.
 
-- Run `yarn run lint` to run the linter
+- Run `yarn lint` to run the linter
 - Run `yarn test` to start the test runner
 
 ### Updating
 
 For convience sake, we use the [cut-release](https://github.com/bjoerge/cut-release) project to easily publish to npm and follow SEMVER.
 
-If for some reason you rather do this manually, the process is as follows:
-
-1. Merge changes into `master`
-
-1. `git checkout master`
-
-1. Run `yarn build`
-
-1. Run `npm version` specifying the subsequent version based on SEMVER and supply a commit message using the `-m` flag. ex. `npm version patch -m "Upgrade to %s for reasons"`
-
-1. `git push origin master`
-
-1. `git push origin master --tags`
-
-1. `yarn publish`
-
-** In order to publish to the org `@clark-inc`, you must be logged-in. NPM CLI will provide a prompt to login. At that point contact either `@micheal` or `@ian` on slack in `#dev` channel for assistance. Before doing so please download [keybase](https://keybase.io/).
+Ensure that you've built the project before you publish.
 
 **Once you have cut a release remember to bump the version in your project.**
 

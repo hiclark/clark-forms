@@ -2,8 +2,8 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 
-import Fieldset from '../../../lib/forms/fieldset';
 import FIELD_SETS from '../../constants/demo';
+import Fieldset from '../../../lib';
 
 const handleClick = () => {
   console.log('demo');

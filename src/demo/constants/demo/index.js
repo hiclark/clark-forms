@@ -1,5 +1,5 @@
 import React from 'react';
-import { isRequired, minLength } from '../../utils/validation';
+import { isRequired, minLength } from '../../../lib';
 import Check from '../../assets/icons/check.svg';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
