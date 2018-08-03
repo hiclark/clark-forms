@@ -1,3 +1,5 @@
+// @flow
+
 /* eslint react/no-array-index-key: 0 */
 /* eslint no-shadow: 0 */
 import React from 'react';

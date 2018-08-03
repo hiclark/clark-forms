@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 
 import 'react-dates/initialize';
@@ -11,7 +13,7 @@ import Label from '../label';
 
 import Error from '../error';
 
-import './react-dates-overrides.css';
+import '../date-range-picker/react-dates-overrides';
 
 type SingleDatePickerPropsType = any;
 export const SingleDatePickerField = ({

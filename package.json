@@ -1,10 +1,10 @@
 {
   "name": "@clark-inc/clark-forms",
   "version": "0.10.0",
-  "description": "Clark React Redux Forms library.",
-  "main": "build/index.js",
+  "description": "Clark Redux Forms library.",
+  "main": "lib/lib/index.js",
   "author": "Clark, Inc.",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hiclark/clark-forms.git"
@@ -34,7 +34,10 @@
     "prettify:watch": "onchange '{src,__{tests,mocks}__}/**/*.{js,jsx}' -- prettier --write {{changed}}",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "yarn test --coverage",
-    "build": "node scripts/build.js"
+    "build": "NODE_ENV='production' yarn run build:clean && yarn run build:lib && yarn run build:flow",
+    "build:clean": "rimraf lib",
+    "build:lib": "NODE_ENV='production' babel -d lib src --ignore '**/test.js' --copy-files",
+    "build:flow": "NODE_ENV='production' flow-copy-source -v -i '**/*.test.js' src lib"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -149,11 +152,20 @@
   },
   "babel": {
     "plugins": [
-      "babel-plugin-styled-components"
+      "babel-plugin-styled-components",
+      "transform-flow-strip-types"
     ],
     "presets": [
+      "env",
       "flow",
-      "react-app"
+      "react-app",
+      "stage-3"
     ]
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "flow-copy-source": "^2.0.2"
   }
 }

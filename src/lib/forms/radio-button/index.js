@@ -1,3 +1,5 @@
+// @flow
+
 import React, { type Element } from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';

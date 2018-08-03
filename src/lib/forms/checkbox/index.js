@@ -1,3 +1,5 @@
+// @flow
+
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import { Field } from 'redux-form';

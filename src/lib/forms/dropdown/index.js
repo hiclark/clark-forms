@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Field } from 'redux-form';
 import Select from 'react-styled-select';

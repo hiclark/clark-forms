@@ -1,3 +1,5 @@
+// @flow
+
 import React, { PureComponent } from 'react';
 
 import 'react-dates/initialize';
@@ -10,7 +12,7 @@ import moment from 'moment';
 import Error from '../error';
 import Label from '../label';
 
-import './react-dates-overrides.css';
+import './react-dates-overrides';
 
 type StateType = { focusedInput: ?string };
 
