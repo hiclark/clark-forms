@@ -22,7 +22,7 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
     const {
       meta: { error, touched },
       input: { value: { startDate, endDate } = { startDate: null, endDate: null }, onChange },
-      isOutsideRange,
+      isOutsideRange = () => false,
     } = this.props;
     const { focusedInput } = this.state;
 

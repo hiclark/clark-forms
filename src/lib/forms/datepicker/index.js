@@ -18,7 +18,7 @@ export const SingleDatePickerField = ({
   meta: { active, error, touched },
   input: { value = null, onChange, onFocus, onBlur },
   placeholder = 'Select a date',
-  isOutsideRange,
+  isOutsideRange = () => false,
   numberOfMonths = 1,
 }: SingleDatePickerPropsType) => (
   <div>
