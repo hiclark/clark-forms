@@ -24,10 +24,12 @@ yarn.lock
 CHANGELOG.md
 
 # Linters
-.eslintrc.json
+.eslintrc
 .prettierrc
 
 # Dot files/folders
 .gitignore
+.flowconfig
 .circleci/*
 .github/*
+

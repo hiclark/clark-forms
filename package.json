@@ -2,7 +2,7 @@
   "name": "@clark-inc/clark-forms",
   "version": "0.10.0",
   "description": "Clark Redux Forms library.",
-  "main": "lib/lib/index.js",
+  "main": "lib/index.js",
   "author": "Clark, Inc.",
   "license": "MIT",
   "repository": {
@@ -36,8 +36,8 @@
     "test:coverage": "yarn test --coverage",
     "build": "NODE_ENV='production' yarn run build:clean && yarn run build:lib && yarn run build:flow",
     "build:clean": "rimraf lib",
-    "build:lib": "NODE_ENV='production' babel -d lib src --ignore '**/test.js' --copy-files",
-    "build:flow": "NODE_ENV='production' flow-copy-source -v -i '**/*.test.js' src lib"
+    "build:lib": "NODE_ENV='production' babel -d lib src/lib --ignore '**/test.js' --copy-files",
+    "build:flow": "NODE_ENV='production' flow-copy-source -v -i '**/*.test.js' src/lib lib"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

@@ -1,8 +1,8 @@
 # 📝 Clark Redux Forms library
 
-This library is a React project with Redux, Redux Forms, Styled-Components, and Jest/Enzyme. It includes particulars in the build pipeline including Airbnb ESlint, Prettier, hot-reloading, and SVG optimizations.
+A suite of form elements, normalizers, and validations for use with Redux-Forms. We use these across Clark's frontend applications. The entire library is typed with [Flow](https://flow.org/en/) and tested with Jest. To build, we transpile using [Babel](https://babeljs.io/) and then copy over our flow definitions using [`flow-copy-source`](https://github.com/AgentME/flow-copy-source).
 
-This application was initially scaffolded using [Create React App](https://github.com/facebookincubator/create-react-app) and then ejected, reference those docs for additional information. Below you will find some information on how this project is structured.
+h/t [Patrick Stapfer](https://twitter.com/ryyppy?source=user_profile----------------------------) for [writing up this pattern](https://medium.com/netscape/shipping-flowtype-definitions-in-npm-packages-c987917efb65) for sharing flow type-definitions across projects.
 
 ### Project structure:
 
