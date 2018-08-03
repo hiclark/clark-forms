@@ -75,7 +75,6 @@ const FIELD_SETS = [
             validate: [isRequired],
             showYearDropdown: true,
             showMonthDropdown: true,
-            isOutsideRange: () => false,
           },
         ],
       },

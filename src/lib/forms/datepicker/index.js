@@ -18,7 +18,7 @@ export const SingleDatePickerField = ({
   meta: { active, error, touched },
   input: { value = null, onChange, onFocus, onBlur },
   placeholder = 'Select a date',
-  isOutsideRange = () => false,
+  isOutsideRange,
   numberOfMonths = 1,
 }: SingleDatePickerPropsType) => (
   <div>
@@ -33,7 +33,9 @@ export const SingleDatePickerField = ({
       placeholder={placeholder}
       showDefaultInputIcon
       hideKeyboardShortcutsPanel
-      isOutsideRange={momentObject => isOutsideRange(momentObject.startOf('day'))}
+      isOutsideRange={
+        isOutsideRange && (momentObject => isOutsideRange(momentObject.startOf('day')))
+      }
       numberOfMonths={numberOfMonths}
     />
     <Error touched={touched} error={error} />
