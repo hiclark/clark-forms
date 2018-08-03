@@ -51,7 +51,7 @@ The `Fieldset` component _must_ be wrapped in a `<form>` element and the form co
 
 Ex.
 
-```
+```js
 const Demo = ({ handleSubmit }) => (
   <div>
     <form onSubmit={handleSubmit(handleClick)}>
@@ -68,11 +68,21 @@ export default reduxForm({
 
 The `Fieldset` component takes one prop called data which is a json structure. These `FIELD_SETS` _must_ have a `type`, `name`, and `label`.
 
-Types include: `input`, `radioButton`, `checkbox`, `dropdown`, `textarea`, `datepicker`.
+Types include:
+
+- `input`
+- `radioButton`
+- `checkbox`
+- `dropdown`
+- `textarea`
+- `datepicker`
+- `dateRangePicker`
+- `toggle`
+- `rating`
 
 Ex.
 
-```
+```js
 const FIELD_SETS = [
   {
     fieldSet: [
