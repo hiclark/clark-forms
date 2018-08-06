@@ -1,3 +1,5 @@
+// @flow
+
 export const SPACING_NONE = '0';
 export const SPACING_EXTRA_SMALL = '.25rem';
 export const SPACING_SMALL = '.5rem';

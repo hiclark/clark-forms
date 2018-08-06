@@ -1,3 +1,5 @@
+// @flow
+
 /* eslint no-unused-expressions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';

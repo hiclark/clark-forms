@@ -18,6 +18,12 @@
       2,
       "^([A-Z][a-z0-9]*)+Type$"
     ],
+    "flowtype/require-valid-file-annotation": [
+      2,
+      "always", {
+        "annotationStyle": "line"
+      }
+    ],
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
     "import/no-extraneous-dependencies": [ "error", {

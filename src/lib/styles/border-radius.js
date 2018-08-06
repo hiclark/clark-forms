@@ -1,3 +1,5 @@
+// @flow
+
 import { css } from 'styled-components';
 
 export const BORDER_RADIUS_F1 = css`

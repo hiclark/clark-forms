@@ -1,3 +1,5 @@
+// @flow
+
 import { configure, shallow, render, mount } from 'enzyme';
 import { spy } from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';

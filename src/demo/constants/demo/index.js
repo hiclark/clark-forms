@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { isRequired, minLength } from '../../../lib';
 import Check from '../../assets/icons/check.svg';

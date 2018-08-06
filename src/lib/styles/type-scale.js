@@ -1,3 +1,5 @@
+// @flow
+
 import { css } from 'styled-components';
 
 export const TYPE_SCALE_F0 = css`

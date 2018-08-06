@@ -1,3 +1,4 @@
+// @flow
 /* eslint global-require: 0 */
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';

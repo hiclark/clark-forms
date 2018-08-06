@@ -1,3 +1,5 @@
+// @flow
+
 import { css } from 'styled-components';
 
 export const LAYOUT_MAX_WIDTH = css`

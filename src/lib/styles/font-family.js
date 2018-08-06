@@ -1,3 +1,5 @@
+// @flow
+
 import { css } from 'styled-components';
 
 const FONT_FAMILY_PRIMARY = css`

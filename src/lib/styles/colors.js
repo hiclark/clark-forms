@@ -1,3 +1,5 @@
+// @flow
+
 export const CLARK_PRIMARY = '#EA4900';
 export const CLARK_SECONDARY = '#413E60';
 export const CLARK_TERTIARY = '#008489';

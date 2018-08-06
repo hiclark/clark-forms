@@ -1,3 +1,5 @@
+// @flow
+
 import { css } from 'styled-components';
 
 export const FONT_WEIGHT_700 = css`
