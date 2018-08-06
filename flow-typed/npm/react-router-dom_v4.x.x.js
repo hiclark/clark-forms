@@ -1,5 +1,5 @@
-// flow-typed signature: 1de0bd6b5eab4751c4ac2bb0d87569c7
-// flow-typed version: 88e44f8c4c/react-router-dom_v4.x.x/flow_>=v0.63.x
+// flow-typed signature: 9fac6739b666e8a59414aa13358b677e
+// flow-typed version: 187bd8b1be/react-router-dom_v4.x.x/flow_>=v0.63.x
 
 declare module "react-router-dom" {
   declare export class BrowserRouter extends React$Component<{|
@@ -17,14 +17,14 @@ declare module "react-router-dom" {
     children?: React$Node
   |}> {}
 
-  declare export class Link extends React$Component<{|
+  declare export class Link extends React$Component<{
     className?: string,
     to: string | LocationShape,
     replace?: boolean,
     children?: React$Node
-  |}> {}
+  }> {}
 
-  declare export class NavLink extends React$Component<{|
+  declare export class NavLink extends React$Component<{
     to: string | LocationShape,
     activeClassName?: string,
     className?: string,
@@ -34,7 +34,7 @@ declare module "react-router-dom" {
     children?: React$Node,
     exact?: boolean,
     strict?: boolean
-  |}> {}
+  }> {}
 
   // NOTE: Below are duplicated from react-router. If updating these, please
   // update the react-router and react-router-native types as well.
@@ -133,7 +133,10 @@ declare module "react-router-dom" {
 
   declare export class Redirect extends React$Component<{|
     to: string | LocationShape,
-    push?: boolean
+    push?: boolean,
+    from?: string,
+    exact?: boolean,
+    strict?: boolean
   |}> {}
 
   declare export class Route extends React$Component<{|
@@ -142,11 +145,14 @@ declare module "react-router-dom" {
     children?: React$ComponentType<ContextRouter> | React$Node,
     path?: string,
     exact?: boolean,
-    strict?: boolean
+    strict?: boolean,
+    location?: LocationShape,
+    sensitive?: boolean
   |}> {}
 
   declare export class Switch extends React$Component<{|
-    children?: React$Node
+    children?: React$Node,
+    location?: Location
   |}> {}
 
   declare export function withRouter<P: {}, Component: React$ComponentType<P>>(
@@ -164,6 +170,9 @@ declare module "react-router-dom" {
 
   declare export function matchPath(
     pathname: string,
-    options?: MatchPathOptions | string
+    options?: MatchPathOptions | string,
+    parent?: Match
   ): null | Match;
+  
+  declare export function generatePath(pattern?: string, params?: Object): string;
 }

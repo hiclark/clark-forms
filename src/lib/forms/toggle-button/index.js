@@ -32,12 +32,15 @@ const ToggleButton = ({ values, input, meta: { touched, error } }) => (
 );
 
 type PropsType = any;
-export default (props: PropsType) => (
+
+const ToggleButtonField = (props: PropsType) => (
   <div>
     <Label name={props.name} label={props.label} required={props.required} />
     <Field component={ToggleButton} {...props} />
   </div>
 );
+
+export default ToggleButtonField;
 
 const Button = styled.div`
   display: inline-flex;

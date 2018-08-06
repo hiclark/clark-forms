@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { isRequired, minLength } from '../../../lib';
+import { type DataType } from '../../../lib/forms/fieldset';
 import Check from '../../assets/icons/check.svg';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
@@ -16,7 +17,7 @@ const RATING = [
 
 const RATING_KEY = { left: 'Poor', right: 'Excellent' };
 
-const FIELD_SETS = [
+const FIELD_SETS: DataType = [
   {
     fieldSet: [
       {
@@ -94,7 +95,7 @@ const FIELD_SETS = [
         ],
       },
       {
-        columns: { small: 2 },
+        columns: { small: 2, large: 2 },
         fields: [
           {
             type: 'radioButton',
@@ -140,6 +141,7 @@ const FIELD_SETS = [
           {
             type: 'rating',
             name: 'rating',
+            label: 'Rating!',
             values: RATING,
             icon: <Check />,
             ratingKey: RATING_KEY,

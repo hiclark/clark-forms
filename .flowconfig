@@ -1,8 +1,6 @@
 [ignore]
-.*/src/demo/*
 .*/build/.*
 .*/public/.*
-.*/lib/.*
 .*/config/.*
 .*/node_modules/.*
 .*/scripts/.*

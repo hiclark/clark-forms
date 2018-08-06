@@ -19,8 +19,8 @@ type PropsType = {
   currentPosition: number,
   maxPosition: number,
   title: string,
-  handleBackLinkClick(): void,
-  handleCancelClick(): void,
+  handleBackLinkClick?: () => void,
+  handleCancelClick?: () => void,
 };
 
 const ProgressHeader = ({

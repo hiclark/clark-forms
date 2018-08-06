@@ -66,7 +66,7 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "1.1.5",
-    "flow-bin": "^0.66.0",
+    "flow-bin": "^0.78.0",
     "flow-typed": "^2.3.0",
     "fs-extra": "3.0.1",
     "hoist-non-react-statics": "^2.5.0",
@@ -102,7 +102,12 @@
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
+    "flow-copy-source": "^2.0.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -161,11 +166,5 @@
       "react-app",
       "stage-3"
     ]
-  },
-  "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "flow-copy-source": "^2.0.2"
   }
 }

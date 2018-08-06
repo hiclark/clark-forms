@@ -2,7 +2,7 @@
 
 /* eslint react/no-array-index-key: 0 */
 /* eslint no-shadow: 0 */
-import React from 'react';
+import React, { type Node } from 'react';
 import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
@@ -41,42 +41,32 @@ const mapFieldToComponent = type => {
 const composeComponent = (index: number, field, columns: { small: number, large: number }) => {
   const { type, name } = field;
   const FieldComponent = mapFieldToComponent(type);
-  return <FieldComponent key={name} index={index} columns={columns} {...field} />;
+  return <FieldComponent key={name} indexde={index} columns={columns} {...field} />;
 };
 
 export type BaseFieldSetObjectType = {
-  type: 'dropdown' | 'datepicker' | 'input' | 'textarea',
+  type:
+    | 'dropdown'
+    | 'datepicker'
+    | 'input'
+    | 'textarea'
+    | 'toggleButton'
+    | 'daterangepicker'
+    | 'textarea'
+    | 'checkbox'
+    | 'rating'
+    | 'radioButton',
   name: string,
   label: string,
   validate?: Validator | Validator[],
   normalize?: Normalizer | Normalizer[],
-};
-
-type InputFieldSetObjectType = {
-  type: 'input',
   copy?: string,
   inputType?: InputType,
-} & BaseFieldSetObjectType;
+  icon?: Node,
+  values?: { value: any, label: string }[],
+};
 
-type DropdownFieldSetObjectType = {
-  type: 'dropdown',
-  multi?: boolean,
-  values: { value: string, label: string }[],
-} & BaseFieldSetObjectType;
-
-type DatePickerFieldSetObjectType = {
-  type: 'datepicker',
-} & BaseFieldSetObjectType;
-
-type TextAreaFieldSetObjectType = {
-  type: 'textarea',
-} & BaseFieldSetObjectType;
-
-type FieldSetObjectType =
-  | InputFieldSetObjectType
-  | DropdownFieldSetObjectType
-  | DatePickerFieldSetObjectType
-  | TextAreaFieldSetObjectType;
+export type FieldSetObjectType = BaseFieldSetObjectType;
 
 type FieldSetType = {
   title?: string,
