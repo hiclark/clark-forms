@@ -44,7 +44,7 @@ const composeComponent = (index: number, field, columns: { small: number, large:
   return <FieldComponent key={name} index={index} columns={columns} {...field} />;
 };
 
-type BaseFieldSetObjectType = {
+export type BaseFieldSetObjectType = {
   type: 'dropdown' | 'datepicker' | 'input' | 'textarea',
   name: string,
   label: string,
