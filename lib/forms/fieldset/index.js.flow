@@ -1,10 +1,12 @@
+// @flow
+
 /* eslint react/no-array-index-key: 0 */
 /* eslint no-shadow: 0 */
 import React from 'react';
 import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
-import RadioButton, { type PropsType as RadioButtonPropsType } from '../radio-button';
+import RadioButton from '../radio-button';
 import Dropdown from '../dropdown';
 import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
@@ -42,7 +44,7 @@ const composeComponent = (index: number, field, columns: { small: number, large:
   return <FieldComponent key={name} index={index} columns={columns} {...field} />;
 };
 
-type BaseFieldSetObjectType = {
+export type BaseFieldSetObjectType = {
   type: 'dropdown' | 'datepicker' | 'input' | 'textarea',
   name: string,
   label: string,
@@ -50,7 +52,6 @@ type BaseFieldSetObjectType = {
   normalize?: Normalizer | Normalizer[],
 };
 
-<<<<<<< Updated upstream
 type InputFieldSetObjectType = {
   type: 'input',
   copy?: string,
@@ -76,20 +77,6 @@ type FieldSetObjectType =
   | DropdownFieldSetObjectType
   | DatePickerFieldSetObjectType
   | TextAreaFieldSetObjectType;
-=======
-type BaseFieldObjectPropsType = {
-  name: string,
-  label: string,
-  validate?: Validator | Validator[],
-  normalize?: Normalizer | Normalizer[],
-};
-
-type InputObjectType = { type: 'input', inputType: string } & BaseFieldObjectPropsType;
-
-type RadioButtonObjectType = { type: 'radioButton', value: any } & BaseFieldObjectPropsType;
-
-export type FieldSetObjectType = RadioButtonObjectType | InputObjectType;
->>>>>>> Stashed changes
 
 type FieldSetType = {
   title?: string,
