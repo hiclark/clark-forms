@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.0.0 - 2018-09-14
+### Changed
+- styled-components as an external dependency
+
 ## 0.10.0 - 2018-08-02
 ### Added
 - normalizers and validations
