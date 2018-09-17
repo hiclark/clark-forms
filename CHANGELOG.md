@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.0.1 - 2018-09-14
+### Fixed
+- upgrade react-styled-select to 1.2.1 which has styled-components as a peer dependency
+
 ## 1.0.0 - 2018-09-14
 ### Changed
 - styled-components as an external dependency
