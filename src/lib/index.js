@@ -1,6 +1,6 @@
 // @flow
 
-import Fieldset from './forms/fieldset';
+import Fieldset, { type FieldSetType } from './forms/fieldset';
 import ProgressHeader from './forms/progress-header';
 import Checkbox from './forms/checkbox';
 import DatePicker from './forms/datepicker';
@@ -13,6 +13,8 @@ import Textarea from './forms/textarea';
 import Rating from './forms/rating';
 
 export default Fieldset;
+export type FieldsetType = FieldSetType;
+
 export {
   ProgressHeader,
   Checkbox,

@@ -70,7 +70,7 @@ export type BaseFieldSetObjectType = {
 
 export type FieldSetObjectType = BaseFieldSetObjectType;
 
-type FieldSetType = {
+export type FieldSetType = {
   title?: string,
   subCopy?: string,
   fields: FieldSetObjectType[],
