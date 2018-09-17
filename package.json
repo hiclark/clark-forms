@@ -41,7 +41,8 @@
   },
   "dependencies": {
     "react-styled-select": "1.2.1",
-    "react-dates": "^16.5.0"
+    "react-dates": "^16.5.0",
+    "react-svg-loader": "^2.1.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -91,7 +92,6 @@
     "react-redux": "^5.0.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.8",
-    "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.1.1",
     "redux": "^3.0.0",
     "redux-form": "^7.2.0",
