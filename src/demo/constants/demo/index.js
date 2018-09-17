@@ -3,7 +3,7 @@
 import React from 'react';
 import { isRequired, minLength } from '../../../lib';
 import { type DataType } from '../../../lib/forms/fieldset';
-import Check from '../../assets/icons/check.svg';
+import Check from 'react-svg-loader!../../assets/icons/check.svg';
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
 

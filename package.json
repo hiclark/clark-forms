@@ -40,17 +40,20 @@
     "build:flow": "NODE_ENV='production' flow-copy-source -v -i '**/*.test.js' src/lib lib"
   },
   "dependencies": {
-    "react-styled-select": "1.2.1",
     "react-dates": "^16.5.0",
-    "react-svg-loader": "^2.1.0"
+    "react-styled-select": "1.2.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
+    "babel-plugin-inline-react-svg": "^0.5.4",
     "babel-plugin-styled-components": "^1.5.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-react-app": "^3.1.0",
+    "babel-preset-stage-3": "^6.24.1",
     "babel-runtime": "6.26.0",
     "body-parser": "^1.18.2",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -68,10 +71,12 @@
     "eslint-plugin-flowtype": "2.39.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "1.1.5",
     "flow-bin": "^0.78.0",
+    "flow-copy-source": "^2.0.2",
     "flow-typed": "^2.3.0",
     "fs-extra": "3.0.1",
     "hoist-non-react-statics": "^2.5.0",
@@ -92,6 +97,7 @@
     "react-redux": "^5.0.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.8",
+    "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.1.1",
     "redux": "^3.0.0",
     "redux-form": "^7.2.0",
@@ -104,14 +110,10 @@
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
-    "whatwg-fetch": "2.0.3",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "eslint-plugin-prefer-object-spread": "^1.2.1",
-    "flow-copy-source": "^2.0.2"
+    "whatwg-fetch": "2.0.3"
   },
   "peerDependencies": {
+    "react-svg-loader": "^2.1.0",
     "styled-components": "2.x - 3.x"
   },
   "jest": {
@@ -163,7 +165,8 @@
   "babel": {
     "plugins": [
       "babel-plugin-styled-components",
-      "transform-flow-strip-types"
+      "transform-flow-strip-types",
+      "babel-plugin-inline-react-svg"
     ],
     "presets": [
       "env",

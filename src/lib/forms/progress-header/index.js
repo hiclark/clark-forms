@@ -71,10 +71,9 @@ const ProgressBar = styled.div`
 `;
 
 const ProgressBarProgress = styled.div`
-	background-color: ${CLARK_PRIMARY};
+  background-color: ${CLARK_PRIMARY};
   width: ${props => props.percentCovered}%;
   height: 100%;
-}
 `;
 
 const BackIconWrapper = styled.div`
