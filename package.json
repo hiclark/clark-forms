@@ -102,7 +102,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "peerDependencies": {
-    "styled-components": "2.x - 3.x"
+    "styled-components": "2.x - 3.x",
+    "react": "16.x",
+    "react-dom": "16.x"
   },
   "jest": {
     "collectCoverageFrom": [
