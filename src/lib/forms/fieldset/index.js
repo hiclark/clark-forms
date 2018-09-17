@@ -2,7 +2,8 @@
 
 /* eslint react/no-array-index-key: 0 */
 /* eslint no-shadow: 0 */
-import React, { type Node } from 'react';
+
+import React from 'react';
 import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
@@ -41,6 +42,7 @@ const mapFieldToComponent = type => {
 const composeComponent = (index: number, field, columns: { small: number, large: number }) => {
   const { type, name } = field;
   const FieldComponent = mapFieldToComponent(type);
+  // $FlowFixMe
   return <FieldComponent key={name} indexde={index} columns={columns} {...field} />;
 };
 
@@ -62,7 +64,7 @@ export type BaseFieldSetObjectType = {
   normalize?: Normalizer | Normalizer[],
   copy?: string,
   inputType?: InputType,
-  icon?: Node,
+  icon?: any,
   values?: { value: any, label: string }[],
 };
 
