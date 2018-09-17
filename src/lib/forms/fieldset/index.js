@@ -59,7 +59,7 @@ export type BaseFieldSetObjectType = {
     | 'rating'
     | 'radioButton',
   name: string,
-  label: string,
+  label?: string,
   validate?: Validator | Validator[],
   normalize?: Normalizer | Normalizer[],
   copy?: string,
