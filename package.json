@@ -40,9 +40,10 @@
     "build:flow": "NODE_ENV='production' flow-copy-source -v -i '**/*.test.js' src/lib lib"
   },
   "dependencies": {
+    "moment": "^2.20.1",
     "react-dates": "^16.5.0",
     "react-styled-select": "2.2.6-beta",
-    "moment": "^2.20.1"
+    "redux-form": "7.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -75,7 +76,7 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "1.1.5",
-    "flow-bin": "^0.78.0",
+    "flow-bin": "0.81.0",
     "flow-copy-source": "^2.0.2",
     "flow-typed": "^2.3.0",
     "fs-extra": "3.0.1",
@@ -97,7 +98,6 @@
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.1.1",
     "redux": "^3.0.0",
-    "redux-form": "^7.2.0",
     "redux-logger": "^3.0.6",
     "sinon": "^4.3.0",
     "source-map-explorer": "^1.5.0",
