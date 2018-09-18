@@ -3,7 +3,12 @@
 exports[`<Rating /> matches the snapshot 1`] = `
 <Field
   component={[Function]}
-  icon={<check.svg />}
+  icon={
+    <Check
+      viewBox="0 0 14 10"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  }
   name="rating"
   ratingKey={
     Object {
