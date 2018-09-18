@@ -1,6 +1,6 @@
 {
   "name": "@clark-inc/clark-forms",
-  "version": "1.0.1-rc.2",
+  "version": "1.0.2",
   "description": "Clark React Redux Forms library.",
   "main": "lib/index.js",
   "author": "Clark, Inc.",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "react-dates": "^16.5.0",
-    "react-styled-select": "1.2.1"
+    "react-styled-select": "2.2.6-beta",
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
