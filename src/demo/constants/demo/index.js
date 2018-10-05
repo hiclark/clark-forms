@@ -42,6 +42,12 @@ const FIELD_SETS = [
             validate: [isRequired, minLength(6)],
           },
           {
+            type: 'locations',
+            name: 'location',
+            label: 'Location',
+            validate: [isRequired],
+          },
+          {
             type: 'dropdown',
             name: 'multiselectTest',
             label: 'Multiselect Test',

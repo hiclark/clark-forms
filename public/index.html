@@ -20,6 +20,11 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Clark Forms</title>
+    <script type="text/javascript">
+      console.log("%REACT_APP_TEST%") // OK
+      console.log("%NODE_ENV%") // development
+     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=%GOOGLE_PLACES_API_KEY%&libraries=places"></script>
   </head>
   <body>
     <noscript>

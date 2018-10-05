@@ -158,5 +158,8 @@
       "flow",
       "react-app"
     ]
+  },
+  "dependencies": {
+    "react-places-autocomplete": "^7.2.0"
   }
 }
