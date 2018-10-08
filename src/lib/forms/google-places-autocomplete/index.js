@@ -1,5 +1,5 @@
 import React from 'react';
-import PlacesAutocomplete from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import styled from 'styled-components';
 import { Field } from 'redux-form';
 import Label from '../label';
@@ -26,8 +26,20 @@ const GoogleAutocomplete = ({ input }) => {
     onChange: input.onChange,
   };
 
+  const handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => console.log('Success', latLng))
+      .catch(error => console.error('Error', error));
+  };
+
   return (
-    <PlacesAutocomplete value={input.value} onChange={input.onChange} inputProps={inputProps}>
+    <PlacesAutocomplete
+      value={input.value}
+      onChange={input.onChange}
+      onSelect={handleSelect}
+      inputProps={inputProps}
+    >
       {renderFunc}
     </PlacesAutocomplete>
   );
