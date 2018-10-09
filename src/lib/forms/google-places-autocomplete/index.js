@@ -18,10 +18,10 @@ const renderFunc = ({ loading, getInputProps, getSuggestionItemProps, suggestion
     <ComponentWrap className="autocomplete-root">
       <FormInput {...inputProps} />
       <Results className="autocomplete-dropdown-container">
-        {loading && <div>Loading...</div>}
+        {loading && <Suggestion>Loading...</Suggestion>}
         {suggestions.map(suggestion => (
           <Suggestion {...getSuggestionItemProps(suggestion, { active: suggestion.active })}>
-            <span>{suggestion.description}</span>
+            {suggestion.description}
           </Suggestion>
         ))}
       </Results>
