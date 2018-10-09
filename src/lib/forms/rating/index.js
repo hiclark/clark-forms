@@ -38,15 +38,7 @@ const Rating = ({ name, values, icon, input, ratingKey: { left, right } }) => (
 type PropsType = any;
 export default (props: PropsType) => <Field component={Rating} {...props} />;
 
-const RATING_BACKGROUND_LEFT = '#f7fafc';
-const RATING_BACKGROUND_RIGHT = '#fffaf8';
-
 const RatingContainer = styled.div`
-  background-image: linear-gradient(
-    to right,
-    ${RATING_BACKGROUND_LEFT},
-    ${RATING_BACKGROUND_RIGHT}
-  );
   padding: ${SPACING_MEDIUM};
 `;
 
