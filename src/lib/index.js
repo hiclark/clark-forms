@@ -11,6 +11,8 @@ import Textarea from './forms/textarea';
 import Rating from './forms/rating';
 import LocationsAutocomplete from './forms/google-places-autocomplete';
 
+export { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+
 export default Fieldset;
 export {
   ProgressHeader,
