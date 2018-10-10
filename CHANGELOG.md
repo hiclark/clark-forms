@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.1.0 - 2018-10-10
+### Added
+- locationAutcomplete component
+
 ## 1.0.1 - 2018-09-14
 ### Changed
 - newer version of react-styled-select doesnt break tests in consumer projects
