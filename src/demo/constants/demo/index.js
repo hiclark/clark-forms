@@ -42,7 +42,7 @@ const FIELD_SETS = [
             validate: [isRequired, minLength(6)],
           },
           {
-            type: 'locations',
+            type: 'locationAutoComplete',
             name: 'location',
             label: 'Location',
             validate: [isRequired],

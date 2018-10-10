@@ -11,7 +11,7 @@ import Checkbox from '../checkbox';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
 import DateRangePicker from '../date-range-picker';
-import LocationsAutocomplete from '../google-places-autocomplete';
+import LocationAutocomplete from '../location-autocomplete';
 import ToggleButton from '../toggle-button';
 import Rating from '../rating';
 
@@ -32,7 +32,7 @@ const mapFieldToComponent = type => {
     daterangepicker: DateRangePicker,
     toggleButton: ToggleButton,
     rating: Rating,
-    locations: LocationsAutocomplete,
+    locationAutoComplete: LocationAutocomplete,
   };
 
   return components[type];
