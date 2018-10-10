@@ -32,7 +32,7 @@ const mapFieldToComponent = type => {
     daterangepicker: DateRangePicker,
     toggleButton: ToggleButton,
     rating: Rating,
-    locationAutoComplete: LocationAutocomplete,
+    locationAutocomplete: LocationAutocomplete,
   };
 
   return components[type];
