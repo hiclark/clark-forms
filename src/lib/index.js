@@ -9,6 +9,9 @@ import Input from './forms/input';
 import RadioButton from './forms/radio-button';
 import Textarea from './forms/textarea';
 import Rating from './forms/rating';
+import LocationAutocomplete from './forms/location-autocomplete';
+
+export { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default Fieldset;
 export {
@@ -22,6 +25,7 @@ export {
   RadioButton,
   Textarea,
   Rating,
+  LocationAutocomplete,
 };
 
 export {
