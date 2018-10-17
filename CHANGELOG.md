@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.2.0 - 2018-10-17
+### Added
+- disabled flag
+
 ## 1.1.0 - 2018-10-10
 ### Added
 - locationAutcomplete component
@@ -105,3 +109,4 @@ All notable changes to this project will be documented in this file.
 ## 0.1.0 - 2018-02-22
 ### Added
 - Initial release of library
+
