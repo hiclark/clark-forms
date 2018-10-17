@@ -29,6 +29,7 @@ The `src` directory contains both `lib` and `demo` folders. Demo serves as a san
 To test the Clark Forms library locally follow the instructions [here](https://yarnpkg.com/lang/en/docs/cli/link/).
 
 ** _Make sure `build/` directory exists_ (`yarn build`)
+** Any subsequent changes made to Clark Forms library while symlinked require running `yarn build` again.
 
 ### Testing
 

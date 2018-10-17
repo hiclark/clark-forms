@@ -3,6 +3,7 @@
 exports[`<DatePicker /> renders correctly 1`] = `
 <datepicker__Container>
   <Label
+    disabled={false}
     label="Label"
     name="Name"
   />
