@@ -13,6 +13,8 @@ const Label = ({ name, label, required, disabled }: PropsType) => (
   </Wrap>
 );
 
+Label.defaultProps = { disabled: false };
+
 export default Label;
 
 const Wrap = styled.label`
