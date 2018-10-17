@@ -15,23 +15,29 @@ import Label from '../label';
 
 export type InputType = string;
 
-const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) => (
+const renderField = ({ input, inputType, meta: { touched, error }, disabled, ...rest }) => (
   <div>
     {/* we rename the inputType prop to avoid a colision with the type attribute
     that is used to specify which form element to render */}
-    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
+    <FormInput
+      {...rest}
+      {...input}
+      showError={!(error && touched)}
+      disabled={disabled}
+      type={inputType}
+    />
     <Error touched={touched} error={error} />
   </div>
 );
 
 type PropsType = any;
 const Input = (props: PropsType) => {
-  const { name, label, copy, required } = props;
+  const { name, label, copy, required, disabled } = props;
   return (
     <div>
-      <Label name={name} label={label} required={required} />
+      <Label name={name} label={label} required={required} disabled={disabled} />
       {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} {...props} />
+      <Field component={renderField} disabled={disabled} {...props} />
     </div>
   );
 };
@@ -44,7 +50,6 @@ const FormInput = styled.input`
   ${FONT_WEIGHT_100};
   ${BORDER_RADIUS_F2};
   border: ${BORDER_WIDTH_1} solid ${props => (props.showError ? GREY_25 : CLARK_PRIMARY)};
-  color: ${CLARK_SECONDARY};
   display: block;
   line-height: ${LINE_HEIGHT_SOLID};
   padding: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
@@ -55,6 +60,7 @@ const FormInput = styled.input`
   background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
   transition: all 0.25s ease-in-out;
   ${props => renderBorderRadius(props)};
+  color: ${({ disabled }) => (disabled ? GREY_25 : CLARK_SECONDARY)};
 
   &::placeholder {
     color: ${GREY_25};

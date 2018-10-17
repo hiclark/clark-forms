@@ -3,6 +3,7 @@
 exports[`<DateRangePicker /> renders correctly 1`] = `
 <date-range-picker__Container>
   <Label
+    disabled={false}
     label="Label"
     name="Name"
   />
