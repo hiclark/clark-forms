@@ -16,7 +16,12 @@
   border-color: #EA4900; 
 }
 
-.DateRangePicker .CalendarDay__selected, .CalendarDay__selected:hover, .CalendarDay__selected:active{
+
+.DateRangePicker .CalendarDay__today{
+  background-color: #00CBC4;
+}
+
+.DateRangePicker .CalendarDay__selected, .CalendarDay__selected.CalendarDay__today, .CalendarDay__selected:hover, .CalendarDay__selected:active{
   background-color: #EA4900;
   border-color: #EA4900;
 }
