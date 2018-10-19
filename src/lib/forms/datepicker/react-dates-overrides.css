@@ -16,9 +16,13 @@
   border-color: #EA4900; 
 }
 
-.CalendarDay__selected, .CalendarDay__selected:hover, .CalendarDay__selected:active{
+.CalendarDay__selected, .CalendarDay__today.CalendarDay__selected, .CalendarDay__selected:hover, .CalendarDay__selected:active{
   background-color: #EA4900;
   border-color: #EA4900;
+}
+
+.CalendarDay__today{
+  background-color: #00CBC4;
 }
 
 .SingleDatePickerInput_calendarIcon_svg {
