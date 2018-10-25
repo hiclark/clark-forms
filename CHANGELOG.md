@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 1.2.0 - 2018-10-17
+## 1.3.0 - 2018-10-25
 ### Changed
 - updated datepicker styling to match the design specifications
 
