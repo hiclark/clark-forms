@@ -8,8 +8,8 @@ import { Field } from 'redux-form';
 import styled from 'styled-components';
 import moment from 'moment';
 import Label from '../label';
-
 import Error from '../error';
+import Calendar from '../../assets/icons/calendar.svg';
 
 import './react-dates-overrides.css';
 
@@ -31,7 +31,7 @@ export const SingleDatePickerField = ({
       onFocusChange={({ focused }) => (focused ? onFocus() : onBlur())}
       id="date"
       placeholder={placeholder}
-      showDefaultInputIcon
+      customInputIcon={<Calendar />}
       hideKeyboardShortcutsPanel
       isOutsideRange={momentObject => isOutsideRange(momentObject.startOf('day'))}
       numberOfMonths={numberOfMonths}

@@ -9,8 +9,9 @@ import styled from 'styled-components';
 import moment from 'moment';
 import Error from '../error';
 import Label from '../label';
+import Calendar from '../../assets/icons/calendar.svg';
 
-import './react-dates-overrides.css';
+import '../datepicker/react-dates-overrides.css';
 
 type StateType = { focusedInput: ?string };
 
@@ -45,7 +46,7 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
           onFocusChange={this.handleFocusChange}
           startDateId="startDate"
           startDatePlaceholderText="Start Date"
-          showDefaultInputIcon
+          customInputIcon={<Calendar />}
           hideKeyboardShortcutsPanel
           isOutsideRange={momentObject => isOutsideRange(momentObject.startOf('day'))}
         />

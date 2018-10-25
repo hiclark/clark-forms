@@ -83,6 +83,15 @@ const FIELD_SETS = [
             showMonthDropdown: true,
             isOutsideRange: () => false,
           },
+          {
+            type: 'datepicker',
+            name: 'datePickerDisabled',
+            label: 'Date Picker (Disabled)',
+            validate: [isRequired],
+            showYearDropdown: true,
+            showMonthDropdown: true,
+            isOutsideRange: () => true,
+          },
         ],
       },
       {
@@ -95,6 +104,7 @@ const FIELD_SETS = [
             validate: [isRequired],
             showYearDropdown: true,
             showMonthDropdown: true,
+            isOutsideRange: () => false,
           },
         ],
       },
