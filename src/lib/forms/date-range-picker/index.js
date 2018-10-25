@@ -10,7 +10,7 @@ import moment from 'moment';
 import Error from '../error';
 import Label from '../label';
 
-import './react-dates-overrides.css';
+import '../datepicker/react-dates-overrides.css';
 
 type StateType = { focusedInput: ?string };
 
