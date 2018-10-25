@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## 1.2.0 - 2018-10-17
+### Changed
+- updated datepicker styling to match the design specifications
+
+## 1.2.0 - 2018-10-17
 ### Added
 - disabled flag
 
