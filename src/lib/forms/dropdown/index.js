@@ -115,4 +115,8 @@ const StyledSelect = styled(Select)`
   .select__option--is-selected {
     background-color: ${CLARK_ACCENT_PRIMARY} !important;
   }
+
+  .select__menu {
+    margin-top: 0;
+  }
 `;
