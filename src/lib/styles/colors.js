@@ -5,6 +5,7 @@ export const CLARK_TERTIARY = '#008489';
 export const ERROR_PRIMARY = '#fcece5';
 
 export const CLARK_ACCENT_PRIMARY = '#56D8DD';
+export const CLARK_ACCENT_PRIMARY_30 = '#56D8DD4D';
 export const CLARK_ACCENT_SECONDARY = '#EC8E00';
 
 export const TRANSPARENT = 'transparent';

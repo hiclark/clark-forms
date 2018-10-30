@@ -33,6 +33,7 @@ const FIELD_SETS = [
             label: 'Dropdown Test',
             values: DROPDOWN,
             validate: isRequired,
+            menuIsOpen: true,
           },
           {
             type: 'input',
