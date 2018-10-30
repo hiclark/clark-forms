@@ -14,7 +14,7 @@ import {
 import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
 import { TYPE_SCALE_F4 } from '../../styles/type-scale';
 import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
-import { FONT_WEIGHT_100 } from '../../styles/font-weight';
+import { FONT_WEIGHT_100, FONT_WEIGHT_400 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1 } from '../../styles/borders';
 import Label from '../label';
 
@@ -114,6 +114,7 @@ const StyledSelect = styled(Select)`
 
   .select__option--is-selected {
     background-color: ${CLARK_ACCENT_PRIMARY} !important;
+    ${FONT_WEIGHT_400};
   }
 
   .select__menu {
