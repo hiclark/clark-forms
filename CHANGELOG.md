@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.4.0 - 2018-10-25
+### Changed
+- change dropdown to use react-select instead of react-styled-select
+- update dropdown styles
+
 ## 1.3.0 - 2018-10-25
 ### Changed
 - updated datepicker styling to match the design specifications
