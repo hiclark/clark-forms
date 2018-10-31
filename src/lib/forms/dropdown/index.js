@@ -18,6 +18,8 @@ import { FONT_WEIGHT_100, FONT_WEIGHT_400 } from '../../styles/font-weight';
 import { BORDER_WIDTH_1 } from '../../styles/borders';
 import Label from '../label';
 
+const INDICATOR_SPACING = '0.75rem'; // 12px;
+
 const renderDropdown = ({
   input,
   index,
@@ -105,7 +107,7 @@ const StyledSelect = styled(Select)`
 
   .select__indicator {
     color: ${CLARK_ACCENT_PRIMARY} !important;
-    padding: 0.75rem;
+    padding: ${INDICATOR_SPACING};
   }
 
   .select__option--is-focused {
