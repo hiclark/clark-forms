@@ -10,7 +10,7 @@ import { BORDER_WIDTH_1 } from '../../styles/borders';
 import { LINE_HEIGHT_SOLID } from '../../styles/line-height';
 import { WHITE, CLARK_SECONDARY, GREY_25, CLARK_ACCENT_PRIMARY } from '../../styles/colors';
 import { TYPE_SCALE_F4, TYPE_SCALE_F6 } from '../../styles/type-scale';
-import { Z_INDEX_1 } from '../../styles/z-index';
+import { Z_INDEX_3 } from '../../styles/z-index';
 import { EASE_IN_OUT_25 } from '../../styles/transitions';
 
 const renderFunc = ({ loading, getInputProps, getSuggestionItemProps, suggestions }) => {
@@ -107,7 +107,7 @@ const Results = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  ${Z_INDEX_1};
+  ${Z_INDEX_3};
 `;
 
 const Suggestion = styled.div`

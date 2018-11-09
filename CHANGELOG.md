@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.5.0 - 2018-11-9
+### Changed
+- location autocomplete z-index fix
+
 ## 1.4.0 - 2018-10-25
 ### Changed
 - change dropdown to use react-select instead of react-styled-select
