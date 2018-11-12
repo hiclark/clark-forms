@@ -36,7 +36,7 @@ const renderDropdown = ({
       multi={multi}
       options={options}
       onChange={({ value }) => input.onChange(value)}
-      onBlur={() => input.onBlur(input.value)}
+      onBlur={event => event.preventDefault()}
       value={options.find(({ value }) => value === input.value) || input.value}
       placeholder={placeholder}
       columns={columns}
