@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.7.0 - 2018-11-26
+### Added
+- Tooltip to input field
+
 ## 1.6.0 - 2018-11-12
 ### Fixed
 - fix dropdown issues on mobile/windows
@@ -50,7 +54,6 @@ All notable changes to this project will be documented in this file.
 ## 0.8.7 - 2018-05-14
 ### Changed
 - made all dependencies dev dependencies because we build before publishing
-
 
 ## 0.8.6 - 2018-05-14
 ### Changed

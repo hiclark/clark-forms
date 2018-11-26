@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
+import { ToolTip } from 'clark-styles';
 
 import Error from '../error';
 import { SPACING_EXTRA_SMALL, SPACING_SMALL } from '../../styles/spacing';
@@ -15,30 +16,32 @@ import Label from '../label';
 
 export type InputType = string;
 
-const renderField = ({ input, inputType, meta: { touched, error }, disabled, ...rest }) => (
-  <div>
+const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) => (
+  <Fragment>
     {/* we rename the inputType prop to avoid a colision with the type attribute
     that is used to specify which form element to render */}
-    <FormInput
-      {...rest}
-      {...input}
-      showError={!(error && touched)}
-      disabled={disabled}
-      type={inputType}
-    />
+    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
     <Error touched={touched} error={error} />
-  </div>
+  </Fragment>
 );
 
 type PropsType = any;
 const Input = (props: PropsType) => {
-  const { name, label, copy, required, disabled } = props;
+  const { name, label, copy, required, disabled, tooltip } = props;
   return (
-    <div>
+    <Fragment>
       <Label name={name} label={label} required={required} disabled={disabled} />
       {copy && <Copy>{copy}</Copy>}
-      <Field component={renderField} disabled={disabled} {...props} />
-    </div>
+      {tooltip ? (
+        <ToolTip
+          tipPosition="middle"
+          content={tooltip}
+          trigger={<Field component={renderField} disabled {...props} />}
+        />
+      ) : (
+        <Field component={renderField} disabled={disabled} {...props} />
+      )}
+    </Fragment>
   );
 };
 
