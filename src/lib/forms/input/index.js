@@ -36,7 +36,7 @@ const Input = (props: PropsType) => {
         <ToolTip
           tipPosition="middle"
           content={tooltip}
-          trigger={<Field component={renderField} disabled={disabled} {...props} />}
+          trigger={<Field component={renderField} disabled {...props} />}
         />
       ) : (
         <Field component={renderField} disabled={disabled} {...props} />
