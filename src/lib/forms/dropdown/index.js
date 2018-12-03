@@ -28,6 +28,7 @@ const renderDropdown = ({
   columns,
   multi,
   meta: { touched, error },
+  disabled,
 }) => (
   <div>
     <StyledSelect
@@ -41,6 +42,7 @@ const renderDropdown = ({
       placeholder={placeholder}
       columns={columns}
       classNamePrefix="select"
+      isDisabled={disabled}
     />
     <Error touched={touched} error={error} />
   </div>
@@ -48,6 +50,7 @@ const renderDropdown = ({
 
 type PropsType = any;
 const Dropdown = ({
+  disabled,
   index,
   name,
   label,
@@ -71,6 +74,7 @@ const Dropdown = ({
       validate={validate}
       onChange={onChange}
       placeholder={placeholder}
+      disabled={disabled}
     />
   </DropdownContainer>
 );
