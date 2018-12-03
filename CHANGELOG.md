@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.8.0 - 2018-12-3
+### Added
+- disabled prop for dropdown
+
+## 1.7.0 - 2018-11-26
+### Added
+- Tooltip wrapper
+
 ## 1.6.0 - 2018-11-12
 ### Fixed
 - fix dropdown issues on mobile/windows
