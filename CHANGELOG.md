@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.8.0 - 2018-12-3
+### Added
+- disabled prop for dropdown
+
 ## 1.7.0 - 2018-11-26
 ### Added
 - Tooltip to input field
