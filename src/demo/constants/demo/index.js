@@ -139,6 +139,63 @@ const FIELD_SETS = [
         ],
       },
       {
+        columns: { small: 2 },
+        fields: [
+          {
+            label: 'Button',
+            type: 'button',
+            name: 'button',
+            validate: isRequired,
+            styleType: 'primary',
+            children: <Check />,
+            // children: 'primary',
+            // disabled: true,
+          },
+        ],
+      },
+      {
+        columns: { small: 2 },
+        fields: [
+          {
+            label: 'Button',
+            type: 'button',
+            name: 'button',
+            validate: isRequired,
+            styleType: 'secondary',
+            children: 'secondary',
+            icon: <Check />,
+            // disabled: true,
+          },
+        ],
+      },
+      {
+        columns: { small: 2 },
+        fields: [
+          {
+            label: 'Button',
+            type: 'button',
+            name: 'button',
+            validate: isRequired,
+            styleType: 'tertiary',
+            children: 'tertiary',
+          },
+        ],
+      },
+      {
+        columns: { small: 2 },
+        fields: [
+          {
+            label: 'Button',
+            type: 'button',
+            name: 'button',
+            validate: isRequired,
+            styleType: 'dashed',
+            children: 'dashed',
+            // disabled: true,
+          },
+        ],
+      },
+      {
         columns: { small: 1, large: 2 },
         fields: [
           {

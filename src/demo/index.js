@@ -1,6 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import { injectGlobal } from 'styled-components';
@@ -26,9 +27,11 @@ if (!target) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer>
-      <Demo />
-    </AppContainer>
+    <BrowserRouter>
+      <AppContainer>
+        <Demo />
+      </AppContainer>
+    </BrowserRouter>
   </Provider>,
   target,
 );
