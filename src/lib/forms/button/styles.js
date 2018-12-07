@@ -110,6 +110,10 @@ export const StyledButton = styled.button`
 
 export const StyledLink = StyledButton.withComponent(Link);
 
-export const Copy = styled.span``;
+export const Copy = styled.span`
+  margin-right: ${({ hasSecondaryIcon }) => hasSecondaryIcon && 'auto'};
+`;
 
-export const SecondaryIcon = styled.span``;
+export const SecondaryIcon = styled.span`
+  margin-right: auto;
+`;
