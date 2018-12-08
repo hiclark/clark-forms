@@ -18,6 +18,7 @@ import { SPACING_MEDIUM } from '../../styles/spacing';
 import { TYPE_SCALE_F6 } from '../../styles/type-scale';
 import { FONT_WEIGHT_700 } from '../../styles/font-weight';
 import { Z_INDEX_1 } from '../../styles/z-index';
+// import media from '../../styles/media-queries';
 
 const MAX_WIDTH = '17.5rem';
 export const Container = styled.span`
@@ -28,7 +29,6 @@ export const Container = styled.span`
 
 const primary = disabled => css`
   background: ${disabled ? GREY_25 : BUTTON_COLOR_PRIMARY};
-  box-shadow: ${props => (props.disabled ? '' : '0 2px 8px 0 rgba(234, 73, 0, 0.2)')};
   border: 0;
   color: ${WHITE};
 
@@ -102,18 +102,29 @@ export const StyledButton = styled.button`
   ${({ disabled }) => disabled && 'pointer-events: none;'};
   ${({ disabled, styleType }) => buttonStyleType(disabled)[styleType]};
 
+  &:focus {
+    outline: none;
+  }
+
   svg {
     height: ${SPACING_MEDIUM};
     width: ${SPACING_MEDIUM};
+    color: ${({ btnState, styleType, variant }) =>
+      styleType !== 'primary' &&
+      btnState === 'success' &&
+      variant === 'dialog' &&
+      LINK_COLOR_QUINARY};
   }
 `;
 
 export const StyledLink = StyledButton.withComponent(Link);
 
-export const Copy = styled.span`
+export const Label = styled.span`
   margin-right: ${({ hasSecondaryIcon }) => hasSecondaryIcon && 'auto'};
 `;
 
 export const SecondaryIcon = styled.span`
   margin-right: auto;
+  visibility: ${({ btnState, variant }) =>
+    (btnState === 'loading' || (btnState === 'success' && variant === 'dialog')) && 'hidden'};
 `;

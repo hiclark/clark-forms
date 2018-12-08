@@ -4,7 +4,7 @@ import { type LocationShape } from 'react-router-dom';
 import Check from '../../../demo/assets/icons/check.svg';
 import Loader from '../../../demo/assets/icons/loader.svg';
 
-import { Container, Copy, SecondaryIcon, StyledButton, StyledLink } from './styles';
+import { Container, Label, SecondaryIcon, StyledButton, StyledLink } from './styles';
 
 type PropsType = {
   children: Node,
@@ -18,15 +18,19 @@ type PropsType = {
 };
 
 type StateType = {
-  buttonStates: Array<mixed>,
+  btnState: string,
+  btnLabel: Node,
 };
 
-const times = x => f => {
-  if (x > 0) {
-    f();
-    times(x - 1)(f);
-  }
+const labelMap = {
+  loading: <Loader />,
+  success: <Check />,
 };
+
+const getBtnProps = activeState => ({
+  btnState: activeState,
+  btnLabel: labelMap[activeState],
+});
 
 class Button extends Component<PropsType, StateType> {
   static defaultProps = {
@@ -40,30 +44,33 @@ class Button extends Component<PropsType, StateType> {
   };
 
   state = {
-    currentStateIdx: 0,
-    buttonStates: [
-      { key: 0, name: 'active', value: this.props.children },
-      { key: 1, name: 'loading', value: <Loader /> },
-      { key: 2, name: 'successful', value: <Check /> },
-    ],
+    btnState: 'active',
+    btnLabel: this.props.children,
   };
 
-  updateButtonState = () =>
-    setTimeout(this.setState({ currentStateIdx: this.state.currentStateIdx + 1 }), 1000);
+  componentWillUpdate(_, nextState) {
+    if (nextState.btnState === 'loading') {
+      const nextBtnState = getBtnProps('success');
 
-  scheduleNextButtonState = () =>
-    this.setState({ currentStateIdx: this.state.currentStateIdx + 1 });
+      setTimeout(() => this.setState({ ...nextBtnState }), 1000);
+    }
+  }
 
   handleClick = () => {
     const { onClick, variant } = this.props;
 
-    if (variant && variant === 'dialog') this.scheduleNextButtonState();
+    if (variant === 'dialog') {
+      const nextBtnState = getBtnProps('loading');
+      this.setState({ ...nextBtnState });
+    }
+
+    // if onClick and variant, call onClick after sequence executes?
     if (onClick) onClick();
   };
 
   render() {
-    const { children, disabled, icon, variant, path, styleType, type } = this.props;
-    console.log(variant, 'VALUE:', this.state.buttonStates[0].value);
+    const { children, disabled, icon, path, styleType, type, variant } = this.props;
+    const { btnLabel, btnState } = this.state;
 
     return (
       <Container>
@@ -73,16 +80,20 @@ class Button extends Component<PropsType, StateType> {
           </StyledLink>
         ) : (
           <StyledButton
-            disabled={this.state.buttonState === 'disabled' || disabled}
+            btnState={btnState}
+            disabled={btnState === 'loading' || disabled}
             icon={icon}
             onClick={this.handleClick}
             styleType={styleType}
             type={type}
+            variant={variant}
           >
-            {icon && <SecondaryIcon>{icon}</SecondaryIcon>}
-            <Copy hasSecondaryIcon={icon}>
-              {this.state.buttonStates[this.state.currentStateIdx].value}
-            </Copy>
+            {icon && (
+              <SecondaryIcon btnState={btnState} variant={variant}>
+                {icon}
+              </SecondaryIcon>
+            )}
+            <Label hasSecondaryIcon={icon}>{btnLabel}</Label>
           </StyledButton>
         )}
       </Container>
