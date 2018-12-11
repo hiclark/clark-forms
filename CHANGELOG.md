@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.9.0 - 2018-12-11
+### Fixed
+- allow passing a custom date formatter string to datepicker
+
 ## 1.8.1 - 2018-12-4
 ### Fixed
 - build issue
