@@ -149,8 +149,6 @@ const FIELD_SETS = [
             styleType: 'primary',
             children: 'primary',
             variant: 'dialog',
-            onClick: () => console.log('THANK YOU, NEXT'),
-            // disabled: true,
           },
         ],
       },

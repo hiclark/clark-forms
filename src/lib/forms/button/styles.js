@@ -18,9 +18,11 @@ import { SPACING_MEDIUM } from '../../styles/spacing';
 import { TYPE_SCALE_F6 } from '../../styles/type-scale';
 import { FONT_WEIGHT_700 } from '../../styles/font-weight';
 import { Z_INDEX_1 } from '../../styles/z-index';
-// import media from '../../styles/media-queries';
+import media from '../../styles/media-queries';
 
 const MAX_WIDTH = '17.5rem';
+const ICON_SIZE = '1.25rem';
+
 export const Container = styled.span`
   z-index: 0;
   position: relative;
@@ -89,8 +91,8 @@ export const StyledButton = styled.button`
   ${BORDER_RADIUS_F2};
   ${Z_INDEX_1};
   padding: ${SPACING_MEDIUM};
-  max-width: ${MAX_WIDTH};
   width: 100%;
+  max-width: 100%;
   height: auto;
   cursor: pointer;
   display: flex;
@@ -107,14 +109,18 @@ export const StyledButton = styled.button`
   }
 
   svg {
-    height: ${SPACING_MEDIUM};
-    width: ${SPACING_MEDIUM};
+    height: ${ICON_SIZE};
+    width: ${ICON_SIZE};
     color: ${({ btnState, styleType, variant }) =>
       styleType !== 'primary' &&
       btnState === 'success' &&
       variant === 'dialog' &&
       LINK_COLOR_QUINARY};
   }
+
+  ${media.small`
+    max-width: ${MAX_WIDTH};
+  `};
 `;
 
 export const StyledLink = StyledButton.withComponent(Link);

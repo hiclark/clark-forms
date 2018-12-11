@@ -1,8 +1,9 @@
 import React, { Component, type Node } from 'react';
 import { type LocationShape } from 'react-router-dom';
 
+import { Spinner } from 'clark-styles';
+
 import Check from '../../../demo/assets/icons/check.svg';
-import Loader from '../../../demo/assets/icons/loader.svg';
 
 import { Container, Label, SecondaryIcon, StyledButton, StyledLink } from './styles';
 
@@ -23,7 +24,7 @@ type StateType = {
 };
 
 const labelMap = {
-  loading: <Loader />,
+  loading: <Spinner size="36px" />,
   success: <Check />,
 };
 
@@ -64,7 +65,6 @@ class Button extends Component<PropsType, StateType> {
       this.setState({ ...nextBtnState });
     }
 
-    // if onClick and variant, call onClick after sequence executes?
     if (onClick) onClick();
   };
 
