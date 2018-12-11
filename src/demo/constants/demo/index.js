@@ -83,6 +83,7 @@ const FIELD_SETS = [
             showYearDropdown: true,
             showMonthDropdown: true,
             isOutsideRange: () => false,
+            displayFormat: 'ddd, MMMM Do, Y',
           },
           {
             type: 'datepicker',
