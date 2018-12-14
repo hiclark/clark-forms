@@ -11,7 +11,7 @@ import { GREY_75 } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import RequiredAsterisk from '../required-asterisk';
 
-const renderField = ({ required, index, label, input: { name, checked, onChange } }) => (
+const renderField = ({ disabled, required, index, label, input: { name, checked, onChange } }) => (
   <div>
     <HiddenField>
       <Field
@@ -25,8 +25,8 @@ const renderField = ({ required, index, label, input: { name, checked, onChange 
     </HiddenField>
 
     <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
-      <CheckboxLabel>
-        {checked ? <ToggleOn /> : <ToggleOff />}
+      <CheckboxLabel disabled={disabled}>
+        {checked && !disabled ? <ToggleOn /> : <ToggleOff />}
         <LabelText>
           {label}
           {required && <RequiredAsterisk />}
@@ -54,6 +54,7 @@ const CheckboxLabel = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  opacity: ${({ disabled }) => disabled && '0.5'};
 `;
 
 const LabelText = styled.p`
