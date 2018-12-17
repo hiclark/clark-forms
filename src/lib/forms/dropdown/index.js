@@ -63,7 +63,7 @@ const Dropdown = ({
   onChange,
 }: PropsType) => (
   <DropdownContainer>
-    {label && <Label name={name} label={label} required={required} />}
+    <Label name={name} label={label} required={required} />
     <Field
       index={index}
       name={name}

@@ -17,6 +17,7 @@ const renderField = ({ disabled, required, index, label, input: { name, checked,
       <Field
         id={`${name}-${index}`}
         name={name}
+        disabled={disabled}
         component="input"
         value={checked}
         type="checkbox"
@@ -26,7 +27,7 @@ const renderField = ({ disabled, required, index, label, input: { name, checked,
 
     <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
       <CheckboxLabel disabled={disabled}>
-        {checked && !disabled ? <ToggleOn /> : <ToggleOff />}
+        {checked ? <ToggleOn /> : <ToggleOff />}
         <LabelText>
           {label}
           {required && <RequiredAsterisk />}
