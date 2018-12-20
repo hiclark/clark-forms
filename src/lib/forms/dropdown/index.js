@@ -61,10 +61,9 @@ const Dropdown = ({
   multi,
   required,
   onChange,
-  alignTopMargin,
 }: PropsType) => (
   <DropdownContainer>
-    {!alignTopMargin && <Label name={name} label={label} required={required} />}
+    <Label name={name} label={label} required={required} />
     <Field
       index={index}
       name={name}
