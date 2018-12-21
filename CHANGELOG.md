@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.10.0 - 2018-12-21
+### Updated
+- add disabled prop to checkbox component
+
 ## 1.9.0 - 2018-12-11
 ### Fixed
 - allow passing a custom date formatter string to datepicker
