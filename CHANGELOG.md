@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.10.1 - 2019-1-3
+### Updated
+- update version
+
 ## 1.10.0 - 2018-12-21
 ### Updated
 - add disabled prop to checkbox component
