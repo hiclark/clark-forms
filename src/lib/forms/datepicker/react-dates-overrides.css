@@ -50,3 +50,16 @@
   color: #413e60;
   border-color: #cfcfd7;
 }
+
+.DateRangePickerInput .DateInput_1 {
+  width: 30%;
+  min-width: 85px;
+}
+
+.DateRangePickerInput #startDate {
+  padding-left: 0;
+}
+
+.DateRangePickerInput #endDate {
+  padding-right: 0;
+}
