@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 ### Updated
 - styles on daterangepicker are less likely to wrap at narrower widths
 
+## 1.10.1 - 2019-1-3
+### Updated
+- update version
+
 ## 1.10.0 - 2018-12-21
 ### Updated
 - add disabled prop to checkbox component
