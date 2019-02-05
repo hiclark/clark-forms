@@ -5,6 +5,7 @@ import {
   BORDER_RADIUS,
   BORDER_WIDTH,
   COLORS,
+  Flex,
   FONT_WEIGHT,
   SPACING,
   TYPE_SCALE,
@@ -12,7 +13,7 @@ import {
 
 const { CIRCLE } = BORDER_RADIUS;
 const { BW_1 } = BORDER_WIDTH;
-const { CLARK_SECONDARY, GREY_25, GREY_100, WHITE } = COLORS;
+const { CLARK_SECONDARY, GREY_25, GREY_50, GREY_100, WHITE } = COLORS;
 const { FW_100 } = FONT_WEIGHT;
 const { S_025, S_05, S_1 } = SPACING;
 const { TS_5 } = TYPE_SCALE;
@@ -25,7 +26,7 @@ type PropsType = {
 };
 
 const RadioButton = ({ values, name, index, input }: PropsType) => (
-  <RadioButtonGroup>
+  <Flex flexDirection="column">
     {values.map(({ value, label }) => {
       const isSelected = value === input.value;
       const onClickHandler = () => {
@@ -33,7 +34,7 @@ const RadioButton = ({ values, name, index, input }: PropsType) => (
         input.onChange(newValue);
       };
       return (
-        <Wrapper>
+        <Flex alignItems="center" margin={`0 0 ${S_1} 0`}>
           <OuterRadio>
             <InnerRadio
               component="input"
@@ -45,33 +46,27 @@ const RadioButton = ({ values, name, index, input }: PropsType) => (
               value={value}
             />
           </OuterRadio>
-          <Label htmlFor={name}>{label}</Label>
-        </Wrapper>
+          <Label htmlFor={name} hasInput={input.value} isSelected={isSelected}>
+            {label}
+          </Label>
+        </Flex>
       );
     })}
-  </RadioButtonGroup>
+  </Flex>
 );
 
 export default (props: PropsType) => <Field component={RadioButton} {...props} />;
 
-const POSITIONAL_SPACER = `calc(${S_05} + ${S_1})`;
-
-const RadioButtonGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Wrapper = styled.div`
-  margin-bottom: ${S_1};
-  display: flex;
-  align-items: center;
-`;
+const TOP_SPACING = '-1px';
+const LEFT_SPACING = '-2px';
+const DIMENSIONAL_SPACING = `calc(${S_05} + ${S_1})`;
 
 const OuterRadio = styled.div`
   ${CIRCLE};
+  background-color: ${WHITE};
   border: ${BW_1} solid ${GREY_25};
-  width: ${POSITIONAL_SPACER};
-  height: ${POSITIONAL_SPACER};
+  width: ${DIMENSIONAL_SPACING};
+  height: ${DIMENSIONAL_SPACING};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,11 +80,11 @@ const InnerRadio = styled(Field)`
 
   &:after {
     ${CIRCLE};
+    top: ${TOP_SPACING};
+    left: ${LEFT_SPACING};
     width: ${S_1};
     height: ${S_1};
     background-color: ${WHITE};
-    top: -1px;
-    left: -2px;
     position: relative;
     content: '';
     display: inline-block;
@@ -103,7 +98,7 @@ const InnerRadio = styled(Field)`
 const Label = styled.label`
   ${TS_5};
   ${FW_100};
-  color: ${GREY_100};
+  color: ${({ hasInput, isSelected }) => (hasInput && !isSelected ? GREY_50 : GREY_100)};
   margin-left: calc(${S_025} + ${S_05});
   display: block;
 `;
