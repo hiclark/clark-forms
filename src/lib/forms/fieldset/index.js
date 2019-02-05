@@ -4,7 +4,7 @@ import React from 'react';
 import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
-import RadioButton from '../radio-button';
+import RadioButtonGroup from '../radio-button';
 import Dropdown from '../dropdown';
 import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
@@ -24,7 +24,7 @@ import { CLARK_SECONDARY } from '../../styles/colors';
 const mapFieldToComponent = type => {
   const components = {
     input: Input,
-    radioButton: RadioButton,
+    radioButton: RadioButtonGroup,
     checkbox: Checkbox,
     dropdown: Dropdown,
     textarea: Textarea,

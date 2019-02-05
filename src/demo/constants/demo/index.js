@@ -15,11 +15,11 @@ const RATING = [
 const RATING_KEY = { left: 'Poor', right: 'Excellent' };
 
 const RADIO = [
-  { value: 1, label: '1' },
-  { value: 2, label: '2' },
-  { value: 3, label: '3' },
-  { value: 4, label: '4' },
-  { value: 5, label: '5' },
+  { value: 1, label: 'List Item 1' },
+  { value: 2, label: 'List Item 2' },
+  { value: 3, label: 'List Item 3' },
+  { value: 4, label: 'List Item 4' },
+  { value: 5, label: 'List Item 5' },
 ];
 
 const FIELD_SETS = [
