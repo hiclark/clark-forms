@@ -1,14 +1,21 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
+import {
+  BORDER_RADIUS,
+  BORDER_WIDTH,
+  COLORS,
+  FONT_WEIGHT,
+  SPACING,
+  TYPE_SCALE,
+} from 'clark-styles';
 
-import RequiredAsterisk from '../required-asterisk';
-import { SPACING_EXTRA_SMALL, SPACING_SMALL, SPACING_MEDIUM } from '../../styles/spacing';
-import { TYPE_SCALE_F5 } from '../../styles/type-scale';
-import { CLARK_SECONDARY, GREY_25, WHITE } from '../../styles/colors';
-import { BORDER_WIDTH_1 } from '../../styles/borders';
-import { BORDER_RADIUS_100 } from '../../styles/border-radius';
-import { FONT_WEIGHT_100 } from '../../styles/font-weight';
+const { CIRCLE } = BORDER_RADIUS;
+const { BW_1 } = BORDER_WIDTH;
+const { CLARK_SECONDARY, GREY_25, GREY_100, WHITE } = COLORS;
+const { FW_100 } = FONT_WEIGHT;
+const { S_025, S_05, S_1 } = SPACING;
+const { TS_5 } = TYPE_SCALE;
 
 type PropsType = {
   name: string,
@@ -16,10 +23,9 @@ type PropsType = {
   index: number,
   value: boolean,
   placeholder: boolean,
-  required: boolean,
 };
 
-const RadioButton = ({ name, label, index, value, placeholder, required }: PropsType) => (
+const RadioButton = ({ name, label, index, value, placeholder }: PropsType) => (
   <RadioButtonGroup>
     <OuterRadio>
       <InnerRadio
@@ -31,22 +37,17 @@ const RadioButton = ({ name, label, index, value, placeholder, required }: Props
         index={index}
       />
     </OuterRadio>
-    <Label htmlFor={name}>
-      {label}
-      {required && <RequiredAsterisk />}
-    </Label>
+    <Label htmlFor={name}>{label}</Label>
   </RadioButtonGroup>
 );
 
 export default RadioButton;
 
-const OUTER_SPACING = '24px';
-const CUSTOM_MARGIN = '4px';
-const BUTTON_COLOR = '#00CBC4';
+const OUTER_SPACING = `calc(${S_05} + ${S_1})`;
 
 const OuterRadio = styled.div`
-  ${BORDER_RADIUS_100};
-  border: ${BORDER_WIDTH_1} solid ${GREY_25};
+  ${CIRCLE};
+  border: ${BW_1} solid ${GREY_25};
   width: ${OUTER_SPACING};
   height: ${OUTER_SPACING};
   display: flex;
@@ -55,15 +56,15 @@ const OuterRadio = styled.div`
 `;
 
 const InnerRadio = styled(Field)`
-  ${BORDER_RADIUS_100};
+  ${CIRCLE};
   align-items: center;
-  margin-bottom: ${CUSTOM_MARGIN};
+  margin-bottom: ${S_025};
   cursor: pointer;
 
   &:after {
-    ${BORDER_RADIUS_100};
-    width: ${SPACING_MEDIUM};
-    height: ${SPACING_MEDIUM};
+    ${CIRCLE};
+    width: ${S_1};
+    height: ${S_1};
     background-color: ${WHITE};
     top: -1px;
     left: -2px;
@@ -75,10 +76,10 @@ const InnerRadio = styled(Field)`
   }
 
   &:checked:after {
-    ${BORDER_RADIUS_100};
-    width: ${SPACING_MEDIUM};
-    height: ${SPACING_MEDIUM};
-    background-color: ${BUTTON_COLOR};
+    ${CIRCLE};
+    width: ${S_1};
+    height: ${S_1};
+    background-color: ${CLARK_SECONDARY};
     top: -1px;
     left: -2px;
     position: relative;
@@ -95,9 +96,9 @@ const RadioButtonGroup = styled.div`
 `;
 
 const Label = styled.label`
-  ${TYPE_SCALE_F5};
-  ${FONT_WEIGHT_100};
-  color: ${CLARK_SECONDARY};
-  margin-left: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
+  ${TS_5};
+  ${FW_100};
+  color: ${GREY_100};
+  margin-left: calc(${S_025} + ${S_05});
   display: block;
 `;
