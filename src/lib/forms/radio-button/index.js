@@ -1,14 +1,14 @@
-import React, { type Element } from 'react';
+import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
 import RequiredAsterisk from '../required-asterisk';
-import media from '../../styles/media-queries';
-import { SPACING_SMALL } from '../../styles/spacing';
+import { SPACING_EXTRA_SMALL, SPACING_SMALL, SPACING_MEDIUM } from '../../styles/spacing';
 import { TYPE_SCALE_F5 } from '../../styles/type-scale';
-import { CLARK_TERTIARY, WHITE } from '../../styles/colors';
-import { BORDER_RADIUS_F3 } from '../../styles/border-radius';
-import { BORDER_WIDTH_2 } from '../../styles/borders';
+import { CLARK_SECONDARY, GREY_25, WHITE } from '../../styles/colors';
+import { BORDER_WIDTH_1 } from '../../styles/borders';
+import { BORDER_RADIUS_100 } from '../../styles/border-radius';
+import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 
 type PropsType = {
   name: string,
@@ -16,91 +16,88 @@ type PropsType = {
   index: number,
   value: boolean,
   placeholder: boolean,
-  icon: Element<any>,
   required: boolean,
 };
 
-const RadioButton = ({ name, label, index, value, placeholder, icon, required }: PropsType) => (
-  <RadioButtonContainer>
-    <Radio
-      name={name}
-      component="input"
-      value={value}
-      placeholder={placeholder}
-      type="radio"
-      index={index}
-    />
-    <Icon>{icon}</Icon>
+const RadioButton = ({ name, label, index, value, placeholder, required }: PropsType) => (
+  <RadioButtonGroup>
+    <OuterRadio>
+      <InnerRadio
+        name={name}
+        component="input"
+        value={value}
+        placeholder={placeholder}
+        type="radio"
+        index={index}
+      />
+    </OuterRadio>
     <Label htmlFor={name}>
       {label}
       {required && <RequiredAsterisk />}
     </Label>
-  </RadioButtonContainer>
+  </RadioButtonGroup>
 );
 
 export default RadioButton;
 
-const Radio = styled(Field)`
-  color: ${CLARK_TERTIARY};
-  appearance: none;
-  bottom: 0;
-  cursor: pointer;
-  display: block;
-  left: 0;
-  position: absolute;
-  outline: none;
-  margin: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  transition: all 0.25s ease-in-out;
-`;
+const OUTER_SPACING = '24px';
+const CUSTOM_MARGIN = '4px';
+const BUTTON_COLOR = '#00CBC4';
 
-const RadioButtonContainer = styled.div`
-  ${BORDER_RADIUS_F3};
-  align-items: center;
-  border: ${BORDER_WIDTH_2} solid ${CLARK_TERTIARY};
-  cursor: pointer;
+const OuterRadio = styled.div`
+  ${BORDER_RADIUS_100};
+  border: ${BORDER_WIDTH_1} solid ${GREY_25};
+  width: ${OUTER_SPACING};
+  height: ${OUTER_SPACING};
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  height: 105px;
-  position: relative;
-  text-align: center;
+`;
 
-  ${media.small`
-    height: 150px;
-  `};
+const InnerRadio = styled(Field)`
+  ${BORDER_RADIUS_100};
+  align-items: center;
+  margin-bottom: ${CUSTOM_MARGIN};
+  cursor: pointer;
 
-  /* TODO: this is not ideal, find a more elegant way to address checked state
-     tring to keep this logic in the component itself.
-  */
-  > ${Radio}:checked {
-    background-color: ${CLARK_TERTIARY};
+  &:after {
+    ${BORDER_RADIUS_100};
+    width: ${SPACING_MEDIUM};
+    height: ${SPACING_MEDIUM};
+    background-color: ${WHITE};
+    top: -1px;
+    left: -2px;
+    position: relative;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
   }
 
-  > ${Radio}:checked ~ label {
-    color: ${WHITE};
+  &:checked:after {
+    ${BORDER_RADIUS_100};
+    width: ${SPACING_MEDIUM};
+    height: ${SPACING_MEDIUM};
+    background-color: ${BUTTON_COLOR};
+    top: -1px;
+    left: -2px;
     position: relative;
-  }
-
-  > ${Radio}:checked ~ div {
-    color: ${WHITE};
-    position: relative;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
   }
 `;
 
-const Icon = styled.div`
-  color: ${CLARK_TERTIARY};
-  display: block;
-  margin: 0 auto ${SPACING_SMALL} auto;
-  width: 30px;
-  transition: all 0.25s ease-in-out;
+const RadioButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const Label = styled.label`
   ${TYPE_SCALE_F5};
-  color: ${CLARK_TERTIARY};
+  ${FONT_WEIGHT_100};
+  color: ${CLARK_SECONDARY};
+  margin-left: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
   display: block;
-  transition: all 0.25s ease-in-out;
 `;
