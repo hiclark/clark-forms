@@ -22,34 +22,56 @@ type PropsType = {
   label: string,
   index: number,
   value: boolean,
-  placeholder: boolean,
 };
 
-const RadioButton = ({ name, label, index, value, placeholder }: PropsType) => (
+const RadioButton = ({ values, name, index, input }: PropsType) => (
   <RadioButtonGroup>
-    <OuterRadio>
-      <InnerRadio
-        name={name}
-        component="input"
-        value={value}
-        placeholder={placeholder}
-        type="radio"
-        index={index}
-      />
-    </OuterRadio>
-    <Label htmlFor={name}>{label}</Label>
+    {values.map(({ value, label }) => {
+      const isSelected = value === input.value;
+      const onClickHandler = () => {
+        const newValue = isSelected ? null : value;
+        input.onChange(newValue);
+      };
+      return (
+        <Wrapper>
+          <OuterRadio>
+            <InnerRadio
+              component="input"
+              index={index}
+              name={name}
+              onClick={onClickHandler}
+              selected={isSelected}
+              type="radio"
+              value={value}
+            />
+          </OuterRadio>
+          <Label htmlFor={name}>{label}</Label>
+        </Wrapper>
+      );
+    })}
   </RadioButtonGroup>
 );
 
-export default RadioButton;
+export default (props: PropsType) => <Field component={RadioButton} {...props} />;
 
-const OUTER_SPACING = `calc(${S_05} + ${S_1})`;
+const POSITIONAL_SPACER = `calc(${S_05} + ${S_1})`;
+
+const RadioButtonGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Wrapper = styled.div`
+  margin-bottom: ${S_1};
+  display: flex;
+  align-items: center;
+`;
 
 const OuterRadio = styled.div`
   ${CIRCLE};
   border: ${BW_1} solid ${GREY_25};
-  width: ${OUTER_SPACING};
-  height: ${OUTER_SPACING};
+  width: ${POSITIONAL_SPACER};
+  height: ${POSITIONAL_SPACER};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,26 +95,9 @@ const InnerRadio = styled(Field)`
     display: inline-block;
     visibility: visible;
     border: 2px solid white;
-  }
 
-  &:checked:after {
-    ${CIRCLE};
-    width: ${S_1};
-    height: ${S_1};
-    background-color: ${CLARK_SECONDARY};
-    top: -1px;
-    left: -2px;
-    position: relative;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid white;
+    ${({ selected }) => selected && `background-color: ${CLARK_SECONDARY}`};
   }
-`;
-
-const RadioButtonGroup = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 const Label = styled.label`
