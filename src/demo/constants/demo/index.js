@@ -12,6 +12,14 @@ const RATING = [
   { value: 5, label: '5' },
 ];
 
+const CHECKBOXES = [
+  { value: 1, label: 'Checkbox 1' },
+  { value: 2, label: 'Checkbox 2' },
+  { value: 3, label: 'Checkbox 3' },
+  { value: 4, label: 'Checkbox 4' },
+  { value: 5, label: 'Checkbox 5' },
+];
+
 const RATING_KEY = { left: 'Poor', right: 'Excellent' };
 
 const RADIO = [
@@ -145,16 +153,7 @@ const FIELD_SETS = [
             type: 'checkboxField',
             name: 'checkboxField1',
             label: 'Checkbox Field',
-          },
-        ],
-      },
-      {
-        columns: { small: 1, large: 2 },
-        fields: [
-          {
-            type: 'checkboxField',
-            name: 'checkboxField2',
-            label: 'Checkbox Field',
+            values: CHECKBOXES,
           },
         ],
       },
