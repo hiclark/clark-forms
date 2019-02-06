@@ -26,8 +26,8 @@ export const OuterRadio = styled.div`
   ${CIRCLE};
   background-color: ${WHITE};
   border: ${BW_1} solid ${GREY_25};
-  width: ${DIMENSIONAL_SPACING};
-  height: ${DIMENSIONAL_SPACING};
+  min-width: ${DIMENSIONAL_SPACING};
+  min-height: ${DIMENSIONAL_SPACING};
   display: flex;
   align-items: center;
   justify-content: center;
