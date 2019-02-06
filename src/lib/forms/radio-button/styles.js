@@ -7,6 +7,7 @@ import {
   BORDER_WIDTH,
   COLORS,
   FONT_WEIGHT,
+  LINE_HEIGHT,
   SPACING,
   TYPE_SCALE,
 } from 'clark-styles';
@@ -15,6 +16,7 @@ const { CIRCLE } = BORDER_RADIUS;
 const { BW_1 } = BORDER_WIDTH;
 const { CLARK_SECONDARY, GREY_25, GREY_50, GREY_100, WHITE } = COLORS;
 const { FW_100 } = FONT_WEIGHT;
+const { TITLE } = LINE_HEIGHT;
 const { S_025, S_05, S_1 } = SPACING;
 const { TS_5 } = TYPE_SCALE;
 
@@ -58,6 +60,7 @@ export const InnerRadio = styled(Field)`
 `;
 
 export const Label = styled.label`
+  ${TITLE};
   ${TS_5};
   ${FW_100};
   color: ${({ hasInput, isSelected }) => (hasInput && !isSelected ? GREY_50 : GREY_100)};
