@@ -142,6 +142,26 @@ const FIELD_SETS = [
         columns: { small: 1, large: 2 },
         fields: [
           {
+            type: 'checkboxField',
+            name: 'checkboxField1',
+            label: 'Checkbox Field',
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'checkboxField',
+            name: 'checkboxField2',
+            label: 'Checkbox Field',
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
             label: 'Toggle',
             type: 'toggleButton',
             name: 'toggle',
