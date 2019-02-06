@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { BORDER_WIDTH, COLORS, FONT_WEIGHT, LINE_HEIGHT, SPACING, TYPE_SCALE } from 'clark-styles';
-
 import Check from '../../../demo/assets/icons/check.svg';
 
 const { BW_1 } = BORDER_WIDTH;
@@ -9,9 +8,8 @@ const { FW_100 } = FONT_WEIGHT;
 const { TITLE } = LINE_HEIGHT;
 const { S_025, S_05, S_1 } = SPACING;
 const { TS_5 } = TYPE_SCALE;
-
 const BORDER_RADIUS = '4px';
-const DIMENSIONAL_SPACING = `calc(${S_1} + ${S_05} + ${S_025})`;
+const BOX_DIMENSIONS = `calc(${S_1} + ${S_05} + ${S_025})`;
 
 export const HiddenField = styled.div`
   display: none;
@@ -22,12 +20,12 @@ export const Layout = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  cursor: pointer;
   background-color: ${WHITE};
-  width: ${DIMENSIONAL_SPACING};
-  height: ${DIMENSIONAL_SPACING};
+  width: ${BOX_DIMENSIONS};
+  height: ${BOX_DIMENSIONS};
   border: ${BW_1} solid ${GREY_25};
   border-radius: ${BORDER_RADIUS};
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,4 +45,5 @@ export const LabelText = styled.p`
   ${FW_100};
   color: ${GREY_100};
   margin-left: ${S_05};
+  cursor: pointer;
 `;
