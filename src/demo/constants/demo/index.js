@@ -22,6 +22,12 @@ const RADIO = [
   { value: 5, label: 'List Item 5' },
 ];
 
+const CHECKBOXES = [
+  { value: 1, label: 'Checkbox 1' },
+  { value: 2, label: 'Checkbox 2' },
+  { value: 3, label: 'Checkbox 3' },
+];
+
 const FIELD_SETS = [
   {
     fieldSet: [
@@ -142,20 +148,9 @@ const FIELD_SETS = [
         columns: { small: 1, large: 2 },
         fields: [
           {
-            type: 'checkboxField',
-            name: 'checkboxField1',
-            label: 'Checkbox Field',
-          },
-        ],
-      },
-      {
-        columns: { small: 1, large: 2 },
-        fields: [
-          {
-            type: 'checkboxField',
-            name: 'checkboxField2',
-            label: 'Checkbox Field',
-            disabled: true,
+            type: 'checkboxGroup',
+            name: 'checkboxGroup',
+            options: CHECKBOXES,
           },
         ],
       },
