@@ -4,7 +4,7 @@ import { Field } from 'redux-form';
 import { Flex } from 'clark-styles';
 import { StyledCheck, HiddenField, LabelText, Layout, Wrapper } from './styles';
 
-const Checkbox = ({ checked, disabled, index, handleChange, label, name, value }) => (
+const Checkbox = ({ checked, disabled, index, handleChange, hasInput, label, name, value }) => (
   <Fragment>
     <HiddenField>
       <Field
@@ -25,14 +25,14 @@ const Checkbox = ({ checked, disabled, index, handleChange, label, name, value }
           <Wrapper>
             <StyledCheck checked={checked} />
           </Wrapper>
-          <LabelText>{label}</LabelText>
+          <LabelText deselected={hasInput && !checked}>{label}</LabelText>
         </Flex>
       </label>
     </Layout>
   </Fragment>
 );
 
-class CheckboxField extends Component {
+class CheckboxGroup extends Component {
   group = ({ disabled, input, options }) => {
     const { onChange } = input;
     const inputValue = input.value;
@@ -54,6 +54,7 @@ class CheckboxField extends Component {
           checked={checked}
           disabled={disabled}
           handleChange={handleChange}
+          hasInput={!!input.value}
           index={index}
           label={label}
           name={label}
@@ -70,4 +71,4 @@ class CheckboxField extends Component {
   }
 }
 
-export default CheckboxField;
+export default CheckboxGroup;

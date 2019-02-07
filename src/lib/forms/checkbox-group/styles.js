@@ -3,7 +3,7 @@ import { BORDER_WIDTH, COLORS, FONT_WEIGHT, LINE_HEIGHT, SPACING, TYPE_SCALE } f
 import Check from '../../../demo/assets/icons/check.svg';
 
 const { BW_1 } = BORDER_WIDTH;
-const { CLARK_SECONDARY, GREY_25, GREY_100, WHITE } = COLORS;
+const { CLARK_SECONDARY, GREY_25, GREY_50, GREY_100, WHITE } = COLORS;
 const { FW_100 } = FONT_WEIGHT;
 const { TITLE } = LINE_HEIGHT;
 const { S_025, S_05, S_1 } = SPACING;
@@ -43,7 +43,7 @@ export const LabelText = styled.p`
   ${TITLE};
   ${TS_5};
   ${FW_100};
-  color: ${GREY_100};
+  color: ${({ deselected }) => (deselected ? GREY_50 : GREY_100)};
   margin-left: ${S_05};
   cursor: pointer;
 `;

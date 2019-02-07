@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CheckboxField /> when checked is false matches the snapshot 1`] = `
+exports[`<CheckboxGroup /> when checked is false matches the snapshot 1`] = `
 <Field
   checked={false}
   component={[Function]}
@@ -11,7 +11,7 @@ exports[`<CheckboxField /> when checked is false matches the snapshot 1`] = `
 />
 `;
 
-exports[`<CheckboxField /> when checked is true matches the snapshot 1`] = `
+exports[`<CheckboxGroup /> when checked is true matches the snapshot 1`] = `
 <Field
   checked={true}
   component={[Function]}
@@ -22,7 +22,7 @@ exports[`<CheckboxField /> when checked is true matches the snapshot 1`] = `
 />
 `;
 
-exports[`<CheckboxField /> with label matches the snapshot 1`] = `
+exports[`<CheckboxGroup /> with label matches the snapshot 1`] = `
 <Field
   checked={true}
   component={[Function]}

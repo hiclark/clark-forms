@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CheckboxField from './';
+import CheckboxGroup from './';
 
-describe('<CheckboxField />', () => {
+describe('<CheckboxGroup />', () => {
   const props = {
     onCheckboxClick: jest.fn(),
     checked: true,
@@ -12,7 +12,7 @@ describe('<CheckboxField />', () => {
   };
 
   describe('when checked is true', () => {
-    const wrapper = shallow(<CheckboxField {...props} />);
+    const wrapper = shallow(<CheckboxGroup {...props} />);
 
     it('matches the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('<CheckboxField />', () => {
 
   describe('with label', () => {
     const propsWithLabel = { ...props, label: 'Label' };
-    const wrapper = shallow(<CheckboxField {...propsWithLabel} />);
+    const wrapper = shallow(<CheckboxGroup {...propsWithLabel} />);
 
     it('matches the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('<CheckboxField />', () => {
 
   describe('when checked is false', () => {
     const propsWithLabel = { ...props, checked: false };
-    const wrapper = shallow(<CheckboxField {...propsWithLabel} />);
+    const wrapper = shallow(<CheckboxGroup {...propsWithLabel} />);
 
     it('matches the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
