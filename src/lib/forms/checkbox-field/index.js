@@ -20,7 +20,9 @@ const renderField = ({ disabled, index, label, input: { value: checked, name, on
     <Layout disabled={disabled}>
       <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
         <Flex alignItems="center">
-          <Wrapper>{checked && <StyledCheck checked={checked} />}</Wrapper>
+          <Wrapper>
+            <StyledCheck checked={checked} />
+          </Wrapper>
           <LabelText>{label}</LabelText>
         </Flex>
       </label>
