@@ -5,9 +5,9 @@ import { Field, type FormProps } from 'redux-form';
 import { Flex } from 'clark-styles';
 import RadioButton from './radio-button';
 
-const onClickHandler = (input, isSelected, value) => {
+const onClickHandler = ({ onChange }, isSelected, value) => {
   const newValue = isSelected ? null : value;
-  input.onChange(newValue);
+  onChange(newValue);
 };
 
 type ValueType = string | number;
@@ -23,6 +23,7 @@ const RadioButtonGroup = ({ values, name, index, input }: ButtonGroupPropsType) 
   <Flex flexDirection="column">
     {values.map(({ value, label }) => (
       <RadioButton
+        key={`${name}-${index}`}
         index={index}
         input={input}
         isSelected={value === input.value}
