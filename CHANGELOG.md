@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 1.12.0 - 2019-02-06
+## 1.13.0 - 2019-02-07
 ### Updated
 - add checkboxGroup component
 
