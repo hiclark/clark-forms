@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { BORDER_WIDTH, COLORS, FONT_WEIGHT, LINE_HEIGHT, SPACING, TYPE_SCALE } from 'clark-styles';
-import Check from '../../../demo/assets/icons/check.svg';
+import Check from './check.svg';
 
 const { BW_1 } = BORDER_WIDTH;
 const { CLARK_SECONDARY, GREY_25, GREY_50, GREY_100, WHITE } = COLORS;
@@ -31,6 +31,7 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
+// $FlowFixMe
 export const StyledCheck = styled(Check)`
   color: ${CLARK_SECONDARY};
   visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};

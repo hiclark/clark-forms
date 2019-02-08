@@ -1,10 +1,31 @@
+// @flow
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React, { Fragment } from 'react';
 import { Field } from 'redux-form';
 import { Flex } from 'clark-styles';
 import { StyledCheck, HiddenField, LabelText, Layout, Wrapper } from './styles';
 
-const Checkbox = ({ checked, disabled, index, handleChange, hasInput, label, name, value }) => (
+type PropsType = {
+  checked: boolean,
+  disabled: boolean,
+  index: number,
+  handleChange: () => void,
+  hasInput: boolean,
+  label: string,
+  name: string,
+  value: string | number,
+};
+
+const Checkbox = ({
+  checked,
+  disabled,
+  index,
+  handleChange,
+  hasInput,
+  label,
+  name,
+  value,
+}: PropsType) => (
   <Fragment>
     <HiddenField>
       <Field
