@@ -63,7 +63,7 @@ export const Label = styled.label`
   ${TITLE};
   ${TS_5};
   ${FW_100};
-  color: ${({ hasInput, isSelected }) => (hasInput && !isSelected ? GREY_50 : GREY_100)};
+  color: ${({ deselected }) => (deselected ? GREY_50 : GREY_100)};
   margin-left: calc(${S_025} + ${S_05});
   display: block;
 `;

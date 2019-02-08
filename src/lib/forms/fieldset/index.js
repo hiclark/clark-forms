@@ -4,7 +4,7 @@ import React from 'react';
 import { type Validator, type Normalizer } from 'redux-form';
 import styled from 'styled-components';
 
-import RadioButtonGroup from '../radio-button';
+import RadioButtonGroup from '../radio-button-group';
 import Dropdown from '../dropdown';
 import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';

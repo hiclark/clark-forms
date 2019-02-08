@@ -6,7 +6,7 @@ import DateRangePicker from './forms/date-range-picker';
 import Dropdown from './forms/dropdown';
 import Error from './forms/error';
 import Input from './forms/input';
-import RadioButtonGroup from './forms/radio-button';
+import RadioButtonGroup from './forms/radio-button-group';
 import Textarea from './forms/textarea';
 import Rating from './forms/rating';
 import LocationAutocomplete from './forms/location-autocomplete';
