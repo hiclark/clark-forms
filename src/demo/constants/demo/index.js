@@ -14,6 +14,14 @@ const RATING = [
 
 const RATING_KEY = { left: 'Poor', right: 'Excellent' };
 
+const RADIO = [
+  { value: 1, label: 'List Item 1' },
+  { value: 2, label: 'List Item 2' },
+  { value: 3, label: 'List Item 3' },
+  { value: 4, label: 'List Item 4' },
+  { value: 5, label: 'List Item 5' },
+];
+
 const FIELD_SETS = [
   {
     fieldSet: [
@@ -115,17 +123,8 @@ const FIELD_SETS = [
         fields: [
           {
             type: 'radioButton',
-            name: 'accountType',
-            label: 'Individual',
-            value: 'individual',
-            validate: isRequired,
-          },
-          {
-            type: 'radioButton',
-            name: 'accountType',
-            label: 'Business',
-            value: 'company',
-            validate: isRequired,
+            name: 'radioButton',
+            values: RADIO,
           },
         ],
       },

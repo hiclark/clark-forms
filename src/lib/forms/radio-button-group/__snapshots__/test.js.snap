@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioButtonGroup /> matches the snapshot 1`] = `
+<Field
+  component={[Function]}
+  name="radioButton"
+  type="radioButton"
+  values={
+    Array [
+      Object {
+        "label": "List Item 1",
+        "value": 1,
+      },
+      Object {
+        "label": "List Item 2",
+        "value": 2,
+      },
+      Object {
+        "label": "List Item 3",
+        "value": 3,
+      },
+      Object {
+        "label": "List Item 4",
+        "value": 4,
+      },
+      Object {
+        "label": "List Item 5",
+        "value": 5,
+      },
+    ]
+  }
+/>
+`;

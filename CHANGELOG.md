@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.12.0 - 2019-02-06
+### Updated
+- refactor radiobutton component
+
 ## 1.11.0 - 2018-12-21
 ### Updated
 - styles on daterangepicker are less likely to wrap at narrower widths
