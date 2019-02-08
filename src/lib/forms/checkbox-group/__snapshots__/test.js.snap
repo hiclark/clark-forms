@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxGroup /> when checked is false matches the snapshot 1`] = `
+<Field
+  checked={false}
+  component={[Function]}
+  index={1}
+  name="Name"
+  onCheckboxClick={[Function]}
+  value={false}
+/>
+`;
+
+exports[`<CheckboxGroup /> when checked is true matches the snapshot 1`] = `
+<Field
+  checked={true}
+  component={[Function]}
+  index={1}
+  name="Name"
+  onCheckboxClick={[Function]}
+  value={false}
+/>
+`;
+
+exports[`<CheckboxGroup /> with label matches the snapshot 1`] = `
+<Field
+  checked={true}
+  component={[Function]}
+  index={1}
+  label="Label"
+  name="Name"
+  onCheckboxClick={[Function]}
+  value={false}
+/>
+`;

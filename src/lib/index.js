@@ -1,6 +1,7 @@
 import Fieldset from './forms/fieldset';
 import ProgressHeader from './forms/progress-header';
 import Checkbox from './forms/checkbox';
+import CheckboxGroup from './forms/checkbox-group';
 import DatePicker from './forms/datepicker';
 import DateRangePicker from './forms/date-range-picker';
 import Dropdown from './forms/dropdown';
@@ -17,6 +18,7 @@ export default Fieldset;
 export {
   ProgressHeader,
   Checkbox,
+  CheckboxGroup,
   DatePicker,
   DateRangePicker,
   Dropdown,

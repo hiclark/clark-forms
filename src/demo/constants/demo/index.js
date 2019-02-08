@@ -1,6 +1,14 @@
 import React from 'react';
 import { isRequired, minLength } from '../../utils/validation';
 import Check from '../../assets/icons/check.svg';
+import Link from './styles';
+
+const LINK = (
+  <span>
+    By creating this account, I am agreeing to the
+    <Link href="/sessions">Terms of Service</Link>
+  </span>
+);
 
 const DROPDOWN = [{ value: 'first', label: 'First' }, { value: 'second', label: 'Second' }];
 
@@ -20,6 +28,13 @@ const RADIO = [
   { value: 3, label: 'List Item 3' },
   { value: 4, label: 'List Item 4' },
   { value: 5, label: 'List Item 5' },
+];
+
+const CHECKBOXES = [
+  { value: 1, label: 'Checkbox 1' },
+  { value: 2, label: 'Checkbox 2' },
+  { value: 3, label: 'Checkbox 3', disabled: true },
+  { value: 4, label: LINK },
 ];
 
 const FIELD_SETS = [
@@ -135,6 +150,16 @@ const FIELD_SETS = [
             type: 'checkbox',
             name: 'checkbox',
             label: 'Checkbox',
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'checkboxGroup',
+            name: 'checkboxGroup',
+            options: CHECKBOXES,
           },
         ],
       },
