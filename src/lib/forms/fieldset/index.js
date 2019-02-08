@@ -27,7 +27,7 @@ const mapFieldToComponent = type => {
     input: Input,
     radioButton: RadioButtonGroup,
     checkbox: Checkbox,
-    checkboxField: CheckboxGroup,
+    checkboxGroup: CheckboxGroup,
     dropdown: Dropdown,
     textarea: Textarea,
     datepicker: DatePicker,

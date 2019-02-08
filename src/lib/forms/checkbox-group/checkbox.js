@@ -9,11 +9,11 @@ type PropsType = {
   checked: boolean,
   disabled: boolean,
   index: number,
-  handleChange: () => void,
+  handleChange(): void,
   hasInput: boolean,
   label: string,
   name: string,
-  value: string | number,
+  value: string,
 };
 
 const Checkbox = ({

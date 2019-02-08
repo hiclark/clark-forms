@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
 
 const group = ({ input, options }) => {
@@ -11,10 +11,10 @@ const group = ({ input, options }) => {
   const checkboxes = options.map(({ disabled, label, value }, index) => {
     const handleChange = () => {
       const arr = [...inputValue];
-      if (!arr.includes(value)) {
-        arr.push(value);
-      } else {
+      if (arr.includes(value)) {
         arr.splice(arr.indexOf(value), 1);
+      } else {
+        arr.push(value);
       }
       return onChange(arr);
     };
@@ -37,7 +37,11 @@ const group = ({ input, options }) => {
   return <div>{checkboxes}</div>;
 };
 
-type PropsType = any;
+type PropsType = {
+  options: Array<{ label: any, value: string }>,
+  input: FormProps,
+};
+
 const CheckboxGroup = (props: PropsType) => <Field component={group} {...props} />;
 
 export default CheckboxGroup;
