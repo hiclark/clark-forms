@@ -44,6 +44,7 @@ export const LabelText = styled.p`
   ${TS_5};
   ${FW_100};
   color: ${({ deselected }) => (deselected ? GREY_50 : GREY_100)};
+  opacity: ${({ disabled }) => disabled && '0.5'};
   margin-left: ${S_05};
   cursor: pointer;
 `;

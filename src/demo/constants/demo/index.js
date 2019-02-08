@@ -25,7 +25,7 @@ const RADIO = [
 const CHECKBOXES = [
   { value: 1, label: 'Checkbox 1' },
   { value: 2, label: 'Checkbox 2' },
-  { value: 3, label: 'Checkbox 3' },
+  { value: 3, label: 'Checkbox 3', disabled: true },
 ];
 
 const FIELD_SETS = [
