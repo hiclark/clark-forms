@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.13.1 - 2019-02-07
+### Updated
+- add missing key to checkbox group
+- build and publish to include the checkboxGroup
+
 ## 1.13.0 - 2019-02-07
 ### Updated
 - add checkboxGroup component

@@ -22,6 +22,7 @@ const group = ({ input, options }) => {
     const checked = inputValue.includes(value);
     return (
       <Checkbox
+        key={`${label}-${value}`}
         checked={checked}
         disabled={disabled}
         handleChange={handleChange}
