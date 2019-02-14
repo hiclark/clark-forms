@@ -3,12 +3,13 @@
 import React from 'react';
 import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
+import Label from '../label';
 
-const group = ({ input, options }) => {
+const group = ({ input, label, name, options, required }) => {
   const { onChange } = input;
   const inputValue = input.value;
 
-  const checkboxes = options.map(({ disabled, label, value }, index) => {
+  const checkboxes = options.map(({ disabled, label: checkboxLabel, value }, index) => {
     const handleChange = () => {
       const arr = [...inputValue];
       if (arr.includes(value)) {
@@ -28,14 +29,19 @@ const group = ({ input, options }) => {
         handleChange={handleChange}
         hasInput={!!input.value}
         index={index}
-        label={label}
+        label={checkboxLabel}
         name={label}
         value={value}
       />
     );
   });
 
-  return <div>{checkboxes}</div>;
+  return (
+    <div>
+      <Label name={name} label={label} required={required} />
+      {checkboxes}
+    </div>
+  );
 };
 
 type PropsType = {

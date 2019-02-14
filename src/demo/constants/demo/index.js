@@ -134,11 +134,12 @@ const FIELD_SETS = [
         ],
       },
       {
-        columns: { small: 2 },
+        columns: { small: 2, large: 2 },
         fields: [
           {
             type: 'radioButton',
             name: 'radioButton',
+            label: 'Radio Button Group',
             values: RADIO,
           },
         ],
@@ -159,6 +160,7 @@ const FIELD_SETS = [
           {
             type: 'checkboxGroup',
             name: 'checkboxGroup',
+            label: 'Checkbox Group',
             options: CHECKBOXES,
           },
         ],
