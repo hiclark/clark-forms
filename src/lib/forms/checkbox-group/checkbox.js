@@ -30,7 +30,7 @@ const Checkbox = ({
     <HiddenField>
       <Field
         id={`${name}-${index}`}
-        name={`${name}[${index}]`}
+        name={name}
         disabled={disabled}
         checked={checked}
         value={value}

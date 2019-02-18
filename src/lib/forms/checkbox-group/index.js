@@ -5,9 +5,8 @@ import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
 import Label from '../label';
 
-const group = ({ input, label, name, options, required }) => {
-  const { onChange } = input;
-  const inputValue = input.value;
+const group = ({ input, label, options, required }) => {
+  const { onChange, name, value: inputValue } = input;
 
   const checkboxes = options.map(({ disabled, label: checkboxLabel, value }, index) => {
     const handleChange = () => {
@@ -30,7 +29,7 @@ const group = ({ input, label, name, options, required }) => {
         hasInput={!!input.value}
         index={index}
         label={checkboxLabel}
-        name={label}
+        name={`${name}[${checkboxLabel}]`}
         value={value}
       />
     );
