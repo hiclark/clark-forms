@@ -34,7 +34,7 @@ const CHECKBOXES = [
   { value: 1, label: 'Checkbox 1' },
   { value: 2, label: 'Checkbox 2' },
   { value: 3, label: 'Checkbox 3', disabled: true },
-  { value: 4, label: LINK },
+  { value: 4, label: LINK, required: true, validate: [isRequired] },
 ];
 
 const FIELD_SETS = [
@@ -162,6 +162,8 @@ const FIELD_SETS = [
             name: 'checkboxGroup',
             label: 'Checkbox Group',
             options: CHECKBOXES,
+            required: true,
+            validate: [isRequired],
           },
         ],
       },

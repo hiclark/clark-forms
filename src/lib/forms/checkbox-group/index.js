@@ -5,35 +5,42 @@ import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
 import Label from '../label';
 
-const group = ({ input, label, options, required }) => {
-  const { onChange, name, value: inputValue } = input;
+const group = ({ input, label, meta, options, required }) => {
+  const { onBlur, onChange, name, value: inputValue } = input;
+  const { error, touched } = meta;
 
-  const checkboxes = options.map(({ disabled, label: checkboxLabel, value }, index) => {
-    const handleChange = () => {
-      const arr = [...inputValue];
-      if (arr.includes(value)) {
-        arr.splice(arr.indexOf(value), 1);
-      } else {
-        arr.push(value);
-      }
-      return onChange(arr);
-    };
+  const checkboxes = options.map(
+    ({ disabled, label: checkboxLabel, required: fieldRequired, value }, index) => {
+      const handleChange = () => {
+        const arr = [...inputValue];
+        if (arr.includes(value)) {
+          arr.splice(arr.indexOf(value), 1);
+        } else {
+          arr.push(value);
+        }
+        onBlur();
+        return onChange(arr);
+      };
 
-    const checked = inputValue.includes(value);
-    return (
-      <Checkbox
-        key={`${label}-${value}`}
-        checked={checked}
-        disabled={disabled}
-        handleChange={handleChange}
-        hasInput={!!input.value}
-        index={index}
-        label={checkboxLabel}
-        name={`${name}[${checkboxLabel}]`}
-        value={value}
-      />
-    );
-  });
+      const checked = inputValue.includes(value);
+      return (
+        <Checkbox
+          key={`${label}-${value}`}
+          checked={checked}
+          disabled={disabled}
+          error={error}
+          handleChange={handleChange}
+          hasInput={!!input.value}
+          index={index}
+          label={checkboxLabel}
+          name={`${name}[${checkboxLabel}]`}
+          required={fieldRequired}
+          touched={touched}
+          value={value}
+        />
+      );
+    },
+  );
 
   return (
     <div>
