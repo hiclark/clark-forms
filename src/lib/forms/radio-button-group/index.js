@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { type Node } from 'react';
 import { Field, type FormProps } from 'redux-form';
 import { Flex } from 'clark-styles';
 import RadioButton from './radio-button';
@@ -32,18 +32,20 @@ const RadioButtonGroup = ({
 }: ButtonGroupPropsType) => (
   <Flex flexDirection="column">
     <Label name={name} label={label} required={required} />
-    {values.map(({ value, label: buttonLabel }) => (
-      <RadioButton
-        key={value}
-        index={index}
-        input={input}
-        isSelected={value === input.value}
-        label={buttonLabel}
-        name={name}
-        onClickHandler={onClickHandler}
-        value={value}
-      />
-    ))}
+    {values.map(
+      ({ value, label: buttonLabel }): Node => (
+        <RadioButton
+          key={value}
+          index={index}
+          input={input}
+          isSelected={value === input.value}
+          label={buttonLabel}
+          name={name}
+          onClickHandler={onClickHandler}
+          value={value}
+        />
+      ),
+    )}
   </Flex>
 );
 

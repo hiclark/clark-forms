@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { type Node } from 'react';
 import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
 import Label from '../label';
@@ -10,7 +10,7 @@ const group = ({ input, label, meta, options, required }) => {
   const { error, touched } = meta;
 
   const checkboxes = options.map(
-    ({ disabled, label: checkboxLabel, required: fieldRequired, value }, index) => {
+    ({ disabled, label: checkboxLabel, required: fieldRequired, value }, index): Node => {
       const handleChange = () => {
         const arr = [...inputValue];
         if (arr.includes(value)) {
