@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.13.1 - 2019-02-21
+### Updated
+- publish added key to checkbox group
+
 ## 1.13.1 - 2019-02-07
 ### Updated
 - add missing key to checkbox group
