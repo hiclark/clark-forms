@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.14.0 - 2019-02-22
+### Changed
+- refactored layout for fields
+
 ## 1.13.1 - 2019-02-21
 ### Updated
 - publish added key to checkbox group

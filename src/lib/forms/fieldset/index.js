@@ -111,6 +111,7 @@ const Fieldset = ({ data }: PropsType) => (
               {fields.map((field, index) => (
                 <Field
                   key={index}
+                  index={index}
                   columnsSmall={columns.small}
                   columnsLarge={columns.large}
                   type={field.type}
@@ -129,13 +130,10 @@ const Fieldset = ({ data }: PropsType) => (
 
 export default Fieldset;
 
-const calculateWidth = (columns, type) => {
-  if (type === 'radioButton') {
-    return `width: ${100 / columns - 2}%;`;
-  }
-
-  return `width: ${100 / columns}%;`;
-};
+const calculateLayout = (index, columns) => `
+  margin-right: ${index === 0 && columns > 1 ? `calc(${SPACING_MEDIUM} + ${SPACING_SMALL})` : 0};
+  width: ${100 / columns}%;
+`;
 
 const FieldsetContainer = styled.div`
   display: ${props => (props.columnsSmall === 1 ? 'block' : 'flex')};
@@ -154,8 +152,11 @@ const FieldsetTitle = styled.h3`
 `;
 
 const Field = styled.div`
-  ${props => calculateWidth(props.columnsSmall, props.type)};
+  ${({ index, columnsSmall }) => calculateLayout(index, columnsSmall)};
   margin-bottom: calc(${SPACING_SMALL} + ${SPACING_MEDIUM});
+  ${media.small`
+    ${({ index, columnsLarge }) => calculateLayout(index, columnsLarge)}
+  `};
 `;
 
 const FieldsetSubCopy = styled.p`
