@@ -130,10 +130,13 @@ const Fieldset = ({ data }: PropsType) => (
 
 export default Fieldset;
 
-const calculateLayout = (index, columns) => `
-  margin-right: ${index === 0 && columns > 1 ? `calc(${SPACING_MEDIUM} + ${SPACING_SMALL})` : 0};
-  width: ${100 / columns}%;
-`;
+const calculateLayout = (index, columns) => {
+  const hasMargin = index !== columns - 1 && columns > 1;
+  return `
+    margin-right: ${hasMargin ? `calc(${SPACING_MEDIUM} + ${SPACING_SMALL})` : 0};
+    width: ${100 / columns}%;
+  `;
+};
 
 const FieldsetContainer = styled.div`
   display: ${props => (props.columnsSmall === 1 ? 'block' : 'flex')};
