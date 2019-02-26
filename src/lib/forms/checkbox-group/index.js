@@ -8,6 +8,7 @@ import Label from '../label';
 const group = ({ input, label, meta, options, required }) => {
   const { onBlur, onChange, name, value: inputValue } = input;
   const { error, touched } = meta;
+  console.log('GRP META:', meta);
 
   const checkboxes = options.map(
     ({ disabled, label: checkboxLabel, required: fieldRequired, value }, index): Node => {
@@ -23,6 +24,7 @@ const group = ({ input, label, meta, options, required }) => {
       };
 
       const checked = inputValue.includes(value);
+      console.log('meta:', meta);
       return (
         <Checkbox
           key={`${label}-${value}`}

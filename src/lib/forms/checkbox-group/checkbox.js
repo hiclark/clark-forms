@@ -9,7 +9,7 @@ import Error from '../error';
 type PropsType = {
   checked: boolean,
   disabled: boolean,
-  // error: any,
+  error: any,
   index: number,
   handleChange(): void,
   hasInput: boolean,
@@ -23,7 +23,7 @@ type PropsType = {
 const Checkbox = ({
   checked,
   disabled,
-  // error,
+  error,
   index,
   handleChange,
   hasInput,
@@ -59,7 +59,7 @@ const Checkbox = ({
         </Flex>
       </label>
     </Layout>
-    {required && !checked && <Error touched={touched} error="Error" />}
+    {required && !checked && <Error error={error} touched={touched} />}
   </Fragment>
 );
 
