@@ -38,3 +38,26 @@ export const isDivisibleBy = (divisor: number) => (value: ?any) =>
 
 export const isPositive = (value: ?any) =>
   value && value <= 0 ? 'Must be a positive number' : undefined;
+
+export const hasDigit = (contentType: string) => (value: ?any) =>
+  value && !value.match(/\d/)
+    ? `Uh oh, your ${contentType} must contain at least one digit`
+    : undefined;
+
+export const hasLowercaseLetter = (contentType: string) => (value: ?any) =>
+  value && !value.match(/[a-z]/)
+    ? `Uh oh, your ${contentType} must contain at least one lowercase letter`
+    : undefined;
+
+export const hasUppercaseLetter = (contentType: string) => (value: ?any) =>
+  value && !value.match(/[A-Z]/)
+    ? `Uh oh, your ${contentType} must contain at least one uppercase letter`
+    : undefined;
+
+export const hasSpecialCharacter = (contentType: string) => (value: ?any) =>
+  value && !value.match(/[\W]/)
+    ? `Uh oh, your ${contentType} must contain at least one special character`
+    : undefined;
+
+export const hasSpaceCharacter = (contentType: string) => (value: ?any) =>
+  value && value.match(/[\s]/) ? `Uh oh, your ${contentType} can not contain a space` : undefined;

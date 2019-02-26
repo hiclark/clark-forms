@@ -44,6 +44,11 @@ export {
   isTime,
   isDivisibleBy,
   isPositive,
+  hasDigit,
+  hasLowercaseLetter,
+  hasUppercaseLetter,
+  hasSpecialCharacter,
+  hasSpaceCharacter,
 } from './validations';
 
 export { normalizeDate, normalizeNumbers, normalizeTime, normalizePhone } from './normalizers';
