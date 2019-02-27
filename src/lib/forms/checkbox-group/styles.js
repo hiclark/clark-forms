@@ -19,6 +19,12 @@ const { S_025, S_05, S_1 } = SPACING;
 const { TS_5 } = TYPE_SCALE;
 const BOX_DIMENSIONS = `calc(${S_1} + ${S_05} + ${S_025})`;
 
+export const StyledInput = styled.input`
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+`;
+
 export const HiddenField = styled.div`
   display: none;
 `;
@@ -34,6 +40,7 @@ export const Wrapper = styled.div`
   min-width: ${BOX_DIMENSIONS};
   min-height: ${BOX_DIMENSIONS};
   border: ${BW_1} solid ${GREY_25};
+  position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;

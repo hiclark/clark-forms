@@ -1,66 +1,45 @@
 // @flow
-/* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
+
 import React, { Fragment } from 'react';
 import { Field } from 'redux-form';
 import { Flex } from 'clark-styles';
-import { StyledCheck, HiddenField, LabelText, Layout, Wrapper } from './styles';
-import Error from '../error';
+import { HiddenField, LabelText, Layout, StyledCheck, StyledInput, Wrapper } from './styles';
 
-type PropsType = {
-  checked: boolean,
-  disabled: boolean,
-  error: any,
-  index: number,
-  handleChange(): void,
-  hasInput: boolean,
-  label: string,
-  name: string,
-  required: boolean,
-  touched: boolean,
-  value: string,
-};
-
-const Checkbox = ({
-  checked,
-  disabled,
-  error,
-  index,
-  handleChange,
-  hasInput,
-  label,
-  name,
-  required,
-  touched,
-  value,
-}: PropsType) => (
+const renderField = ({ index, input, label }) => (
   <Fragment>
     <HiddenField>
       <Field
-        id={`${name}-${index}`}
-        name={name}
-        disabled={disabled}
-        checked={checked}
-        value={value}
+        id={`${input.name}-${index}`}
+        name={input.name}
+        checked={input.checked}
+        value={input.value}
         index={index}
         component="input"
-        onClick={handleChange}
+        onClick={input.onChange}
       />
     </HiddenField>
 
-    <Layout disabled={disabled} showError={touched && required && !checked}>
-      <label htmlFor={`${name}-${index}`} onChange={handleChange} onKeyDown={handleChange}>
+    <Layout>
+      <label htmlFor={`${input.name}-${index}`} onChange={input.onChange}>
         <Flex alignItems="center">
           <Wrapper>
-            <StyledCheck checked={checked} />
+            <StyledCheck checked={input.checked} />
           </Wrapper>
-          <LabelText deselected={hasInput && !checked} disabled={disabled}>
-            {label}
-          </LabelText>
+          <StyledInput
+            checked={input.checked}
+            label={label}
+            name={input.name}
+            onChange={input.onChange}
+            type="checkbox"
+            value={input.value}
+          />
+          <LabelText>{label}</LabelText>
         </Flex>
       </label>
     </Layout>
-    {required && !checked && <Error error={error} touched={touched} />}
   </Fragment>
 );
 
-export default Checkbox;
+const CheckboxField = (props: any) => <Field {...props} type="checkbox" component={renderField} />;
+
+export default CheckboxField;

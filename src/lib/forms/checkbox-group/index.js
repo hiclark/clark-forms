@@ -2,16 +2,15 @@
 
 import React, { type Node } from 'react';
 import { Field, type FormProps } from 'redux-form';
-import Checkbox from './checkbox';
+import CheckboxField from './checkbox';
 import Label from '../label';
 
 const group = ({ input, label, meta, options, required }) => {
   const { onBlur, onChange, name, value: inputValue } = input;
   const { error, touched } = meta;
-  console.log('GRP META:', meta);
 
   const checkboxes = options.map(
-    ({ disabled, label: checkboxLabel, required: fieldRequired, value }, index): Node => {
+    ({ disabled, label: checkboxLabel, required: fieldRequired, value }): Node => {
       const handleChange = () => {
         const arr = [...inputValue];
         if (arr.includes(value)) {
@@ -23,17 +22,13 @@ const group = ({ input, label, meta, options, required }) => {
         return onChange(arr);
       };
 
-      const checked = inputValue.includes(value);
-      console.log('meta:', meta);
       return (
-        <Checkbox
+        <CheckboxField
           key={`${label}-${value}`}
-          checked={checked}
           disabled={disabled}
           error={error}
           handleChange={handleChange}
           hasInput={!!input.value}
-          index={index}
           label={checkboxLabel}
           name={`${name}[${checkboxLabel}]`}
           required={fieldRequired}
