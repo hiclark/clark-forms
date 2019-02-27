@@ -5,7 +5,7 @@ import { Field } from 'redux-form';
 import { Flex } from 'clark-styles';
 import { HiddenField, LabelText, Layout, StyledCheck, StyledInput, Wrapper } from './styles';
 
-const renderField = ({ index, input, label }) => (
+const renderField = ({ disabled, hasInput, index, input, label }) => (
   <Fragment>
     <HiddenField>
       <Field
@@ -19,7 +19,7 @@ const renderField = ({ index, input, label }) => (
       />
     </HiddenField>
 
-    <Layout>
+    <Layout disabled={disabled}>
       <label htmlFor={`${input.name}-${index}`} onChange={input.onChange}>
         <Flex alignItems="center">
           <Wrapper>
@@ -33,7 +33,9 @@ const renderField = ({ index, input, label }) => (
             type="checkbox"
             value={input.value}
           />
-          <LabelText>{label}</LabelText>
+          <LabelText disabled={disabled} deselected={hasInput && !input.checked}>
+            {label}
+          </LabelText>
         </Flex>
       </label>
     </Layout>
