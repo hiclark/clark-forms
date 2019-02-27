@@ -31,7 +31,7 @@ const RADIO = [
 ];
 
 const CHECKBOXES = [
-  { value: 1, label: 'Checkbox 1' },
+  { value: 1, label: 'Checkbox 1', required: true, validate: isRequired },
   { value: 2, label: 'Checkbox 2', required: true, validate: [isRequired] },
   { value: 3, label: 'Checkbox 3', disabled: true },
   { value: 4, label: LINK, required: true, validate: [isRequired] },
@@ -151,6 +151,8 @@ const FIELD_SETS = [
             type: 'checkboxField',
             name: 'checkboxField',
             label: 'Checkbox Field',
+            required: true,
+            validate: [isRequired],
           },
         ],
       },
@@ -172,8 +174,6 @@ const FIELD_SETS = [
             name: 'checkboxGroup',
             label: 'Checkbox Group',
             options: CHECKBOXES,
-            required: true,
-            validate: [isRequired],
           },
         ],
       },

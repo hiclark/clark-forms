@@ -7,7 +7,6 @@ import Label from '../label';
 
 const group = ({ input, label, meta, options, required }) => {
   const { onBlur, onChange, name, value: inputValue } = input;
-  const { error, touched } = meta;
 
   const checkboxes = options.map(
     ({ disabled, label: checkboxLabel, required: fieldRequired, value }): Node => {
@@ -26,14 +25,13 @@ const group = ({ input, label, meta, options, required }) => {
         <CheckboxField
           key={`${label}-${value}`}
           disabled={disabled}
-          error={error}
           handleChange={handleChange}
           hasInput={!!input.value}
           label={checkboxLabel}
           name={`${name}[${checkboxLabel}]`}
           required={fieldRequired}
-          touched={touched}
           value={value}
+          {...meta}
         />
       );
     },
