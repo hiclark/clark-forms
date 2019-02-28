@@ -162,6 +162,7 @@ const FIELD_SETS = [
             type: 'checkbox',
             name: 'checkbox',
             label: 'Checkbox',
+            validate: [isRequired],
           },
         ],
       },
