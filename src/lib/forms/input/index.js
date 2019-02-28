@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 import { ToolTip } from 'clark-styles';
@@ -26,24 +26,51 @@ const renderField = ({ input, inputType, meta: { error, touched }, ...rest }) =>
 );
 
 type PropsType = any;
-const Input = (props: PropsType) => {
-  const { name, label, copy, required, disabled, tooltip } = props;
-  return (
-    <Fragment>
-      <Label name={name} label={label} required={required} disabled={disabled} />
-      {copy && <Copy>{copy}</Copy>}
-      {tooltip ? (
-        <ToolTip
-          tipPosition="middle"
-          content={tooltip}
-          trigger={<Field component={renderField} disabled {...props} />}
-        />
-      ) : (
-        <Field component={renderField} disabled={disabled} {...props} />
-      )}
-    </Fragment>
-  );
-};
+class Input extends Component<PropsType> {
+  state = {
+    isVisible: false,
+  };
+
+  handleInputVisibilityToggle = () => {
+    this.setState({
+      isVisible: !this.state.isVisible,
+    });
+  };
+
+  render() {
+    const { name, label, copy, inputType, required, disabled, tooltip } = this.props;
+    return (
+      <Fragment>
+        <Label name={name} label={label} required={required} disabled={disabled} />
+        {copy && <Copy>{copy}</Copy>}
+        {tooltip ? (
+          <ToolTip
+            tipPosition="middle"
+            content={tooltip}
+            trigger={<Field component={renderField} disabled {...this.props} />}
+          />
+        ) : (
+          <Field
+            {...this.props}
+            component={renderField}
+            disabled={disabled}
+            inputType={this.state.isVisible ? 'text' : 'password'}
+          />
+        )}
+        {inputType === 'password' && (
+          <span
+            role="button"
+            tabIndex={0}
+            onKeyPress={this.handleInputVisibilityToggle}
+            onClick={this.handleInputVisibilityToggle}
+          >
+            show
+          </span>
+        )}
+      </Fragment>
+    );
+  }
+}
 
 export default Input;
 

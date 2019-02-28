@@ -1,5 +1,14 @@
 import React from 'react';
-import { isRequired, minLength } from '../../utils/validation';
+import {
+  isRequired,
+  minLength,
+  maxLength,
+  hasDigit,
+  hasLowercaseLetter,
+  hasUppercaseLetter,
+  hasSpecialCharacter,
+  hasSpaceCharacter,
+} from '../../../lib/validations/index';
 import Check from '../../assets/icons/check.svg';
 import Link from './styles';
 
@@ -46,30 +55,30 @@ const FIELD_SETS = [
           {
             type: 'input',
             name: 'firstInput',
-            label: 'Required Input',
-            required: true,
-            validate: [isRequired, minLength(6)],
+            label: 'Input',
+            // required: true,
+            // validate: [isRequired, minLength(6)],
           },
           {
             type: 'dropdown',
             name: 'dropdownTest',
             label: 'Dropdown Test',
             values: DROPDOWN,
-            validate: isRequired,
+            // validate: isRequired,
             menuIsOpen: true,
           },
           {
             type: 'input',
             name: 'firstInput',
             label: 'Required Input',
-            required: true,
-            validate: [isRequired, minLength(6)],
+            // required: true,
+            // validate: [isRequired, minLength(6)],
           },
           {
             type: 'locationAutocomplete',
             name: 'location',
             label: 'Location',
-            validate: [isRequired],
+            // validate: [isRequired],
           },
           {
             type: 'dropdown',
@@ -77,13 +86,23 @@ const FIELD_SETS = [
             label: 'Multiselect Test',
             multi: true,
             values: DROPDOWN,
-            validate: isRequired,
+            // validate: isRequired,
           },
           {
             type: 'input',
             name: 'pwInput',
             label: 'Password Input',
             inputType: 'password',
+            validate: [
+              isRequired,
+              minLength(7),
+              maxLength(70),
+              hasDigit('password'),
+              hasLowercaseLetter('password'),
+              hasUppercaseLetter('password'),
+              hasSpecialCharacter('password'),
+              hasSpaceCharacter('password'),
+            ],
           },
           {
             type: 'input',
