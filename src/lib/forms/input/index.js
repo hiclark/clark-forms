@@ -17,7 +17,6 @@ import Label from '../label';
 export type InputType = string;
 
 const renderField = ({ input, inputType, meta, ...rest }) => {
-  console.log(meta);
   const { touched, error } = meta;
   return (
     <Fragment>
