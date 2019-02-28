@@ -2,7 +2,7 @@
 
 import React, { type Node } from 'react';
 import { Field, type FormProps } from 'redux-form';
-import CheckboxField from './checkbox';
+import CheckboxField from '../checkbox-field';
 import Label from '../label';
 
 const group = ({ input, label, meta, options, required }) => {

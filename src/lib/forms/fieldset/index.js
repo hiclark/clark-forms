@@ -8,7 +8,7 @@ import RadioButtonGroup from '../radio-button-group';
 import Dropdown from '../dropdown';
 import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
-import CheckboxField from '../checkbox-group/checkbox';
+import CheckboxField from '../checkbox-field';
 import CheckboxGroup from '../checkbox-group';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
