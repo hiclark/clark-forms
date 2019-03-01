@@ -1,13 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.1.0 - 2019-03-04
+### Updated
+- extract single checkbox field
+- add label to checkbox group and radio button
+- add error message support to checkboxes
+
 ## 2.0.0 - 2019-02-22
 ### Changed
 - refactored layout for fields
-
-## 1.13.1 - 2019-02-21
-### Updated
-- publish added key to checkbox group
 
 ## 1.13.1 - 2019-02-07
 ### Updated
