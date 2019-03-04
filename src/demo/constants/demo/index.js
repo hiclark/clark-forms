@@ -151,7 +151,7 @@ const FIELD_SETS = [
             type: 'checkboxField',
             name: 'checkboxField',
             label: 'Checkbox Field',
-            validate: [value => (value ? undefined : 'Required')],
+            validate: [isRequired],
           },
         ],
       },

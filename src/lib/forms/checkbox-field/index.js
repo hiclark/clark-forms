@@ -6,22 +6,27 @@ import { Flex } from 'clark-styles';
 import { HiddenField, LabelText, Layout, StyledCheck, StyledInput, Wrapper } from './styles';
 import Error from '../error';
 
-const renderField = ({ disabled, hasInput, index, input, label, meta, ...rest }) => {
+const renderField = ({
+  disabled,
+  hasInput,
+  index,
+  input,
+  label,
+  meta: { error, touched },
+  ...rest
+}) => {
   const { checked, name, onChange, value } = input;
-  const { touched, error } = meta;
 
   return (
     <Fragment>
-      <HiddenField>
-        <input
-          id={`${name}-${index}`}
-          index={index}
-          component="input"
-          error={value === false ? error : undefined}
-          {...rest}
-          {...input}
-        />
-      </HiddenField>
+      <HiddenField
+        id={`${name}-${index}`}
+        index={index}
+        component="input"
+        error={error}
+        {...rest}
+        {...input}
+      />
 
       <Layout disabled={disabled}>
         <label htmlFor={`${name}-${index}`}>
@@ -46,7 +51,7 @@ const renderField = ({ disabled, hasInput, index, input, label, meta, ...rest })
           </Flex>
         </label>
       </Layout>
-      <Error touched={touched} error={value === false ? error : undefined} />
+      <Error touched={touched} error={error} />
     </Fragment>
   );
 };

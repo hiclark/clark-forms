@@ -16,17 +16,14 @@ import Label from '../label';
 
 export type InputType = string;
 
-const renderField = ({ input, inputType, meta, ...rest }) => {
-  const { touched, error } = meta;
-  return (
-    <Fragment>
-      {/* we rename the inputType prop to avoid a colision with the type attribute
+const renderField = ({ input, inputType, meta: { error, touched }, ...rest }) => (
+  <Fragment>
+    {/* we rename the inputType prop to avoid a colision with the type attribute
     that is used to specify which form element to render */}
-      <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
-      <Error touched={touched} error={error} />
-    </Fragment>
-  );
-};
+    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
+    <Error touched={touched} error={error} />
+  </Fragment>
+);
 
 type PropsType = any;
 const Input = (props: PropsType) => {

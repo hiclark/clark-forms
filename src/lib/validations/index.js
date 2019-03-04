@@ -1,6 +1,7 @@
 // @flow
 
-export const isRequired = (value: ?any) => (value && value !== '$' ? undefined : 'Required');
+export const isRequired = (value: ?any) =>
+  value && (value !== '$' || value.length === 0) ? undefined : 'Required';
 
 export const length = (targetLength: number) => (value: ?any) =>
   value && value.length !== targetLength ? `Must be ${targetLength} characters` : undefined;

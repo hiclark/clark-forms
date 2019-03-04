@@ -25,7 +25,7 @@ export const StyledInput = styled.input`
   opacity: 0;
 `;
 
-export const HiddenField = styled.div`
+export const HiddenField = styled.input`
   display: none;
 `;
 

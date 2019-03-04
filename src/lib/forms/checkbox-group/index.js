@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
 import Error from '../error';
@@ -37,10 +37,10 @@ const group = ({ input, options, meta: { error } }) => {
   });
 
   return (
-    <div>
+    <Fragment>
       {checkboxes}
       <Error touched error={error} />
-    </div>
+    </Fragment>
   );
 };
 
