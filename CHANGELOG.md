@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.1.1 - 2019-03-04
+### Fixed
+- rebuild package with new changes
+
 ## 2.1.0 - 2019-03-04
 ### Updated
 - extract single checkbox field
