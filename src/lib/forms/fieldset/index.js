@@ -8,6 +8,7 @@ import RadioButtonGroup from '../radio-button-group';
 import Dropdown from '../dropdown';
 import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
+import CheckboxField from '../checkbox-field';
 import CheckboxGroup from '../checkbox-group';
 import Textarea from '../textarea';
 import DatePicker from '../datepicker';
@@ -27,6 +28,7 @@ const mapFieldToComponent = type => {
     input: Input,
     radioButton: RadioButtonGroup,
     checkbox: Checkbox,
+    checkboxField: CheckboxField,
     checkboxGroup: CheckboxGroup,
     dropdown: Dropdown,
     textarea: Textarea,

@@ -16,7 +16,7 @@ import Label from '../label';
 
 export type InputType = string;
 
-const renderField = ({ input, inputType, meta: { touched, error }, ...rest }) => (
+const renderField = ({ input, inputType, meta: { error, touched }, ...rest }) => (
   <Fragment>
     {/* we rename the inputType prop to avoid a colision with the type attribute
     that is used to specify which form element to render */}

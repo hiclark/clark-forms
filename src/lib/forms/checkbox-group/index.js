@@ -1,10 +1,11 @@
 // @flow
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Field, type FormProps } from 'redux-form';
 import Checkbox from './checkbox';
+import Error from '../error';
 
-const group = ({ input, options }) => {
+const group = ({ input, options, meta: { error } }) => {
   const { onChange } = input;
   const inputValue = input.value;
 
@@ -35,7 +36,12 @@ const group = ({ input, options }) => {
     );
   });
 
-  return <div>{checkboxes}</div>;
+  return (
+    <Fragment>
+      {checkboxes}
+      <Error touched error={error} />
+    </Fragment>
+  );
 };
 
 type PropsType = {

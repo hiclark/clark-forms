@@ -31,10 +31,10 @@ const RADIO = [
 ];
 
 const CHECKBOXES = [
-  { value: 1, label: 'Checkbox 1' },
-  { value: 2, label: 'Checkbox 2' },
-  { value: 3, label: 'Checkbox 3', disabled: true },
-  { value: 4, label: LINK },
+  { value: 1, label: 'checkbox 1' },
+  { value: 2, label: 'checkbox 2' },
+  { value: 3, label: 'checkbox 3', disabled: true },
+  { value: 4, label: LINK, required: true },
 ];
 
 const FIELD_SETS = [
@@ -134,12 +134,24 @@ const FIELD_SETS = [
         ],
       },
       {
-        columns: { small: 2 },
+        columns: { small: 2, large: 2 },
         fields: [
           {
             type: 'radioButton',
             name: 'radioButton',
+            label: 'Radio Button Group',
             values: RADIO,
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'checkboxField',
+            name: 'checkboxField',
+            label: 'Checkbox Field',
+            validate: [isRequired],
           },
         ],
       },
@@ -150,6 +162,7 @@ const FIELD_SETS = [
             type: 'checkbox',
             name: 'checkbox',
             label: 'Checkbox',
+            validate: [isRequired],
           },
         ],
       },
@@ -159,7 +172,9 @@ const FIELD_SETS = [
           {
             type: 'checkboxGroup',
             name: 'checkboxGroup',
+            label: 'Checkbox Group',
             options: CHECKBOXES,
+            validate: [value => (value && value.length === 0 ? 'Required' : undefined)],
           },
         ],
       },
