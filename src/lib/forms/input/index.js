@@ -65,15 +65,7 @@ class Input extends Component<InputType, StateType> {
 
   render() {
     const { isMasked } = this.state;
-    const {
-      name,
-      label,
-      copy,
-      hasShowHideButton = false,
-      required = false,
-      disabled = false,
-      tooltip = false,
-    } = this.props;
+    const { name, label, copy, hasShowHideButton, required, disabled, tooltip } = this.props;
     return (
       <Fragment>
         <Label name={name} label={label} required={required} disabled={disabled} />
