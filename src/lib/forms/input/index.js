@@ -1,44 +1,79 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component, type Node } from 'react';
 import { Field } from 'redux-form';
-import styled from 'styled-components';
 import { ToolTip } from 'clark-styles';
 
 import Error from '../error';
-import { SPACING_EXTRA_SMALL, SPACING_SMALL } from '../../styles/spacing';
-import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
-import { TYPE_SCALE_F4, TYPE_SCALE_F6 } from '../../styles/type-scale';
-import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
-import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { BORDER_WIDTH_1 } from '../../styles/borders';
-import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
-import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 import Label from '../label';
+import { InputContainer, FormInput, ToggleButton, Copy } from './styles';
 
-export type InputType = string;
-
-const renderField = ({ input, inputType, meta: { error, touched }, ...rest }) => (
+const renderField = ({
+  input,
+  hasShowHideButton,
+  inputType,
+  handleInputVisibilityToggle,
+  meta: { touched, error },
+  ...rest
+}) => (
   <Fragment>
     {/* we rename the inputType prop to avoid a colision with the type attribute
     that is used to specify which form element to render */}
-    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
+    <InputContainer showError={!(error && touched)}>
+      <FormInput
+        {...rest}
+        {...input}
+        showError={!(error && touched)}
+        type={inputType}
+        hasShowHideButton={hasShowHideButton}
+      />
+      {hasShowHideButton && (
+        <ToggleButton
+          role="button"
+          tabIndex={0}
+          onKeyPress={handleInputVisibilityToggle}
+          onClick={handleInputVisibilityToggle}
+        >
+          show
+        </ToggleButton>
+      )}
+    </InputContainer>
     <Error touched={touched} error={error} />
   </Fragment>
 );
 
-type PropsType = any;
-class Input extends Component<PropsType> {
+export type InputType = {
+  name: string,
+  label: string,
+  copy: ?string,
+  inputType: string,
+  hasShowHideButton: boolean,
+  required: boolean,
+  disabled: boolean,
+  tooltip: Node,
+};
+
+type StateType = { isMasked: boolean };
+class Input extends Component<InputType, StateType> {
   state = {
-    isVisible: false,
+    isMasked: false,
   };
 
   handleInputVisibilityToggle = () => {
     this.setState({
-      isVisible: !this.state.isVisible,
+      isMasked: !this.state.isMasked,
     });
   };
 
   render() {
-    const { name, label, copy, inputType, required, disabled, tooltip } = this.props;
+    const { isMasked } = this.state;
+    const {
+      name,
+      label,
+      copy,
+      hasShowHideButton = false,
+      required = false,
+      disabled = false,
+      tooltip = false,
+    } = this.props;
     return (
       <Fragment>
         <Label name={name} label={label} required={required} disabled={disabled} />
@@ -54,18 +89,10 @@ class Input extends Component<PropsType> {
             {...this.props}
             component={renderField}
             disabled={disabled}
-            inputType={this.state.isVisible ? 'text' : 'password'}
+            inputType={isMasked ? 'text' : 'password'}
+            hasShowHideButton={hasShowHideButton}
+            handleInputVisibilityToggle={this.handleInputVisibilityToggle}
           />
-        )}
-        {inputType === 'password' && (
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyPress={this.handleInputVisibilityToggle}
-            onClick={this.handleInputVisibilityToggle}
-          >
-            show
-          </span>
         )}
       </Fragment>
     );
@@ -73,33 +100,3 @@ class Input extends Component<PropsType> {
 }
 
 export default Input;
-
-const FormInput = styled.input`
-  ${TYPE_SCALE_F4};
-  ${FONT_FAMILY_PRIMARY};
-  ${FONT_WEIGHT_100};
-  ${BORDER_RADIUS_F2};
-  ${LINE_HEIGHT_SOLID};
-  border: ${BORDER_WIDTH_1} solid ${props => (props.showError ? GREY_25 : CLARK_PRIMARY)};
-  display: block;
-  padding: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
-  position: relative;
-  outline: none;
-  width: 100%;
-  margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
-  background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
-  transition: all 0.25s ease-in-out;
-  color: ${({ disabled }) => (disabled ? GREY_25 : CLARK_SECONDARY)};
-
-  &::placeholder {
-    color: ${GREY_25};
-  }
-`;
-
-const Copy = styled.div`
-  ${TYPE_SCALE_F6};
-  ${FONT_WEIGHT_100};
-  ${LINE_HEIGHT_COPY};
-  color: ${CLARK_SECONDARY};
-  margin-bottom: ${SPACING_SMALL};
-`;

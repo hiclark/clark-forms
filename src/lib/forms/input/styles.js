@@ -1,52 +1,72 @@
 // @flow
-import styled from 'styled-components';
 
-import { SPACING_EXTRA_SMALL, SPACING_SMALL } from '../../styles/spacing';
-import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
-import { TYPE_SCALE_F4, TYPE_SCALE_F6 } from '../../styles/type-scale';
-import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
-import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
-import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
-import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
+import styled from 'styled-components';
+import {
+  BORDER_WIDTH,
+  BORDER_RADIUS,
+  COLORS,
+  FONT_WEIGHT,
+  LINE_HEIGHT,
+  SPACING,
+  TYPE_SCALE,
+} from 'clark-styles';
+
+import { ERROR_PRIMARY } from '../../styles/colors';
+
+const { WHITE, CLARK_PRIMARY, GREY_25, GREY_75, GREY_100 } = COLORS;
+const { S_025, S_05, S_4 } = SPACING;
+const { BR_2 } = BORDER_RADIUS;
+const { TS_4, TS_5, TS_6 } = TYPE_SCALE;
+const { FW_100 } = FONT_WEIGHT;
+const { BW_1 } = BORDER_WIDTH;
+const { SOLID, COPY } = LINE_HEIGHT;
 
 export const InputContainer = styled.div`
-  /* align-items: center; */
-  /* position: relative; */
-  /* display: flex; */
+  align-items: center;
+  position: relative;
+  display: flex;
+  margin-bottom: ${({ showError }) => (showError ? 0 : S_05)};
+  transition: all 0.25s ease-in-out;
 `;
 
 export const FormInput = styled.input`
-  ${TYPE_SCALE_F4};
-  ${FONT_FAMILY_PRIMARY};
-  ${FONT_WEIGHT_100};
-  ${BORDER_RADIUS_F2};
-  border: ${BORDER_WIDTH_1} solid ${props => (props.showError ? GREY_25 : CLARK_PRIMARY)};
+  ${TS_4};
+  ${FW_100};
+  ${BR_2};
+  ${SOLID};
+  border: ${BW_1} solid ${({ showError }) => (showError ? GREY_25 : CLARK_PRIMARY)};
+  color: ${({ disabled }) => (disabled ? GREY_25 : GREY_100)};
   display: block;
-  line-height: ${LINE_HEIGHT_SOLID};
-  padding: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
+  padding: ${({ hasShowHideButton }) =>
+    hasShowHideButton
+      ? `calc(${S_025} + ${S_05}) ${S_4} calc(${S_025} + ${S_05}) calc(${S_025} + ${S_05})`
+      : `calc(${S_025} + ${S_05})`};
   position: relative;
   outline: none;
   width: 100%;
-  margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
   background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
   transition: all 0.25s ease-in-out;
-  ${props => renderBorderRadius(props)};
-  color: ${({ disabled }) => (disabled ? GREY_25 : CLARK_SECONDARY)};
-
   &::placeholder {
     color: ${GREY_25};
   }
 `;
 
 export const Copy = styled.div`
-  ${TYPE_SCALE_F6};
-  ${FONT_WEIGHT_100};
-  ${LINE_HEIGHT_COPY};
-  color: ${CLARK_SECONDARY};
-  margin-bottom: ${SPACING_SMALL};
+  ${TS_5};
+  ${FW_100};
+  ${COPY};
+  color: ${GREY_100};
+  margin-bottom: ${S_05};
 `;
 
 export const ToggleButton = styled.span`
-  background: red;
+  ${(TS_5, TS_6)};
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  color: ${(GREY_25, GREY_75)};
+  line-height: 0;
+  right: calc(${S_025} + ${S_05});
+  outline: none;
+  text-transform: uppercase;
 `;

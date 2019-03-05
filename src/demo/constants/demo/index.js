@@ -50,35 +50,34 @@ const FIELD_SETS = [
   {
     fieldSet: [
       {
-        columns: { small: 1, large: 2 },
+        columns: { small: 1, large: 7 },
         fields: [
           {
             type: 'input',
             name: 'firstInput',
             label: 'Input',
-            // required: true,
-            // validate: [isRequired, minLength(6)],
+            required: true,
           },
           {
             type: 'dropdown',
             name: 'dropdownTest',
             label: 'Dropdown Test',
             values: DROPDOWN,
-            // validate: isRequired,
+            validate: isRequired,
             menuIsOpen: true,
           },
           {
             type: 'input',
             name: 'firstInput',
             label: 'Required Input',
-            // required: true,
-            // validate: [isRequired, minLength(6)],
+            required: true,
+            validate: [isRequired, minLength(6)],
           },
           {
             type: 'locationAutocomplete',
             name: 'location',
             label: 'Location',
-            // validate: [isRequired],
+            validate: [isRequired],
           },
           {
             type: 'dropdown',
@@ -86,13 +85,15 @@ const FIELD_SETS = [
             label: 'Multiselect Test',
             multi: true,
             values: DROPDOWN,
-            // validate: isRequired,
+            validate: isRequired,
           },
           {
             type: 'input',
             name: 'pwInput',
             label: 'Password Input',
             inputType: 'password',
+            required: true,
+            hasShowHideButton: true,
             validate: [
               isRequired,
               minLength(7),
