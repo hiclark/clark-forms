@@ -32,7 +32,7 @@ const renderField = ({
           onKeyPress={handleInputVisibilityToggle}
           onClick={handleInputVisibilityToggle}
         >
-          show
+          {inputType === 'password' ? 'show' : 'hide'}
         </ToggleButton>
       )}
     </InputContainer>
@@ -82,7 +82,16 @@ class Input extends Component<InputType, StateType> {
           <ToolTip
             tipPosition="middle"
             content={tooltip}
-            trigger={<Field component={renderField} disabled {...this.props} />}
+            trigger={
+              <Field
+                inputType={isMasked ? 'text' : 'password'}
+                hasShowHideButton={hasShowHideButton}
+                handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+                component={renderField}
+                disabled
+                {...this.props}
+              />
+            }
           />
         ) : (
           <Field
