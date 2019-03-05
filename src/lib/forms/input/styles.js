@@ -44,7 +44,7 @@ export const FormInput = styled.input`
   position: relative;
   outline: none;
   width: 100%;
-  background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
+  background-color: ${({ showError }) => (showError ? WHITE : ERROR_PRIMARY)};
   transition: all 0.25s ease-in-out;
   &::placeholder {
     color: ${GREY_25};
