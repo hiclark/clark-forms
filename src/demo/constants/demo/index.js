@@ -50,7 +50,44 @@ const FIELD_SETS = [
   {
     fieldSet: [
       {
-        columns: { small: 1, large: 7 },
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
+            type: 'input',
+            name: 'pwInput',
+            label: 'Password Input',
+            inputType: 'password',
+            required: true,
+            hasShowHideButton: true,
+            passwordRequirements: [
+              '8 characters',
+              '1 number',
+              '1 special character',
+              '1 uppercase',
+            ],
+            validate: [
+              isRequired,
+              minLength(7),
+              maxLength(70),
+              hasDigit('password'),
+              hasLowercaseLetter('password'),
+              hasUppercaseLetter('password'),
+              hasSpecialCharacter('password'),
+              hasSpaceCharacter('password'),
+            ],
+          },
+          {
+            type: 'dropdown',
+            name: 'dropdownTest',
+            label: 'Dropdown Test',
+            values: DROPDOWN,
+            validate: isRequired,
+            menuIsOpen: true,
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 6 },
         fields: [
           {
             type: 'input',
@@ -86,24 +123,6 @@ const FIELD_SETS = [
             multi: true,
             values: DROPDOWN,
             validate: isRequired,
-          },
-          {
-            type: 'input',
-            name: 'pwInput',
-            label: 'Password Input',
-            inputType: 'password',
-            required: true,
-            hasShowHideButton: true,
-            validate: [
-              isRequired,
-              minLength(7),
-              maxLength(70),
-              hasDigit('password'),
-              hasLowercaseLetter('password'),
-              hasUppercaseLetter('password'),
-              hasSpecialCharacter('password'),
-              hasSpaceCharacter('password'),
-            ],
           },
           {
             type: 'input',

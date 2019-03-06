@@ -11,15 +11,18 @@ import {
   TYPE_SCALE,
 } from 'clark-styles';
 
+import Check from '../../assets/icons/check.svg';
 import { ERROR_PRIMARY } from '../../styles/colors';
 
-const { WHITE, CLARK_PRIMARY, GREY_25, GREY_75, GREY_100 } = COLORS;
-const { S_025, S_05, S_4 } = SPACING;
+const { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, GREY_75, GREY_100 } = COLORS;
+const { S_025, S_05, S_1, S_4 } = SPACING;
 const { BR_2 } = BORDER_RADIUS;
 const { TS_4, TS_5, TS_6 } = TYPE_SCALE;
 const { FW_100 } = FONT_WEIGHT;
 const { BW_1 } = BORDER_WIDTH;
 const { SOLID, COPY } = LINE_HEIGHT;
+
+const ICON_SIZE = '20px';
 
 export const InputContainer = styled.div`
   align-items: center;
@@ -69,4 +72,28 @@ export const ToggleButton = styled.span`
   right: calc(${S_025} + ${S_05});
   outline: none;
   text-transform: uppercase;
+`;
+
+export const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: ${S_1};
+  padding: 0;
+`;
+
+export const Item = styled.li`
+  ${TS_5};
+  ${FW_100};
+  align-items: center;
+  color: ${GREY_100};
+  display: flex;
+  margin-bottom: ${S_1};
+  width: 50%;
+`;
+
+export const CheckIcon = styled(Check)`
+  color: ${CLARK_SECONDARY};
+  height: ${ICON_SIZE};
+  margin-right: ${S_1};
+  width: ${ICON_SIZE};
 `;

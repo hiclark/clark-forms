@@ -4,7 +4,7 @@ import { ToolTip } from 'clark-styles';
 
 import Error from '../error';
 import Label from '../label';
-import { InputContainer, FormInput, ToggleButton, Copy } from './styles';
+import { InputContainer, FormInput, ToggleButton, Copy, List, Item, CheckIcon } from './styles';
 
 const renderField = ({
   input,
@@ -45,10 +45,11 @@ export type InputType = {
   label: string,
   copy: ?string,
   inputType: string,
-  hasShowHideButton: boolean,
   required: boolean,
   disabled: boolean,
   tooltip: Node,
+  hasShowHideButton: boolean,
+  passwordRequirements: string[],
 };
 
 type StateType = { isMasked: boolean };
@@ -65,7 +66,16 @@ class Input extends Component<InputType, StateType> {
 
   render() {
     const { isMasked } = this.state;
-    const { name, label, copy, hasShowHideButton, required, disabled, tooltip } = this.props;
+    const {
+      name,
+      label,
+      copy,
+      required,
+      disabled,
+      tooltip,
+      hasShowHideButton,
+      passwordRequirements,
+    } = this.props;
     return (
       <Fragment>
         <Label name={name} label={label} required={required} disabled={disabled} />
@@ -86,14 +96,26 @@ class Input extends Component<InputType, StateType> {
             }
           />
         ) : (
-          <Field
-            {...this.props}
-            component={renderField}
-            disabled={disabled}
-            inputType={isMasked ? 'text' : 'password'}
-            hasShowHideButton={hasShowHideButton}
-            handleInputVisibilityToggle={this.handleInputVisibilityToggle}
-          />
+          <Fragment>
+            <Field
+              {...this.props}
+              component={renderField}
+              disabled={disabled}
+              inputType={isMasked ? 'text' : 'password'}
+              hasShowHideButton={hasShowHideButton}
+              handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+            />
+            {passwordRequirements && (
+              <List>
+                {passwordRequirements.map((requirement: string) => (
+                  <Item key={requirement}>
+                    <CheckIcon />
+                    {requirement}
+                  </Item>
+                ))}
+              </List>
+            )}
+          </Fragment>
         )}
       </Fragment>
     );
