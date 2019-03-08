@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## 2.2.0 - 2019-03-08
-### Add
+### Added
 - additional validation
 - dynamic password progress indicator
 - show/hide password
