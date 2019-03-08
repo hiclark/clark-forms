@@ -1,5 +1,5 @@
 // @flow
-
+import React from 'react';
 import styled from 'styled-components';
 import {
   BORDER_WIDTH,
@@ -94,7 +94,7 @@ export const Item = styled.li`
 `;
 
 // $FlowFixMe
-export const CheckIcon = styled(Check)`
+export const CheckIcon = styled(({ isValid, ...rest }) => <Check {...rest} />)`
   ${EASE_IN_OUT_25};
   color: ${({ isValid }) => (isValid ? CLARK_SECONDARY : GREY_25)};
   height: ${ICON_SIZE};
