@@ -59,12 +59,31 @@ const FIELD_SETS = [
             inputType: 'password',
             required: true,
             hasShowHideButton: true,
-            passwordRequirements: [
-              '8 characters',
-              '1 number',
-              '1 special character',
-              '1 uppercase',
-            ],
+            hasPasswordRequirements: true,
+            // passwordRequirements: [
+            //   '8 characters',
+            //   '1 number',
+            //   '1 special character',
+            //   '1 uppercase',
+            // ],
+            // passwordRequirements: [
+            //   {
+            //     text: '8 characters',
+            //     isValid: false,
+            //   },
+            //   {
+            //     text: '1 number',
+            //     isValid: false,
+            //   },
+            //   {
+            //     text: '1 special character',
+            //     isValid: false,
+            //   },
+            //   {
+            //     text: '1 uppercase',
+            //     isValid: false,
+            //   },
+            // ],
             validate: [
               isRequired,
               minLength(7),

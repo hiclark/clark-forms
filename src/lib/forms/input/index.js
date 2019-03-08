@@ -6,11 +6,39 @@ import Error from '../error';
 import Label from '../label';
 import { InputContainer, FormInput, ToggleButton, Copy, List, Item, CheckIcon } from './styles';
 
+const PASSWORD_REQUIREMENTS = ['8 characters', '1 number', '1 special character', '1 uppercase'];
+
+const progressivelyValidate = (value: string) => {
+  const validFields = [
+    value.length > 7 && 0,
+    value.match(/\d/) && 1,
+    value.match(/[\W]/) && 2,
+    value.match(/[A-Z]/) && 3,
+  ];
+
+  return validFields;
+};
+
+const renderProgressValidationsText = (value: string) => {
+  const validFields = progressivelyValidate(value);
+  return (
+    <List>
+      {PASSWORD_REQUIREMENTS.map((requirement: string, index: number) => (
+        <Item key={requirement}>
+          <CheckIcon isValid={validFields.includes(index)} />
+          {requirement}
+        </Item>
+      ))}
+    </List>
+  );
+};
+
 const renderField = ({
   input,
   hasShowHideButton,
   inputType,
   handleInputVisibilityToggle,
+  hasPasswordRequirements,
   meta: { touched, error },
   ...rest
 }) => (
@@ -37,6 +65,7 @@ const renderField = ({
       )}
     </InputContainer>
     <Error touched={touched} error={error} />
+    {hasPasswordRequirements && renderProgressValidationsText(input.value)}
   </Fragment>
 );
 
@@ -49,7 +78,6 @@ export type InputType = {
   disabled: boolean,
   tooltip: Node,
   hasShowHideButton: boolean,
-  passwordRequirements: string[],
 };
 
 type StateType = { isMasked: boolean };
@@ -66,16 +94,8 @@ class Input extends Component<InputType, StateType> {
 
   render() {
     const { isMasked } = this.state;
-    const {
-      name,
-      label,
-      copy,
-      required,
-      disabled,
-      tooltip,
-      hasShowHideButton,
-      passwordRequirements,
-    } = this.props;
+    const { name, label, copy, required, disabled, tooltip, hasShowHideButton } = this.props;
+
     return (
       <Fragment>
         <Label name={name} label={label} required={required} disabled={disabled} />
@@ -96,26 +116,14 @@ class Input extends Component<InputType, StateType> {
             }
           />
         ) : (
-          <Fragment>
-            <Field
-              {...this.props}
-              component={renderField}
-              disabled={disabled}
-              inputType={isMasked ? 'text' : 'password'}
-              hasShowHideButton={hasShowHideButton}
-              handleInputVisibilityToggle={this.handleInputVisibilityToggle}
-            />
-            {passwordRequirements && (
-              <List>
-                {passwordRequirements.map((requirement: string) => (
-                  <Item key={requirement}>
-                    <CheckIcon />
-                    {requirement}
-                  </Item>
-                ))}
-              </List>
-            )}
-          </Fragment>
+          <Field
+            {...this.props}
+            component={renderField}
+            disabled={disabled}
+            inputType={isMasked ? 'text' : 'password'}
+            hasShowHideButton={hasShowHideButton}
+            handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+          />
         )}
       </Fragment>
     );

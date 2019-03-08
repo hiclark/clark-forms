@@ -9,6 +9,7 @@ import {
   LINE_HEIGHT,
   SPACING,
   TYPE_SCALE,
+  TRANSITIONS,
 } from 'clark-styles';
 
 import Check from '../../assets/icons/check.svg';
@@ -21,6 +22,7 @@ const { TS_4, TS_5, TS_6 } = TYPE_SCALE;
 const { FW_100 } = FONT_WEIGHT;
 const { BW_1 } = BORDER_WIDTH;
 const { SOLID, COPY } = LINE_HEIGHT;
+const { EASE_IN_OUT_25 } = TRANSITIONS;
 
 const ICON_SIZE = '20px';
 
@@ -92,7 +94,8 @@ export const Item = styled.li`
 `;
 
 export const CheckIcon = styled(Check)`
-  color: ${CLARK_SECONDARY};
+  ${EASE_IN_OUT_25};
+  color: ${({ isValid }) => (isValid ? CLARK_SECONDARY : GREY_25)};
   height: ${ICON_SIZE};
   margin-right: ${S_1};
   width: ${ICON_SIZE};
