@@ -65,7 +65,7 @@ export const Copy = styled.div`
 `;
 
 export const ToggleButton = styled.span`
-  ${(TS_5, TS_6)};
+  ${TS_6};
   cursor: pointer;
   position: absolute;
   display: flex;

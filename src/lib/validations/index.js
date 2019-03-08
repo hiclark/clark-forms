@@ -1,6 +1,6 @@
 // @flow
 
-type ValidationType = (value: any) => ?string;
+type ValidationType = (value: ?any) => ?string;
 
 export const isRequired: ValidationType = value =>
   value && (value !== '$' || value.length === 0) ? undefined : 'Required';
