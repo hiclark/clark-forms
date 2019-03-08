@@ -58,9 +58,8 @@ type BaseFieldSetObjectType = {
 
 type InputFieldSetObjectType = {
   type: 'input',
-  copy?: string,
-  inputType?: InputType,
-} & BaseFieldSetObjectType;
+} & InputType &
+  BaseFieldSetObjectType;
 
 type DropdownFieldSetObjectType = {
   type: 'dropdown',

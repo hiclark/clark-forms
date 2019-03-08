@@ -1,5 +1,14 @@
 import React from 'react';
-import { isRequired, minLength } from '../../utils/validation';
+import {
+  isRequired,
+  minLength,
+  maxLength,
+  hasDigit,
+  hasLowercaseLetter,
+  hasUppercaseLetter,
+  hasSpecialCharacter,
+  hasSpaceCharacter,
+} from '../../../lib/validations/index';
 import Check from '../../assets/icons/check.svg';
 import Link from './styles';
 
@@ -45,10 +54,41 @@ const FIELD_SETS = [
         fields: [
           {
             type: 'input',
-            name: 'firstInput',
-            label: 'Required Input',
+            name: 'pwInput',
+            label: 'Password Input',
+            inputType: 'password',
             required: true,
-            validate: [isRequired, minLength(6)],
+            hasShowHideButton: true,
+            hasPasswordRequirements: true,
+            validate: [
+              isRequired,
+              minLength(7),
+              maxLength(70),
+              hasDigit('password'),
+              hasLowercaseLetter('password'),
+              hasUppercaseLetter('password'),
+              hasSpecialCharacter('password'),
+              hasSpaceCharacter('password'),
+            ],
+          },
+          {
+            type: 'dropdown',
+            name: 'dropdownTest',
+            label: 'Dropdown Test',
+            values: DROPDOWN,
+            validate: isRequired,
+            menuIsOpen: true,
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 6 },
+        fields: [
+          {
+            type: 'input',
+            name: 'firstInput',
+            label: 'Input',
+            required: true,
           },
           {
             type: 'dropdown',
@@ -78,12 +118,6 @@ const FIELD_SETS = [
             multi: true,
             values: DROPDOWN,
             validate: isRequired,
-          },
-          {
-            type: 'input',
-            name: 'pwInput',
-            label: 'Password Input',
-            inputType: 'password',
           },
           {
             type: 'input',

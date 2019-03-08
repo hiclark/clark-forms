@@ -14,7 +14,7 @@ import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
 import { TYPE_SCALE_F4 } from '../../styles/type-scale';
 import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { BORDER_WIDTH_1, renderBorderRadius } from '../../styles/borders';
+import { BORDER_WIDTH_1 } from '../../styles/borders';
 import { LINE_HEIGHT_COPY } from '../../styles/line-height';
 import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 import Label from '../label';
@@ -61,7 +61,6 @@ const FormTextarea = styled.textarea`
   margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
   background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
   transition: 0.5s;
-  ${props => renderBorderRadius(props)};
 
   &::placeholder {
     color: ${GREY_25};

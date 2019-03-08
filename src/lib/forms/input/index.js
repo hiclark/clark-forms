@@ -1,78 +1,133 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component, type Node } from 'react';
 import { Field } from 'redux-form';
-import styled from 'styled-components';
 import { ToolTip } from 'clark-styles';
 
 import Error from '../error';
-import { SPACING_EXTRA_SMALL, SPACING_SMALL } from '../../styles/spacing';
-import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
-import { TYPE_SCALE_F4, TYPE_SCALE_F6 } from '../../styles/type-scale';
-import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
-import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { BORDER_WIDTH_1 } from '../../styles/borders';
-import { LINE_HEIGHT_SOLID, LINE_HEIGHT_COPY } from '../../styles/line-height';
-import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 import Label from '../label';
+import { InputContainer, FormInput, ToggleButton, Copy, List, Item, CheckIcon } from './styles';
 
-export type InputType = string;
+const PASSWORD_REQUIREMENTS = ['8 characters', '1 number', '1 special character', '1 uppercase'];
 
-const renderField = ({ input, inputType, meta: { error, touched }, ...rest }) => (
-  <Fragment>
-    {/* we rename the inputType prop to avoid a colision with the type attribute
-    that is used to specify which form element to render */}
-    <FormInput {...rest} {...input} showError={!(error && touched)} type={inputType} />
-    <Error touched={touched} error={error} />
-  </Fragment>
-);
+const progressivelyValidate = (value: string) => {
+  const validFields = [
+    value.length > 7 && 0,
+    value.match(/\d/) && 1,
+    value.match(/[\W]/) && 2,
+    value.match(/[A-Z]/) && 3,
+  ];
 
-type PropsType = any;
-const Input = (props: PropsType) => {
-  const { name, label, copy, required, disabled, tooltip } = props;
+  return validFields;
+};
+
+const renderProgressValidationsText = (value: string) => {
+  const validFields = progressivelyValidate(value);
   return (
-    <Fragment>
-      <Label name={name} label={label} required={required} disabled={disabled} />
-      {copy && <Copy>{copy}</Copy>}
-      {tooltip ? (
-        <ToolTip
-          tipPosition="middle"
-          content={tooltip}
-          trigger={<Field component={renderField} disabled {...props} />}
-        />
-      ) : (
-        <Field component={renderField} disabled={disabled} {...props} />
-      )}
-    </Fragment>
+    <List>
+      {PASSWORD_REQUIREMENTS.map((requirement: string, index: number) => (
+        <Item key={requirement}>
+          <CheckIcon isValid={validFields.includes(index)} />
+          {requirement}
+        </Item>
+      ))}
+    </List>
   );
 };
 
-export default Input;
+const renderField = ({
+  input,
+  hasShowHideButton,
+  inputType,
+  handleInputVisibilityToggle,
+  hasPasswordRequirements,
+  meta: { touched, error },
+  ...rest
+}) => (
+  <Fragment>
+    {/* we rename the inputType prop to avoid a colision with the type attribute
+    that is used to specify which form element to render */}
+    <InputContainer showError={!(error && touched)}>
+      <FormInput
+        {...rest}
+        {...input}
+        showError={!(error && touched)}
+        type={inputType}
+        hasShowHideButton={hasShowHideButton}
+      />
+      {hasShowHideButton && (
+        <ToggleButton
+          role="button"
+          tabIndex={0}
+          onKeyPress={handleInputVisibilityToggle}
+          onClick={handleInputVisibilityToggle}
+        >
+          {inputType === 'password' ? 'show' : 'hide'}
+        </ToggleButton>
+      )}
+    </InputContainer>
+    <Error touched={touched} error={error} />
+    {hasPasswordRequirements && renderProgressValidationsText(input.value)}
+  </Fragment>
+);
 
-const FormInput = styled.input`
-  ${TYPE_SCALE_F4};
-  ${FONT_FAMILY_PRIMARY};
-  ${FONT_WEIGHT_100};
-  ${BORDER_RADIUS_F2};
-  ${LINE_HEIGHT_SOLID};
-  border: ${BORDER_WIDTH_1} solid ${props => (props.showError ? GREY_25 : CLARK_PRIMARY)};
-  display: block;
-  padding: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
-  position: relative;
-  outline: none;
-  width: 100%;
-  margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
-  background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
-  transition: all 0.25s ease-in-out;
-  color: ${({ disabled }) => (disabled ? GREY_25 : CLARK_SECONDARY)};
+export type InputType = {
+  name: string,
+  label: string,
+  copy: ?string,
+  inputType: string,
+  required: boolean,
+  disabled: boolean,
+  tooltip: Node,
+  hasShowHideButton: boolean,
+};
 
-  &::placeholder {
-    color: ${GREY_25};
+type StateType = { isMasked: boolean };
+class Input extends Component<InputType, StateType> {
+  state = {
+    isMasked: false,
+  };
+
+  handleInputVisibilityToggle = () => {
+    this.setState({
+      isMasked: !this.state.isMasked,
+    });
+  };
+
+  render() {
+    const { isMasked } = this.state;
+    const { name, label, copy, required, disabled, tooltip, hasShowHideButton } = this.props;
+
+    return (
+      <Fragment>
+        <Label name={name} label={label} required={required} disabled={disabled} />
+        {copy && <Copy>{copy}</Copy>}
+        {tooltip ? (
+          <ToolTip
+            tipPosition="middle"
+            content={tooltip}
+            trigger={
+              <Field
+                inputType={isMasked ? 'text' : 'password'}
+                hasShowHideButton={hasShowHideButton}
+                handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+                component={renderField}
+                disabled
+                {...this.props}
+              />
+            }
+          />
+        ) : (
+          <Field
+            {...this.props}
+            component={renderField}
+            disabled={disabled}
+            inputType={isMasked ? 'text' : 'password'}
+            hasShowHideButton={hasShowHideButton}
+            handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+          />
+        )}
+      </Fragment>
+    );
   }
-`;
+}
 
-const Copy = styled.div`
-  ${TYPE_SCALE_F6};
-  ${FONT_WEIGHT_100};
-  ${LINE_HEIGHT_COPY};
-  color: ${CLARK_SECONDARY};
-  margin-bottom: ${SPACING_SMALL};
-`;
+export default Input;
