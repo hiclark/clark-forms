@@ -27,11 +27,11 @@ const { EASE_IN_OUT_25 } = TRANSITIONS;
 const ICON_SIZE = '20px';
 
 export const InputContainer = styled.div`
+  ${EASE_IN_OUT_25};
   align-items: center;
   position: relative;
   display: flex;
   margin-bottom: ${({ showError }) => (showError ? 0 : S_05)};
-  transition: all 0.25s ease-in-out;
 `;
 
 export const FormInput = styled.input`
