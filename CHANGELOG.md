@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.2.1 - 2019-03-08
+### Fixed
+- error about passing prop to DOM element
+
 ## 2.2.0 - 2019-03-08
 ### Added
 - additional validation
