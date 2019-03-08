@@ -93,6 +93,7 @@ export const Item = styled.li`
   width: 50%;
 `;
 
+// $FlowFixMe
 export const CheckIcon = styled(Check)`
   ${EASE_IN_OUT_25};
   color: ${({ isValid }) => (isValid ? CLARK_SECONDARY : GREY_25)};
