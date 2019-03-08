@@ -39,6 +39,7 @@ export const FormInput = styled.input`
   ${FW_100};
   ${BR_2};
   ${SOLID};
+  ${EASE_IN_OUT_25};
   border: ${BW_1} solid ${({ showError }) => (showError ? GREY_25 : CLARK_PRIMARY)};
   color: ${({ disabled }) => (disabled ? GREY_25 : GREY_100)};
   display: block;
@@ -50,7 +51,6 @@ export const FormInput = styled.input`
   outline: none;
   width: 100%;
   background-color: ${({ showError }) => (showError ? WHITE : ERROR_PRIMARY)};
-  transition: all 0.25s ease-in-out;
   &::placeholder {
     color: ${GREY_25};
   }

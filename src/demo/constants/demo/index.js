@@ -60,30 +60,6 @@ const FIELD_SETS = [
             required: true,
             hasShowHideButton: true,
             hasPasswordRequirements: true,
-            // passwordRequirements: [
-            //   '8 characters',
-            //   '1 number',
-            //   '1 special character',
-            //   '1 uppercase',
-            // ],
-            // passwordRequirements: [
-            //   {
-            //     text: '8 characters',
-            //     isValid: false,
-            //   },
-            //   {
-            //     text: '1 number',
-            //     isValid: false,
-            //   },
-            //   {
-            //     text: '1 special character',
-            //     isValid: false,
-            //   },
-            //   {
-            //     text: '1 uppercase',
-            //     isValid: false,
-            //   },
-            // ],
             validate: [
               isRequired,
               minLength(7),
