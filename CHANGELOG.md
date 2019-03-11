@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 2.2.1 - 2019-03-11
+## 2.2.2 - 2019-03-11
 ### Fixed
 - masking input error
 
