@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.2.1 - 2019-03-11
+### Fixed
+- masking input error
+
 ## 2.2.1 - 2019-03-08
 ### Fixed
 - error about passing prop to DOM element

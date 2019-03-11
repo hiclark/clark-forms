@@ -37,7 +37,7 @@ const renderField = ({
   input,
   hasShowHideButton,
   inputType,
-  handleInputVisibilityToggle,
+  toggleInputVisibility,
   hasPasswordRequirements,
   meta: { touched, error },
   ...rest
@@ -57,8 +57,8 @@ const renderField = ({
         <ToggleButton
           role="button"
           tabIndex={0}
-          onKeyPress={handleInputVisibilityToggle}
-          onClick={handleInputVisibilityToggle}
+          onKeyPress={toggleInputVisibility}
+          onClick={toggleInputVisibility}
         >
           {inputType === 'password' ? 'show' : 'hide'}
         </ToggleButton>
@@ -69,33 +69,39 @@ const renderField = ({
   </Fragment>
 );
 
+type InputTypeType = 'password' | 'text';
+
 export type InputType = {
   name: string,
   label: string,
   copy: ?string,
-  inputType: string,
+  inputType: InputTypeType,
   required: boolean,
   disabled: boolean,
   tooltip: Node,
   hasShowHideButton: boolean,
 };
 
-type StateType = { isMasked: boolean };
+type StateType = { derivedInputType: InputTypeType };
+
 class Input extends Component<InputType, StateType> {
+  // This is generally considered an anti-pattern except in this use case
+  // where we are only using the prop as seed data and
+  // we don't care about prop changes
   state = {
-    isMasked: false,
+    derivedInputType: this.props.inputType,
   };
 
-  handleInputVisibilityToggle = () => {
+  toggleInputVisibility = () => {
+    const inputTypeToggle = this.state.derivedInputType === 'password' ? 'text' : 'password';
     this.setState({
-      isMasked: !this.state.isMasked,
+      derivedInputType: inputTypeToggle,
     });
   };
 
   render() {
-    const { isMasked } = this.state;
+    const { derivedInputType } = this.state;
     const { name, label, copy, required, disabled, tooltip, hasShowHideButton } = this.props;
-
     return (
       <Fragment>
         <Label name={name} label={label} required={required} disabled={disabled} />
@@ -106,9 +112,9 @@ class Input extends Component<InputType, StateType> {
             content={tooltip}
             trigger={
               <Field
-                inputType={isMasked ? 'text' : 'password'}
+                inputType={derivedInputType}
                 hasShowHideButton={hasShowHideButton}
-                handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+                toggleInputVisibility={this.toggleInputVisibility}
                 component={renderField}
                 disabled
                 {...this.props}
@@ -120,9 +126,9 @@ class Input extends Component<InputType, StateType> {
             {...this.props}
             component={renderField}
             disabled={disabled}
-            inputType={isMasked ? 'text' : 'password'}
+            inputType={derivedInputType}
             hasShowHideButton={hasShowHideButton}
-            handleInputVisibilityToggle={this.handleInputVisibilityToggle}
+            toggleInputVisibility={this.toggleInputVisibility}
           />
         )}
       </Fragment>
