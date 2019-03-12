@@ -18,11 +18,14 @@ const { TITLE } = LINE_HEIGHT;
 const { S_025, S_05, S_1 } = SPACING;
 const { TS_5 } = TYPE_SCALE;
 const BOX_DIMENSIONS = `calc(${S_1} + ${S_05} + ${S_025})`;
+const ICON_SIZE = '25px';
 
 export const StyledInput = styled.input`
   position: absolute;
-  width: 100%;
   opacity: 0;
+  height: ${ICON_SIZE};
+  width: ${ICON_SIZE};
+  top: 0;
 `;
 
 export const HiddenField = styled.input`
@@ -34,7 +37,13 @@ export const Layout = styled.div`
   opacity: ${({ disabled }) => disabled && '0.5'};
 `;
 
-export const Wrapper = styled.div`
+export const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
+export const CheckWrapper = styled.div`
   ${BR_2};
   background-color: ${WHITE};
   min-width: ${BOX_DIMENSIONS};

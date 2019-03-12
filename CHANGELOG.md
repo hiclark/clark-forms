@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.2.3 - 2019-03-12
+### Fixed
+- positioning of single checkbox field input
+
 ## 2.2.2 - 2019-03-11
 ### Fixed
 - masking input error
