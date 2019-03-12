@@ -2,8 +2,15 @@
 
 import React, { Fragment } from 'react';
 import { Field } from 'redux-form';
-import { Flex } from 'clark-styles';
-import { HiddenField, LabelText, Layout, StyledCheck, StyledInput, Wrapper } from './styles';
+import {
+  HiddenField,
+  InputWrapper,
+  LabelText,
+  Layout,
+  StyledCheck,
+  StyledInput,
+  CheckWrapper,
+} from './styles';
 import Error from '../error';
 
 const renderField = ({
@@ -30,10 +37,10 @@ const renderField = ({
 
       <Layout disabled={disabled}>
         <label htmlFor={`${name}-${index}`}>
-          <Flex alignItems="center">
-            <Wrapper>
+          <InputWrapper alignItems="center">
+            <CheckWrapper>
               <StyledCheck checked={checked} />
-            </Wrapper>
+            </CheckWrapper>
             <StyledInput
               {...input}
               {...rest}
@@ -48,7 +55,7 @@ const renderField = ({
             <LabelText disabled={disabled} deselected={hasInput && !checked}>
               {label}
             </LabelText>
-          </Flex>
+          </InputWrapper>
         </label>
       </Layout>
       <Error touched={touched} error={error} />
