@@ -23,6 +23,7 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
     const {
       meta: { error, touched },
       input: { value: { startDate, endDate } = { startDate: null, endDate: null }, onChange },
+      openDirection,
       isOutsideRange,
     } = this.props;
     const { focusedInput } = this.state;
@@ -30,6 +31,7 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
     return (
       <div>
         <DateRangePicker
+          openDirection={openDirection || 'down'}
           startDate={startDate ? moment(startDate) : null}
           endDate={endDate ? moment(endDate) : null}
           endDateId="endDate"
@@ -60,7 +62,7 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
 type PropsType = any;
 const RangePicker = ({ name, label, columns, validate, required, ...props }: PropsType) => (
   <Container>
-    <Label name={name} label={label} required={required} />
+    {label && <Label name={name} label={label} required={required} />}
     <Field
       name={name}
       component={DateRangePickerField}
