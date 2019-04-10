@@ -44,7 +44,7 @@ const renderField = ({
 }) => (
   <Fragment>
     {/* we rename the inputType prop to avoid a colision with the type attribute
-    that is used to specify which form element to render */}
+  that is used to specify which form element to render */}
     <InputContainer showError={!(error && touched)}>
       <FormInput
         {...rest}
@@ -73,7 +73,7 @@ type InputTypeType = 'password' | 'text';
 
 export type InputType = {
   name: string,
-  label: string,
+  label: ?string,
   copy: ?string,
   inputType: InputTypeType,
   required: boolean,
@@ -104,7 +104,7 @@ class Input extends Component<InputType, StateType> {
     const { name, label, copy, required, disabled, tooltip, hasShowHideButton } = this.props;
     return (
       <Fragment>
-        <Label name={name} label={label} required={required} disabled={disabled} />
+        {label && <Label name={name} label={label} required={required} disabled={disabled} />}
         {copy && <Copy>{copy}</Copy>}
         {tooltip ? (
           <ToolTip

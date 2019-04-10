@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.2.4 - 2019-04-10
+### Fixed
+- makes input label optional and conditionally render
+
 ## 2.2.3 - 2019-03-12
 ### Fixed
 - positioning of single checkbox field input
