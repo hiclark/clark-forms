@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DateRangePicker /> no label renders correctly 1`] = `
+<date-range-picker__Container>
+  <Field
+    columns={2}
+    component={[Function]}
+    name="Name"
+    onCheckboxClick={[Function]}
+    value={false}
+  />
+</date-range-picker__Container>
+`;
+
 exports[`<DateRangePicker /> renders correctly 1`] = `
 <date-range-picker__Container>
   <Label
@@ -12,6 +24,7 @@ exports[`<DateRangePicker /> renders correctly 1`] = `
     component={[Function]}
     name="Name"
     onCheckboxClick={[Function]}
+    openDirection="up"
     value={false}
   />
 </date-range-picker__Container>
