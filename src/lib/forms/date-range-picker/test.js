@@ -19,6 +19,25 @@ describe('<DateRangePicker />', () => {
       name: 'Name',
       label: 'Label',
       value: false,
+      openDirection: 'up',
+    };
+    wrapper = shallow(<DateRangePicker {...props} />);
+  });
+
+  it('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+});
+
+// no label
+describe('<DateRangePicker /> no label', () => {
+  let wrapper;
+  beforeEach(() => {
+    const props = {
+      columns: 2,
+      onCheckboxClick: jest.fn(),
+      name: 'Name',
+      value: false,
     };
     wrapper = shallow(<DateRangePicker {...props} />);
   });

@@ -63,3 +63,12 @@
 .DateRangePickerInput #endDate {
   padding-right: 0;
 }
+
+.DateRangePickerInput__withBorder {
+  border-color:#a09eaf;
+  border-radius: 4px;
+}
+
+.DateRangePicker_picker {
+  z-index: 2;
+}
