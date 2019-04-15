@@ -8,6 +8,7 @@ import Error from '../error';
 const group = ({ input, options, meta: { error } }) => {
   const { onChange } = input;
   const inputValue = input.value;
+
   const checkboxes = options.map(({ disabled, label, value }, index) => {
     const handleChange = () => {
       const arr = [...inputValue];
