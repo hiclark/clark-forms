@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="32px" viewBox="0 0 46 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>toggle_add_32px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="1.0-Payments" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="toggle_add_32px" fill="#413E60">
+            <path d="M16,0 L30,-3.55271368e-15 C38.836556,-5.17596268e-15 46,7.163444 46,16 C46,24.836556 38.836556,32 30,32 L16,32 C7.163444,32 1.082166e-15,24.836556 0,16 C-1.082166e-15,7.163444 7.163444,1.623249e-15 16,0 Z M30,31 C38.2842712,31 45,24.2842712 45,16 C45,7.71572875 38.2842712,1 30,1 C21.7157288,1 15,7.71572875 15,16 C15,24.2842712 21.7157288,31 30,31 Z M35,17 L32,17 L32,20 C32,20.55 31.55,21 31,21 L31,21 C30.45,21 30,20.55 30,20 L30,17 L27,17 C26.45,17 26,16.55 26,16 L26,16 C26,15.45 26.45,15 27,15 L30,15 L30,12 C30,11.45 30.45,11 31,11 L31,11 C31.55,11 32,11.45 32,12 L32,15 L35,15 C35.55,15 36,15.45 36,16 L36,16 C36,16.55 35.55,17 35,17 Z" id="icon_toggle_on"></path>
+        </g>
+    </g>
+</svg>

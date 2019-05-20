@@ -80,6 +80,7 @@ export type InputType = {
   disabled: boolean,
   tooltip: Node,
   hasShowHideButton: boolean,
+  stripped: ?boolean,
 };
 
 type StateType = { derivedInputType: InputTypeType };
@@ -101,10 +102,19 @@ class Input extends Component<InputType, StateType> {
 
   render() {
     const { derivedInputType } = this.state;
-    const { name, label, copy, required, disabled, tooltip, hasShowHideButton } = this.props;
+    const {
+      name,
+      label,
+      copy,
+      required,
+      disabled,
+      tooltip,
+      hasShowHideButton,
+      stripped,
+    } = this.props;
     return (
       <Fragment>
-        <Label name={name} label={label} required={required} disabled={disabled} />
+        {!stripped && <Label name={name} label={label} required={required} disabled={disabled} />}
         {copy && <Copy>{copy}</Copy>}
         {tooltip ? (
           <ToolTip

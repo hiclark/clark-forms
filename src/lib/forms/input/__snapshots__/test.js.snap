@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> renders correctly 1`] = `
+<React.Fragment>
+  <Field
+    component={[Function]}
+    copy=""
+    disabled={false}
+    hasShowHideButton={false}
+    inputType="text"
+    label=""
+    name=""
+    required={true}
+    stripped={true}
+    toggleInputVisibility={[Function]}
+    tooltip={null}
+  />
+</React.Fragment>
+`;

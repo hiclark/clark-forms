@@ -36,4 +36,13 @@ describe('<Checkbox />', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  describe('when name is billAdjustmentIsSubtraction', () => {
+    const propsWithLabel = { ...props, name: 'billAdjustmentIsSubtraction' };
+    const wrapper = shallow(<Checkbox {...propsWithLabel} />);
+
+    it('matches the snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });

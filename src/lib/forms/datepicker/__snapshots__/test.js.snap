@@ -17,6 +17,24 @@ exports[`<DatePicker /> renders correctly 1`] = `
 </datepicker__Container>
 `;
 
+exports[`<DatePicker /> renders correctly 2`] = `
+<datepicker__Container>
+  <Label
+    disabled={false}
+    label="Label"
+    name="Name"
+  />
+  <Field
+    columns={2}
+    component={[Function]}
+    name="Name"
+    onCheckboxClick={[Function]}
+    openDirection="up"
+    value={false}
+  />
+</datepicker__Container>
+`;
+
 exports[`SingleDatePickerField renders correctly 1`] = `
 <div>
   <withStyles(SingleDatePicker)

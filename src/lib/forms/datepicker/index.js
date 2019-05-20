@@ -21,9 +21,12 @@ export const SingleDatePickerField = ({
   isOutsideRange,
   numberOfMonths = 1,
   displayFormat = 'MM/DD/YYYY',
+  disabled,
+  openDirection,
 }: SingleDatePickerPropsType) => (
   <div>
     <SingleDatePicker
+      openDirection={openDirection || 'down'}
       date={value ? moment(value) : null}
       onDateChange={momentObject =>
         momentObject ? onChange(momentObject.startOf('day').toISOString()) : onChange(null)
@@ -37,15 +40,24 @@ export const SingleDatePickerField = ({
       isOutsideRange={momentObject => isOutsideRange(momentObject.startOf('day'))}
       numberOfMonths={numberOfMonths}
       displayFormat={displayFormat}
+      disabled={disabled}
     />
     <Error touched={touched} error={error} />
   </div>
 );
 
 type PropsType = any;
-const DatePicker = ({ name, label, columns, validate, required, ...props }: PropsType) => (
+const DatePicker = ({
+  name,
+  label,
+  columns,
+  validate,
+  required,
+  stripped,
+  ...props
+}: PropsType) => (
   <Container>
-    <Label name={name} label={label} required={required} />
+    {!stripped && <Label name={name} label={label} required={required} />}
     <Field
       name={name}
       component={SingleDatePickerField}

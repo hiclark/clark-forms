@@ -42,10 +42,17 @@ const mapFieldToComponent = type => {
   return components[type];
 };
 
-const composeComponent = (index: number, field, columns: { small: number, large: number }) => {
+const composeComponent = (
+  index: number,
+  field,
+  columns: { small: number, large: number },
+  stripped: ?boolean,
+) => {
   const { type, name } = field;
   const FieldComponent = mapFieldToComponent(type);
-  return <FieldComponent key={name} index={index} columns={columns} {...field} />;
+  return (
+    <FieldComponent key={name} index={index} columns={columns} {...field} stripped={stripped} />
+  );
 };
 
 type BaseFieldSetObjectType = {
@@ -86,6 +93,7 @@ type FieldSetType = {
   subCopy?: string,
   fields: FieldSetObjectType[],
   columns: { small: number, large: number },
+  stripped: ?boolean,
 }[];
 
 export type DataType = {
@@ -100,7 +108,7 @@ const Fieldset = ({ data }: PropsType) => (
   <div>
     {data.map(object =>
       object.fieldSet.map((fieldSet, index) => {
-        const { fields, title, columns, subCopy } = fieldSet;
+        const { fields, title, columns, subCopy, stripped } = fieldSet;
         return (
           <div key={index}>
             {title && <FieldsetTitle>{title}</FieldsetTitle>}
@@ -116,8 +124,9 @@ const Fieldset = ({ data }: PropsType) => (
                   columnsSmall={columns.small}
                   columnsLarge={columns.large}
                   type={field.type}
+                  stripped={stripped}
                 >
-                  {composeComponent(index, field, columns)}
+                  {composeComponent(index, field, columns, stripped)}
                 </Field>
               ))}
             </FieldsetContainer>
@@ -157,10 +166,11 @@ const FieldsetTitle = styled.h3`
 
 const Field = styled.div`
   ${({ index, columnsSmall }) => calculateLayout(index, columnsSmall)};
-  margin-bottom: calc(${SPACING_SMALL} + ${SPACING_MEDIUM});
   ${media.small`
     ${({ index, columnsLarge }) => calculateLayout(index, columnsLarge)}
   `};
+  margin-bottom: ${({ stripped }) =>
+    stripped ? `0` : `calc(${SPACING_SMALL} + ${SPACING_MEDIUM})`};
 `;
 
 const FieldsetSubCopy = styled.p`
