@@ -1,6 +1,5 @@
 // @flow
 
-import { Field } from 'redux-form';
 import styled from 'styled-components';
 import {
   BORDER_RADIUS,
@@ -35,7 +34,7 @@ export const OuterRadio = styled.div`
   justify-content: center;
 `;
 
-export const InnerRadio = styled(Field)`
+export const InnerRadio = styled.input`
   ${CIRCLE};
   align-items: center;
   margin-bottom: ${S_025};

@@ -59,10 +59,11 @@ const LocationAutocomplete = ({
   columns,
   validate,
   required,
+  stripped,
   ...props
 }: PropsType) => (
   <Container>
-    <Label name={name} label={label} required={required} />
+    {!stripped && <Label name={name} label={label} required={required} />}
     <Field
       name={name}
       component={GoogleAutocomplete}

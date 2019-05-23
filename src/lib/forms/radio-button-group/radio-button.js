@@ -27,7 +27,6 @@ const RadioButton = ({
   <Flex alignItems="center" margin={`0 0 ${SPACING.S_1} 0`}>
     <OuterRadio>
       <InnerRadio
-        component="input"
         index={index}
         name={name}
         onClick={() => onClickHandler(input, isSelected, value)}
