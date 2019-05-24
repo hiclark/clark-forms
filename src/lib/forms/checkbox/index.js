@@ -5,42 +5,37 @@ import styled from 'styled-components';
 
 import ToggleOff from './toggle-off.svg';
 import ToggleOn from './toggle-on.svg';
-import ToggleAdd from './toggle_add.svg';
-import ToggleSub from './toggle_sub.svg';
+
 import { SPACING_SMALL } from '../../styles/spacing';
 import { GREY_75 } from '../../styles/colors';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import RequiredAsterisk from '../required-asterisk';
 
-const renderField = ({ disabled, required, index, label, input: { name, checked, onChange } }) => {
-  const toggleOn = name === 'billAdjustmentIsSubtraction' ? <ToggleSub /> : <ToggleOn />;
-  const toggleOff = name === 'billAdjustmentIsSubtraction' ? <ToggleAdd /> : <ToggleOff />;
-  return (
-    <div>
-      <HiddenField>
-        <Field
-          id={`${name}-${index}`}
-          name={name}
-          disabled={disabled}
-          component="input"
-          value={checked}
-          type="checkbox"
-          index={index}
-        />
-      </HiddenField>
+const renderField = ({ disabled, required, index, label, input: { name, checked, onChange } }) => (
+  <div>
+    <HiddenField>
+      <Field
+        id={`${name}-${index}`}
+        name={name}
+        disabled={disabled}
+        component="input"
+        value={checked}
+        type="checkbox"
+        index={index}
+      />
+    </HiddenField>
 
-      <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
-        <CheckboxLabel disabled={disabled}>
-          {checked ? toggleOn : toggleOff}
-          <LabelText>
-            {label}
-            {required && <RequiredAsterisk />}
-          </LabelText>
-        </CheckboxLabel>
-      </label>
-    </div>
-  );
-};
+    <label htmlFor={`${name}-${index}`} onClick={onChange} onKeyDown={onChange}>
+      <CheckboxLabel disabled={disabled}>
+        {checked ? <ToggleOn /> : <ToggleOff />}
+        <LabelText>
+          {label}
+          {required && <RequiredAsterisk />}
+        </LabelText>
+      </CheckboxLabel>
+    </label>
+  </div>
+);
 
 type PropsType = any;
 const Checkbox = (props: PropsType) => (
