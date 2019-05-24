@@ -61,9 +61,10 @@ const Dropdown = ({
   multi,
   required,
   onChange,
+  stripped,
 }: PropsType) => (
   <DropdownContainer>
-    <Label name={name} label={label} required={required} />
+    {!stripped && <Label name={name} label={label} required={required} />}
     <Field
       index={index}
       name={name}

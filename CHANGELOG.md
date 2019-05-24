@@ -1,8 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.3.0 - 2019-05-24
+### Added
+- form elements accept stripped attribute which adjusts their spacing and hides their labels
+
+### Fixed
+- DatePicker accepts openDirection and disabled
+- DatePicker z-index issue
+
 ## 2.2.4 - 2019-04-15
-### CHANGED
+### Changed
 - gave dateRangePicker openDirection
 - remove empty label on dateRangePicker
 

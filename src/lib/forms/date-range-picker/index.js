@@ -60,9 +60,17 @@ export class DateRangePickerField extends PureComponent<*, StateType> {
 }
 
 type PropsType = any;
-const RangePicker = ({ name, label, columns, validate, required, ...props }: PropsType) => (
+const RangePicker = ({
+  name,
+  label,
+  columns,
+  validate,
+  required,
+  stripped,
+  ...props
+}: PropsType) => (
   <Container>
-    {label && <Label name={name} label={label} required={required} />}
+    {!stripped && label && <Label name={name} label={label} required={required} />}
     <Field
       name={name}
       component={DateRangePickerField}

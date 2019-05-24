@@ -19,6 +19,7 @@ type ButtonGroupPropsType = {
   label: string,
   name: string,
   required: boolean,
+  stripped: ?boolean,
   values: Array<{ label: string, value: ValueType }>,
 };
 
@@ -29,9 +30,10 @@ const RadioButtonGroup = ({
   index,
   input,
   required,
+  stripped,
 }: ButtonGroupPropsType) => (
   <Flex flexDirection="column">
-    <Label name={name} label={label} required={required} />
+    {!stripped && <Label name={name} label={label} required={required} />}
     {values.map(
       ({ value, label: buttonLabel }): Node => (
         <RadioButton

@@ -26,6 +26,19 @@ exports[`<Checkbox /> when checked is true matches the snapshot 1`] = `
 </div>
 `;
 
+exports[`<Checkbox /> when name is billAdjustmentIsSubtraction matches the snapshot 1`] = `
+<div>
+  <Field
+    checked={true}
+    component={[Function]}
+    index={1}
+    name="billAdjustmentIsSubtraction"
+    onCheckboxClick={[Function]}
+    value={false}
+  />
+</div>
+`;
+
 exports[`<Checkbox /> with label matches the snapshot 1`] = `
 <div>
   <Field

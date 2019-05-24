@@ -27,3 +27,22 @@ describe('<DatePicker />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+
+describe('<DatePicker />', () => {
+  let wrapper;
+  beforeEach(() => {
+    const props = {
+      columns: 2,
+      onCheckboxClick: jest.fn(),
+      name: 'Name',
+      label: 'Label',
+      value: false,
+      openDirection: 'up',
+    };
+    wrapper = shallow(<DatePicker {...props} />);
+  });
+
+  it('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+});
