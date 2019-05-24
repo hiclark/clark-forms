@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.3.1 - 2019-05-24
+### Fixed
+- compatible with gatsby
+
 ## 2.3.0 - 2019-05-24
 ### Added
 - form elements accept stripped attribute which adjusts their spacing and hides their labels
