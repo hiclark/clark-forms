@@ -1,6 +1,6 @@
 {
   "name": "@clark-inc/clark-forms",
-  "version": "2.3.0",
+  "version": "2.3.2-rc.0",
   "description": "Clark React Redux Forms library.",
   "main": "build/index.js",
   "author": "Clark, Inc.",
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/hiclark/clark-forms#readme",
   "engines": {
-    "yarn": ">=1.3.0"
+    "yarn": ">=1.3.0",
+    "node": ">=9.10"
   },
   "scripts": {
     "analyze": "source-map-explorer build/index.*",
@@ -47,7 +48,7 @@
     "body-parser": "^1.18.2",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
-    "clark-styles": "^0.7.0",
+    "clark-styles": "^0.17.2",
     "copy-webpack-plugin": "^4.4.1",
     "css-loader": "^0.28.10",
     "dotenv": "4.0.0",
@@ -63,6 +64,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "1.1.5",
     "flow-bin": "^0.66.0",
     "flow-typed": "^2.3.0",
@@ -160,5 +162,6 @@
       "flow",
       "react-app"
     ]
-  }
+  },
+  "dependencies": {}
 }
