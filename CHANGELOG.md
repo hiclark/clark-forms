@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.3.2 - 2019-05-24
+### Fixed
+- release issue
+
 ## 2.3.1 - 2019-05-24
 ### Fixed
 - compatible with gatsby
