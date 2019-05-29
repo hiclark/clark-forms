@@ -204,6 +204,18 @@ const FIELD_SETS = [
         columns: { small: 1, large: 2 },
         fields: [
           {
+            type: 'checkbox',
+            name: 'addSub',
+            label: 'Add Subtract',
+            variant: 'addSub',
+            validate: [isRequired],
+          },
+        ],
+      },
+      {
+        columns: { small: 1, large: 2 },
+        fields: [
+          {
             type: 'checkboxGroup',
             name: 'checkboxGroup',
             label: 'Checkbox Group',
