@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.5.0 - 2019-05-29
+### Fixed
+- undo gatsby compatibility changes because css for react-dates were not loaded (from v2.3.1)
+
+## 2.4.0 - 2019-05-29
+### Added
+- add/subtract toggle
+
 ## 2.3.2 - 2019-05-24
 ### Fixed
 - release issue

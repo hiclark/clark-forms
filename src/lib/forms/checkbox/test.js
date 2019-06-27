@@ -37,8 +37,8 @@ describe('<Checkbox />', () => {
     });
   });
 
-  describe('when name is billAdjustmentIsSubtraction', () => {
-    const propsWithLabel = { ...props, name: 'billAdjustmentIsSubtraction' };
+  describe('when variant is addSub', () => {
+    const propsWithLabel = { ...props, variant: 'addSub' };
     const wrapper = shallow(<Checkbox {...propsWithLabel} />);
 
     it('matches the snapshot', () => {
