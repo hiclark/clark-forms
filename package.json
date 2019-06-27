@@ -110,7 +110,8 @@
     "redux-form": "7.x - 8.x",
     "clark-styles": ">= ^0.17.2",
     "react": "16.x",
-    "react-dom": "16.x"
+    "react-dom": "16.x",
+    "moment": "^2.20.1"
   },
   "jest": {
     "collectCoverageFrom": [
