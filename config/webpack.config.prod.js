@@ -4,7 +4,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -140,9 +140,9 @@ module.exports = {
           {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: "css-loader"
-            })
+              fallback: 'style-loader',
+              use: 'css-loader',
+            }),
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
@@ -198,13 +198,15 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('styles.css'),
   ],
   // CRL: added externals block for library
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
     'styled-components': 'styled-components',
+    'redux-form': 'redux-form',
+    'clark-styles': 'clark-styles',
   },
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
