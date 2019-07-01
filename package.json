@@ -91,6 +91,7 @@
     "react-select": "^2.1.1",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.1.1",
+    "react-with-direction": "^1.1.0",
     "redux": "^3.0.0",
     "redux-form": "^7.2.0",
     "redux-logger": "^3.0.6",
@@ -105,12 +106,12 @@
     "whatwg-fetch": "2.0.3"
   },
   "peerDependencies": {
-    "styled-components": "2.x - 3.x",
-    "redux-form": "7.x - 8.x",
-    "clark-styles": ">= ^0.17.2",
+    "clark-styles": "0.17.2 - 1.0.0",
+    "moment": "^2.20.1",
     "react": "16.x",
     "react-dom": "16.x",
-    "moment": "^2.20.1"
+    "redux-form": "7.x - 8.x",
+    "styled-components": "2.x - 3.x"
   },
   "jest": {
     "collectCoverageFrom": [
