@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 3.0.0 - 2019-06-01
+### Changed
+- use peer dependencies to reduce package size
+
 ## 2.5.0 - 2019-05-29
 ### Fixed
 - undo gatsby compatibility changes because css for react-dates were not loaded (from v2.3.1)
