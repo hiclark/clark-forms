@@ -1,6 +1,6 @@
 {
   "name": "@clark-inc/clark-forms",
-  "version": "2.5.0",
+  "version": "3.0.0-rc.1",
   "description": "Clark React Redux Forms library.",
   "main": "build/index.js",
   "author": "Clark, Inc.",
@@ -91,6 +91,7 @@
     "react-select": "^2.1.1",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.1.1",
+    "react-with-direction": "^1.1.0",
     "redux": "^3.0.0",
     "redux-form": "^7.2.0",
     "redux-logger": "^3.0.6",
@@ -105,6 +106,11 @@
     "whatwg-fetch": "2.0.3"
   },
   "peerDependencies": {
+    "clark-styles": "0.17.2 - 1.0.0",
+    "moment": "^2.20.1",
+    "react": "16.x",
+    "react-dom": "16.x",
+    "redux-form": "7.x - 8.x",
     "styled-components": "2.x - 3.x"
   },
   "jest": {
