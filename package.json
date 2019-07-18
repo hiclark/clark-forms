@@ -1,6 +1,6 @@
 {
   "name": "@clark-inc/clark-forms",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Clark React Redux Forms library.",
   "main": "build/index.js",
   "author": "Clark, Inc.",
