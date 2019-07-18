@@ -50,6 +50,7 @@ const renderField = ({
               onChange={onChange}
               type="checkbox"
               value={value}
+              disabled={disabled}
               showError={!(error && touched)}
             />
             <LabelText disabled={disabled} deselected={hasInput && !checked}>
