@@ -18,7 +18,7 @@ import { ERROR_PRIMARY } from '../../styles/colors';
 const { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, GREY_75, GREY_100 } = COLORS;
 const { S_025, S_05, S_1, S_4 } = SPACING;
 const { BR_2 } = BORDER_RADIUS;
-const { TS_4, TS_5, TS_6 } = TYPE_SCALE;
+const { TS_5, TS_6 } = TYPE_SCALE;
 const { FW_100 } = FONT_WEIGHT;
 const { BW_1 } = BORDER_WIDTH;
 const { SOLID, COPY } = LINE_HEIGHT;
@@ -35,7 +35,8 @@ export const InputContainer = styled.div`
 `;
 
 export const FormInput = styled.input`
-  ${TS_4};
+  height: 44px;
+  ${TS_5};
   ${FW_100};
   ${BR_2};
   ${SOLID};

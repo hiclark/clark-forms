@@ -1,23 +1,27 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
+import {
+  TYPE_SCALE,
+  SPACING,
+  BORDER_RADIUS,
+  FONT_WEIGHT,
+  BORDER_WIDTH,
+  LINE_HEIGHT,
+  COLORS,
+} from 'clark-styles';
 
 import Error from '../error';
-
-import {
-  SPACING_EXTRA_SMALL,
-  SPACING_SMALL,
-  SPACING_MEDIUM,
-  SPACING_EXTRA_LARGE,
-} from '../../styles/spacing';
-import { BORDER_RADIUS_F2 } from '../../styles/border-radius';
-import { TYPE_SCALE_F4 } from '../../styles/type-scale';
-import { FONT_FAMILY_PRIMARY } from '../../styles/font-family';
-import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { BORDER_WIDTH_1 } from '../../styles/borders';
-import { LINE_HEIGHT_COPY } from '../../styles/line-height';
-import { WHITE, CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, ERROR_PRIMARY } from '../../styles/colors';
 import Label from '../label';
+
+const { TS_5 } = TYPE_SCALE;
+const { S_025, S_05, S_1, S_4 } = SPACING;
+const { BR_2 } = BORDER_RADIUS;
+const { FW_100 } = FONT_WEIGHT;
+const { BW_1 } = BORDER_WIDTH;
+const { COPY } = LINE_HEIGHT;
+const { WHITE, CLARK_PRIMARY, GREY_100, GREY_25 } = COLORS;
+const ERROR_COLOR = '#fcece5';
 
 const renderField = ({ input, index, placeholder, columns, type, meta: { touched, error } }) => (
   <div>
@@ -44,22 +48,21 @@ const Textarea = (props: PropsType) => (
 export default Textarea;
 
 const FormTextarea = styled.textarea`
-  ${TYPE_SCALE_F4};
-  ${FONT_FAMILY_PRIMARY};
-  ${FONT_WEIGHT_100};
-  ${BORDER_RADIUS_F2};
-  border: ${BORDER_WIDTH_1} solid ${props => (props.showError ? GREY_25 : CLARK_PRIMARY)};
-  color: ${CLARK_SECONDARY};
+  ${TS_5};
+  ${FW_100};
+  ${BR_2};
+  border: ${BW_1} solid ${props => (props.showError ? GREY_25 : CLARK_PRIMARY)};
+  color: ${GREY_100};
   display: block;
-  line-height: ${LINE_HEIGHT_COPY};
-  height: calc(${SPACING_MEDIUM} + ${SPACING_EXTRA_LARGE});
-  padding: calc(${SPACING_EXTRA_SMALL} + ${SPACING_SMALL});
+  line-height: ${COPY};
+  height: calc(${S_1} + ${S_4});
+  padding: calc(${S_025} + ${S_05});
   position: relative;
   outline: none;
   resize: none;
   width: 100%;
-  margin-bottom: ${props => (props.showError ? 0 : SPACING_SMALL)};
-  background-color: ${props => (props.showError ? WHITE : ERROR_PRIMARY)};
+  margin-bottom: ${props => (props.showError ? 0 : S_05)};
+  background-color: ${props => (props.showError ? WHITE : ERROR_COLOR)};
   transition: 0.5s;
 
   &::placeholder {
