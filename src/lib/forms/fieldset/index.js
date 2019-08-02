@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import RadioButtonGroup from '../radio-button-group';
 import Dropdown from '../dropdown';
+import MultiDropdown from '../multi-dropdown';
 import Input, { type InputType } from '../input';
 import Checkbox from '../checkbox';
 import CheckboxField from '../checkbox-field';
@@ -37,6 +38,7 @@ const mapFieldToComponent = type => {
     toggleButton: ToggleButton,
     rating: Rating,
     locationAutocomplete: LocationAutocomplete,
+    multiDropdown: MultiDropdown,
   };
 
   return components[type];
@@ -47,11 +49,19 @@ const composeComponent = (
   field,
   columns: { small: number, large: number },
   stripped: ?boolean,
+  noMargin: ?boolean,
 ) => {
   const { type, name } = field;
   const FieldComponent = mapFieldToComponent(type);
   return (
-    <FieldComponent key={name} index={index} columns={columns} {...field} stripped={stripped} />
+    <FieldComponent
+      key={name}
+      index={index}
+      columns={columns}
+      {...field}
+      stripped={stripped}
+      noMargin={noMargin}
+    />
   );
 };
 
@@ -94,6 +104,7 @@ type FieldSetType = {
   fields: FieldSetObjectType[],
   columns: { small: number, large: number },
   stripped: ?boolean,
+  noMargin: ?boolean,
 }[];
 
 export type DataType = {
@@ -108,7 +119,7 @@ const Fieldset = ({ data }: PropsType) => (
   <div>
     {data.map(object =>
       object.fieldSet.map((fieldSet, index) => {
-        const { fields, title, columns, subCopy, stripped } = fieldSet;
+        const { fields, title, columns, subCopy, stripped, noMargin } = fieldSet;
         return (
           <div key={index}>
             {title && <FieldsetTitle>{title}</FieldsetTitle>}
@@ -125,8 +136,9 @@ const Fieldset = ({ data }: PropsType) => (
                   columnsLarge={columns.large}
                   type={field.type}
                   stripped={stripped}
+                  noMargin={noMargin}
                 >
-                  {composeComponent(index, field, columns, stripped)}
+                  {composeComponent(index, field, columns, stripped, noMargin)}
                 </Field>
               ))}
             </FieldsetContainer>
@@ -169,8 +181,8 @@ const Field = styled.div`
   ${media.small`
     ${({ index, columnsLarge }) => calculateLayout(index, columnsLarge)}
   `};
-  margin-bottom: ${({ stripped }) =>
-    stripped ? `0` : `calc(${SPACING_SMALL} + ${SPACING_MEDIUM})`};
+  margin-bottom: ${({ stripped, noMargin }) =>
+    stripped || noMargin ? `0` : `calc(${SPACING_SMALL} + ${SPACING_MEDIUM})`};
 `;
 
 const FieldsetSubCopy = styled.p`
