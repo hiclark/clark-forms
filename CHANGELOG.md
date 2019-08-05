@@ -2,10 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## 3.1.0 - 2019-08-02
+## 3.1.0 - 2019-08-05
 
 ### Changed
 
+- location input polish (text size)
 - adds a multi choice dropdown
 
 ## 3.0.2 - 2019-07-24
