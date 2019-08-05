@@ -6,6 +6,7 @@ import CheckboxGroup from './forms/checkbox-group';
 import DatePicker from './forms/datepicker';
 import DateRangePicker from './forms/date-range-picker';
 import Dropdown from './forms/dropdown';
+import MultiDropdown from './forms/multi-dropdown';
 import Error from './forms/error';
 import Input from './forms/input';
 import RadioButtonGroup from './forms/radio-button-group';
@@ -24,6 +25,7 @@ export {
   DatePicker,
   DateRangePicker,
   Dropdown,
+  MultiDropdown,
   Error,
   Input,
   RadioButtonGroup,
