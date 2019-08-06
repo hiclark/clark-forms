@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.2.1 - 2019-08-06
+
+### Fixed
+
+- height bug on multi-dropdown
+
 ## 3.2.0 - 2019-08-06
 
 ### Changed
