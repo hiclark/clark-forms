@@ -111,7 +111,7 @@ const StyledSelect = styled(Select)`
     ${BORDER_RADIUS_F2};
     border: ${BORDER_WIDTH_1} solid ${GREY_25} !important;
     box-shadow: none !important;
-    height: 44px;
+    min-height: 44px;
   }
   .select__control--is-focused {
     border: none;
