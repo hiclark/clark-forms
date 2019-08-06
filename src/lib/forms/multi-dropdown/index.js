@@ -23,6 +23,9 @@ const renderDropdown = ({
   columns,
   meta: { touched, error },
   disabled,
+  noOptionsMessage,
+  isClearable = false,
+  noDropdownIndicator,
 }) => (
   <div>
     <StyledSelect
@@ -30,6 +33,7 @@ const renderDropdown = ({
       index={index}
       isMulti
       options={options}
+      noOptionsMessage={() => noOptionsMessage || 'No options'}
       onChange={args => input.onChange(args.map(({ value }) => value))}
       onBlur={event => event.preventDefault()}
       value={options.filter(({ value }) => input.value.includes(value))}
@@ -37,6 +41,8 @@ const renderDropdown = ({
       columns={columns}
       classNamePrefix="select"
       isDisabled={disabled}
+      isClearable={isClearable}
+      noDropdownIndicator={noDropdownIndicator}
     />
     <Error touched={touched} error={error} />
   </div>
@@ -55,6 +61,9 @@ const MultiDropdown = ({
   required,
   onChange,
   stripped,
+  noOptionsMessage,
+  isClearable,
+  noDropdownIndicator,
 }: PropsType) => (
   <DropdownContainer>
     {!stripped && <Label name={name} label={label} required={required} />}
@@ -63,11 +72,14 @@ const MultiDropdown = ({
       name={name}
       component={renderDropdown}
       options={values}
+      noOptionsMessage={noOptionsMessage}
+      isClearable={isClearable}
       columns={columns}
       validate={validate}
       onChange={onChange}
       placeholder={placeholder}
       disabled={disabled}
+      noDropdownIndicator={noDropdownIndicator}
     />
   </DropdownContainer>
 );
@@ -78,9 +90,9 @@ const DropdownContainer = styled.div`
   display: block;
 `;
 
-const { CLARK_SECONDARY, WHITE, GREY_100 } = COLORS;
+const { CLARK_PRIMARY, CLARK_SECONDARY, WHITE, GREY_100 } = COLORS;
 const { S_05, S_1 } = SPACING;
-const { BR_4 } = BORDER_RADIUS;
+const { BR_4, CIRCLE } = BORDER_RADIUS;
 const { FW_600 } = FONT_WEIGHT;
 const { TS_6 } = TYPE_SCALE;
 
@@ -99,6 +111,7 @@ const StyledSelect = styled(Select)`
     ${BORDER_RADIUS_F2};
     border: ${BORDER_WIDTH_1} solid ${GREY_25} !important;
     box-shadow: none !important;
+    height: 44px;
   }
   .select__control--is-focused {
     border: none;
@@ -145,11 +158,18 @@ const StyledSelect = styled(Select)`
   }
 
   .select__multi-value__remove {
-    padding: ${S_05} 5px ${S_05} 0;
-
+    &:hover {
+      background: inherit;
+      ${CIRCLE};
+      color: ${CLARK_PRIMARY};
+    }
     svg {
       height: 20px;
       width: 20px;
     }
+  }
+
+  .select__indicators {
+    display: ${({ noDropdownIndicator }) => (noDropdownIndicator ? 'none' : 'flex')};
   }
 `;
