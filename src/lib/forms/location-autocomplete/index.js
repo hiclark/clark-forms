@@ -39,17 +39,26 @@ const GoogleAutocomplete = ({
   input: { value, onChange },
   meta: { touched, error },
   placeholder,
+  onSelect,
+  searchOptions,
 }) => {
   const inputProps = {
     value,
     type: 'search',
     placeholder,
     onChange,
+    onSelect,
+    searchOptions,
     showError: !(error && touched),
   };
-
   return (
-    <PlacesAutocomplete value={value} onChange={onChange} inputProps={inputProps}>
+    <PlacesAutocomplete
+      value={value}
+      onChange={onChange}
+      onSelect={onSelect}
+      inputProps={inputProps}
+      searchOptions={searchOptions}
+    >
       {renderFunc}
     </PlacesAutocomplete>
   );
@@ -64,6 +73,8 @@ const LocationAutocomplete = ({
   validate,
   required,
   stripped,
+  onSelect = null,
+  searchOptions = {},
   ...props
 }: PropsType) => (
   <Container>
@@ -73,6 +84,8 @@ const LocationAutocomplete = ({
       component={GoogleAutocomplete}
       columns={columns}
       validate={validate}
+      onSelect={onSelect}
+      searchOptions={searchOptions}
       {...props}
     />
   </Container>

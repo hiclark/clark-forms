@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.3.1 - 2019-08-09
+
+### Added
+
+- ability to pass onSelect and searchParams to locationAutoComplete input
+
 ## 3.2.1 - 2019-08-06
 
 ### Fixed
