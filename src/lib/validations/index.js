@@ -3,7 +3,7 @@
 type ValidationType = (value: ?any) => ?string;
 
 export const isRequired: ValidationType = value =>
-  value && (value !== '$' || value.length === 0) ? undefined : 'Required';
+  value && (value !== '$' && value.length > 0) ? undefined : 'Required';
 
 export const length = (targetLength: number): ValidationType => value =>
   value && value.length !== targetLength ? `Must be ${targetLength} characters` : undefined;
