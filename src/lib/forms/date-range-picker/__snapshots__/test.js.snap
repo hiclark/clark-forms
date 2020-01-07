@@ -17,6 +17,7 @@ exports[`<DateRangePicker /> renders correctly 1`] = `
   <Label
     disabled={false}
     label="Label"
+    labelHint={null}
     name="Name"
   />
   <Field
