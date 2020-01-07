@@ -3,7 +3,7 @@ import { Field } from 'redux-form';
 import styled from 'styled-components';
 
 import Label from '../label';
-import { SPACING_SMALL, SPACING_MEDIUM, SPACING_LARGE } from '../../styles/spacing';
+import { SPACING_SMALL, SPACING_MEDIUM, SPACING_EXTRA_LARGE } from '../../styles/spacing';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 import { TYPE_SCALE_F5 } from '../../styles/type-scale';
 import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, WHITE } from '../../styles/colors';
@@ -54,7 +54,6 @@ type PropsType = any;
 export default (props: PropsType) => <Field component={Rating} {...props} />;
 
 const RatingContainer = styled.div`
-  padding: ${SPACING_MEDIUM};
   display: inline-block;
 `;
 
@@ -121,7 +120,7 @@ const ItemLabel = styled.label`
 `;
 
 const RatingEntry = styled.div`
-  margin-right: ${SPACING_LARGE};
+  margin-right: ${SPACING_EXTRA_LARGE};
 
   &:last-child {
     margin-right: 0;
