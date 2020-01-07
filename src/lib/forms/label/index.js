@@ -9,7 +9,7 @@ import { FONT_WEIGHT_100 } from '../../styles/font-weight';
 type PropsType = {
   name: string,
   label: string,
-  labelHint: ?string,
+  labelHint?: ?string,
   required: boolean,
   disabled?: boolean,
 };
