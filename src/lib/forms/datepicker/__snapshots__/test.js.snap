@@ -5,6 +5,7 @@ exports[`<DatePicker /> renders correctly 1`] = `
   <Label
     disabled={false}
     label="Label"
+    labelHint={null}
     name="Name"
   />
   <Field
@@ -22,6 +23,7 @@ exports[`<DatePicker /> renders correctly 2`] = `
   <Label
     disabled={false}
     label="Label"
+    labelHint={null}
     name="Name"
   />
   <Field

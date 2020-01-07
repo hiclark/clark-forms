@@ -245,6 +245,8 @@ const FIELD_SETS = [
             values: RATING,
             icon: <Check />,
             ratingKey: RATING_KEY,
+            label: 'Session Rating',
+            labelHint: '(optional)',
           },
           {
             type: 'textarea',

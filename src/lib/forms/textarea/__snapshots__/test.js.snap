@@ -5,6 +5,7 @@ exports[`<Textarea /> <Textarea /> snapshot test 1`] = `
   <Label
     disabled={false}
     label="Label"
+    labelHint={null}
     name="Name"
   />
   <Field

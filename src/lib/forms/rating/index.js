@@ -2,36 +2,51 @@ import React from 'react';
 import { Field } from 'redux-form';
 import styled from 'styled-components';
 
-import { SPACING_MEDIUM } from '../../styles/spacing';
+import Label from '../label';
+import { SPACING_SMALL, SPACING_MEDIUM, SPACING_LARGE } from '../../styles/spacing';
 import { FONT_WEIGHT_100 } from '../../styles/font-weight';
-import { TYPE_SCALE_F5, TYPE_SCALE_F6 } from '../../styles/type-scale';
-import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_50, WHITE } from '../../styles/colors';
+import { TYPE_SCALE_F5 } from '../../styles/type-scale';
+import { CLARK_PRIMARY, CLARK_SECONDARY, GREY_25, WHITE } from '../../styles/colors';
 import { BORDER_RADIUS_100 } from '../../styles/border-radius';
 import { BORDER_WIDTH_1 } from '../../styles/borders';
 
-const Rating = ({ name, values, icon, input, ratingKey: { left, right } }) => (
+const Rating = ({
+  name,
+  values,
+  icon,
+  input,
+  label,
+  labelHint,
+  required,
+  ratingKey: { left, right },
+}) => (
   <RatingContainer>
-    <RatingKeys>
-      <RatingKey>{left}</RatingKey>
-      <RatingKey>{right}</RatingKey>
-    </RatingKeys>
+    {label && (
+      <LabelWrapper>
+        <Label name={name} label={label} required={required} labelHint={labelHint} />
+      </LabelWrapper>
+    )}
     <RatingContent>
-      {values.map(({ value, label }) => {
+      {values.map(({ value, label: itemLabel }) => {
         const isSelected = value === input.value;
         const onClickHandler = () => {
           const newValue = isSelected ? null : value;
           input.onChange(newValue);
         };
         return (
-          <div key={value}>
+          <RatingEntry key={value}>
             <RadioButton selected={isSelected} onClick={onClickHandler}>
               <Icon selected={isSelected}>{icon}</Icon>
             </RadioButton>
-            <Label htmlFor={name}>{label}</Label>
-          </div>
+            <ItemLabel htmlFor={name}>{itemLabel}</ItemLabel>
+          </RatingEntry>
         );
       })}
     </RatingContent>
+    <RatingKeys>
+      <RatingKey>{left}</RatingKey>
+      <RatingKey>{right}</RatingKey>
+    </RatingKeys>
   </RatingContainer>
 );
 
@@ -40,37 +55,37 @@ export default (props: PropsType) => <Field component={Rating} {...props} />;
 
 const RatingContainer = styled.div`
   padding: ${SPACING_MEDIUM};
+  display: inline-block;
 `;
 
 const RatingKeys = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  margin-top: ${SPACING_MEDIUM};
 `;
 
 const RatingKey = styled.h6`
-  ${TYPE_SCALE_F6};
   color: ${CLARK_SECONDARY};
   margin: 0 0 ${SPACING_MEDIUM} 0;
+  ${TYPE_SCALE_F5};
+  ${FONT_WEIGHT_100};
 `;
 
 const RatingContent = styled.div`
   align-items: center;
   display: flex;
-  justify-content: space-between;
-  text-align: center;
 `;
 
 const RadioButton = styled.div`
   ${BORDER_RADIUS_100};
   align-items: center;
   background-color: ${WHITE};
-  border: ${BORDER_WIDTH_1} solid ${CLARK_PRIMARY};
+  border: ${BORDER_WIDTH_1} solid ${GREY_25};
   color: ${CLARK_PRIMARY};
   cursor: pointer;
   display: flex;
-  height: 35px;
-  width: 35px;
+  height: 25px;
+  width: 25px;
   transition: all 0.25s ease-in-out;
 
   ${({ selected }) =>
@@ -78,6 +93,7 @@ const RadioButton = styled.div`
     `
     background-color: ${CLARK_PRIMARY};
     color: white;
+    border: ${BORDER_WIDTH_1} solid ${CLARK_PRIMARY};
   `};
 `;
 
@@ -95,10 +111,23 @@ const Icon = styled.span`
   `};
 `;
 
-const Label = styled.label`
+const ItemLabel = styled.label`
   ${TYPE_SCALE_F5};
   ${FONT_WEIGHT_100};
-  color: ${GREY_50};
+  color: ${CLARK_SECONDARY};
   display: block;
-  margin-top: ${SPACING_MEDIUM};
+  margin-top: ${SPACING_SMALL};
+  text-align: center;
+`;
+
+const RatingEntry = styled.div`
+  margin-right: ${SPACING_LARGE};
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+const LabelWrapper = styled.div`
+  margin-bottom: ${SPACING_MEDIUM};
 `;
